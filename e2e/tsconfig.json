@@ -8,8 +8,8 @@
     "types": [
       "jasmine",
       "node",
-      "cucumber",
       "chai"
-    ]
+    ],
+    "experimentalDecorators": true
   }
 }
