@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthStateChangeService {
-  userData: any; // logged in user data
+  private userData: any; // logged in user data
 
   constructor(
     private afAuth: AngularFireAuth
