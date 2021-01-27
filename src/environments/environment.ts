@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyD-wcxbADnyO1263dSSaY3DUoRjZhEazis',
-    authDomain: 'doctorvetapp-9a428.firebaseapp.com',
-    projectId: 'doctorvetapp-9a428',
-    storageBucket: 'doctorvetapp-9a428.appspot.com',
-    messagingSenderId: '797980276498',
-    appId: '1:797980276498:web:2355cd1ab22d2e567765cb',
-    measurementId: 'G-1DMJWHMLM8'
+    apiKey: 'AIzaSyCyvL1AVGV8UwOLYhXaoHjrqDBxxEZG7gI',
+    authDomain: 'doctor-vet-b39f9.firebaseapp.com',
+    projectId: 'doctor-vet-b39f9',
+    storageBucket: 'doctor-vet-b39f9.appspot.com',
+    messagingSenderId: '100288657288',
+    appId: '1:100288657288:web:6f77a18292ff751c12ac3d',
+    measurementId: 'G-SH1W2P4F9Q'
   }
 };
 
