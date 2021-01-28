@@ -11,17 +11,17 @@ export class UserService {
     private afs: AngularFirestore
   ) { }
 
-  setUserData(user): void {
+  setUserData(user): Promise<void> {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`user/${user.uid}`);
     const userData: User = {
-      uid: user.uid,
-      name: user.name,
-      phone: user.phone,
-      photo: user.photo,
-      city: user.city,
-      email: user.email
+      city: '',
+      email: user.email,
+      name: '',
+      phone: '',
+      photo: ''
     };
-    userRef.set(userData, {
+    console.log(userData);
+    return userRef.set(userData, {
       merge: true
     });
   }
