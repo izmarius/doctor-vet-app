@@ -33,9 +33,6 @@ export class DoctorAppointmentsService {
 
   createAppointment(app: DoctorsAppointmentDTO, doctorId: string): void {
     app.getAnimals().forEach(animal => {
-      // todo : use batch or transaction saving? batch 500 operation max at a time
-      // in the same batch can add the creation and deletion of documents
-      // transactions put a read lock on the value that it processes
       this.firestoreService.saveDocumentByAutoId(this.getAppointmentUrl(doctorId), app).then(() => {
         // firebasse will not return the created object
         // if success - we will return the promise and display new created data in ui
@@ -45,7 +42,6 @@ export class DoctorAppointmentsService {
     });
   }
 
-// todo : see how is better ? to transform the promise into obs or let it as a promise?
   updateAppointment(app: DoctorsAppointmentDTO, appointmentId: string, doctorId: string): void {
     this.firestoreService.updateDocumentById(this.getAppointmentUrl(doctorId), appointmentId, app)
       .then(() => {
