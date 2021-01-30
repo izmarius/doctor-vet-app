@@ -1,0 +1,8 @@
+   FOR CREATING OR UPDATING MULTIPLE ELEMENTS AT ONCE
+    // todo : use batch or transaction saving? batch 500 operation max at a time
+    // in the same batch can add the creation and deletion of documents
+    // transactions put a read lock on the value that it processes
+
+    // todo : see how is better ? to transform the promise into obs or let it as a promise?
+
+    // todo : snapshot changes used to get also the document id - valuechanges will get only the value

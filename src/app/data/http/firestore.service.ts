@@ -12,7 +12,6 @@ export class FirestoreService {
   constructor(private firestore: AngularFirestore) {
   }
 
-  // todo : snapshot changes used to get also the document id - valuechanges will get only the value
   // get
   /**
    * Gets all snapshots of a collection

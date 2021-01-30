@@ -14,7 +14,6 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     // todo: maybe take the doctor from url?
-    // todo : get appointment with snapshotChanges to get the id of appointment from start?
 
     this.appointmentsService.getAllAppointments('o2Jt7YS9zCWvBfDWY08X');
     this.appointmentsService.getAppointmentById('O71K1OpMmrF7OWqchrlh', 'o2Jt7YS9zCWvBfDWY08X');
