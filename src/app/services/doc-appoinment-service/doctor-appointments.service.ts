@@ -12,7 +12,6 @@ export class DoctorAppointmentsService {
   private DOCTOR_COLLECTION = 'doctors/';
   private APPOINTMENT_COLLECTION = '/appointments';
 
-
   constructor(private firestoreService: FirestoreService) {
   }
 
@@ -22,7 +21,6 @@ export class DoctorAppointmentsService {
       first()
     );
     // firebase uses websocket to transfer data and first closes that connection after first value was transmited - for multiple tryes we will use take method
-
     // todo: subscribe in component
   }
 
@@ -45,7 +43,7 @@ export class DoctorAppointmentsService {
   updateAppointment(app: DoctorsAppointmentDTO, appointmentId: string, doctorId: string): void {
     this.firestoreService.updateDocumentById(this.getAppointmentUrl(doctorId), appointmentId, app)
       .then(() => {
-
+        // do something here
       }, (error) => {
         console.log('Error updating appointment', error);
       });
