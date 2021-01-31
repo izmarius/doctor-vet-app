@@ -1,4 +1,4 @@
-import { User } from './../../shared/user';
+import { UserDto } from './../../data/modelDTO/user-dto';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
@@ -12,16 +12,10 @@ export class UserService {
   ) { }
 
   setUserData(user): Promise<void> {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`user/${user.uid}`);
-    const userData: User = {
-      city: '',
-      email: user.email,
-      name: '',
-      phone: '',
-      photo: ''
-    };
-    console.log(userData);
-    return userRef.set(userData, {
+    const userRef: AngularFirestoreDocument<UserDto> = this.afs.doc(`user/${user.uid}`);
+    const userData = new UserDto();
+    userData.setUserEmail(user.email);
+    return userRef.set(JSON.parse(JSON.stringify(userData)) , { // firestore does not accept custom objects
       merge: true
     });
   }

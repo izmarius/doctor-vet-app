@@ -14,7 +14,7 @@ export class SignUpService {
     private authService: AuthStateChangeService
   ) { }
 
-  signUp(email, password): void {
+  signUp(email, password): void { // todo: add check for user or doctor at signup
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then((userCredentials) => {
       this.userService.setUserData(userCredentials.user);
