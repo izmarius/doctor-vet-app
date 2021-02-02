@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { SignUpService } from '../services/auth/sign-up.service';
 
 @Component({
   selector: 'app-test',
@@ -8,7 +9,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class TestComponent implements OnInit {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(
+    private firestore: AngularFirestore,
+    public signUpService: SignUpService
+  ) { }
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
