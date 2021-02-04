@@ -53,7 +53,7 @@ export class FirestoreService {
    * Saves a new document into a collection
    */
   saveDocumentByAutoId(collection: string, data = null): Promise<any> {
-    return this.firestore.collection(collection).add(Object.assign({}, data));
+    return this.firestore.collection(collection).add(JSON.parse(JSON.stringify(data)));
   }
 
   // update

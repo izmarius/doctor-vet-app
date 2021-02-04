@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DoctorAppointmentsService} from '../services/doc-appoinment-service/doctor-appointments.service';
 import {DoctorsAppointmentDTO} from '../data/modelDTO/doctors-appointment-dto';
+import {AnimalUtilInfo} from "../data/modelDTO/animal-util-info";
 
 @Component({
   selector: 'app-test',
@@ -24,7 +25,9 @@ export class TestComponent implements OnInit {
 
   getUpdatedDoctorsAppointment(): DoctorsAppointmentDTO {
     const app = new DoctorsAppointmentDTO();
-    return app.setAnimals(['Marius', 'Hussein', 'Ionut'])
+    const animalInfo = new AnimalUtilInfo();
+    animalInfo.setName('Marius').setUid('123');
+    return app.setAnimals(animalInfo)
       .setDateTime('')
       .setLocation('Str. dsaads, bl5, nr. 22, app. 12')
       .setUserId('3NaCJrnyv7lMkXcmQUPM');
@@ -32,7 +35,9 @@ export class TestComponent implements OnInit {
 
   getDoctorsAppointment(): DoctorsAppointmentDTO {
     const app = new DoctorsAppointmentDTO();
-    return app.setAnimals(['Marius', 'Hussein'])
+    const animalInfo = new AnimalUtilInfo();
+    animalInfo.setName('Marius').setUid('123');
+    return app.setAnimals(animalInfo)
       .setDateTime(new Date().toLocaleString())
       .setLocation('Str. Pasteour, bl5, nr. 22, app. 12')
       .setUserId('3NaCJrnyv7lMkXcmQUPM');

@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
+import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { TestComponent } from './test/test.component';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireFunctionsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

@@ -29,8 +29,8 @@ export class DoctorAppointmentsService {
     // todo: subscribe in component
   }
 
-  createAppointment(app: DoctorsAppointmentDTO, doctorId: string): void {
-    app.getAnimals().forEach(animal => {
+  createAppointment(app: DoctorsAppointmentDTO[], doctorId: string): void {
+    app.forEach(animal => {
       this.firestoreService.saveDocumentByAutoId(this.getAppointmentUrl(doctorId), app).then(() => {
         // firebasse will not return the created object
         // if success - we will return the promise and display new created data in ui

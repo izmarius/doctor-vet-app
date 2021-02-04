@@ -1,0 +1,4 @@
+function server are cloud functions and is a different project - go into functions folder
+build app: npm build
+run app: npm run serve
+emulator is working on port 5001
