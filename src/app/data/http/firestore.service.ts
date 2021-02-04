@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import firebase from 'firebase';
 import OrderByDirection = firebase.firestore.OrderByDirection;
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,40 +13,62 @@ export class FirestoreService {
   }
 
   // get
-  getCollection(collection: string) {
-    return this.firestore.collection(collection).valueChanges();
+  /**
+   * Gets all snapshots of a collection
+   */
+  getCollection(collection: string): Observable<any> {
+    return this.firestore.collection(collection).snapshotChanges();
   }
 
-  getCollectionOrdered(collection: string, orderField: string, orderDirection: OrderByDirection = 'asc') {
+  /**
+   * Gets the last modified data from a collection
+   */
+  getChangedDocuments(collection: string): Observable<any> {
+    return this.firestore.collection(collection).stateChanges();
+  }
+
+  /**
+   * Gets value of a collection ordered by a given value
+   */
+  getCollectionOrdered(collection: string, orderField: string, orderDirection: OrderByDirection = 'asc'): Observable<any> {
     return this.firestore.collection(collection, ref => ref.orderBy('order', orderDirection).limit(10)).valueChanges();
   }
 
-  getDocById(collection: string, id: string) {
-    return this.firestore.collection(collection).doc(id).get();
+  /**
+   * Gets value of a document by document id from a collection
+   */
+  getDocById(collection: string, id: string): Observable<any> {
+    return this.firestore.collection(collection).doc(id).valueChanges();
   }
 
-  getCollectionByWhereClause(collection: string, key, operator, value) {
+  /**
+   * Gets value of a collection where a match is found
+   */
+  getCollectionByWhereClause(collection: string, key, operator, value): Observable<any> {
     return this.firestore.collection(collection, ref => ref.where(key, operator, value)).valueChanges();
   }
 
   // save
-  saveDocumentByAutoId(collection: string, data = null) {
-    return this.firestore.collection(collection).doc(this.firestore.createId()).set(Object.assign({}, data));
-  }
-
-  saveDocumentById(collection: string, id: string, data = null) {
-    return this.firestore.collection(collection).doc(id).set(data);
+  /**
+   * Saves a new document into a collection
+   */
+  saveDocumentByAutoId(collection: string, data = null): Promise<any> {
+    return this.firestore.collection(collection).add(JSON.parse(JSON.stringify(data)));
   }
 
   // update
-
-  updateDocumentById(collection: string, id: string, data) {
-    return this.firestore.collection(collection).doc(id).update(data);
+  /**
+   * Updates an existing document with the new field or updates an entire document
+   */
+  updateDocumentById(collection: string, id: string, data): Promise<void> {
+    return this.firestore.collection(collection).doc(id).update(Object.assign({}, data));
   }
 
   // delete
-  deleteDocById(collection: string, id: string) {
+  /**
+   * Deletes an existing document by document id
+   */
+  deleteDocById(collection: string, id: string): Promise<void> {
     return this.firestore.collection(collection).doc(id).delete();
   }
-
 }

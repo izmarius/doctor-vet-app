@@ -21,7 +21,9 @@
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
     "cucumber": "^6.0.5",
-    "firebase": "^8.2.4",
+    "firebase": "^8.2.3",
+    "firebase-tools": "^9.3.0",
+    "g": "^2.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
