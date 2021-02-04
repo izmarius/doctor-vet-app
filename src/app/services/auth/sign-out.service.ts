@@ -9,6 +9,7 @@ export class SignOutService {
 constructor(
   private afAuth: AngularFireAuth
 ) { }
+
   signOut(): Promise<void> {
     return this.afAuth.signOut()
     .then(() => {

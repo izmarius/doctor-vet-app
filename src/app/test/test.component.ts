@@ -1,3 +1,4 @@
+import { LogInService } from './../services/auth/log-in.service';
 import { SignOutService } from './../services/auth/sign-out.service';
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
@@ -17,7 +18,8 @@ export class TestComponent implements OnInit {
     private firestore: AngularFirestore,
     public signUpService: SignUpService,
     private appointmentsService: DoctorAppointmentsService,
-    public signOutService: SignOutService
+    public signOutService: SignOutService,
+    public logInService: LogInService
   ) {
   }
 
