@@ -1,6 +1,8 @@
+import {AnimalUtilInfo} from './animal-util-info';
+
 export class DoctorsAppointmentDTO {
   private id: string;
-  private animals: string[];
+  private animalData: AnimalUtilInfo;
   private dateTime: string;
   private location: string;
   private userId: string;
@@ -15,12 +17,12 @@ export class DoctorsAppointmentDTO {
     return this;
   }
 
-  getAnimals(): string[] {
-    return this.animals;
+  getAnimals(): AnimalUtilInfo {
+    return this.animalData;
   }
 
-  setAnimals(value: string[]): DoctorsAppointmentDTO {
-    this.animals = value;
+  setAnimals(value: AnimalUtilInfo): DoctorsAppointmentDTO {
+    this.animalData = value;
     return this;
   }
 
