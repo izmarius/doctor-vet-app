@@ -1,9 +1,10 @@
+import { SignOutService } from './../services/auth/sign-out.service';
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {SignUpService} from '../services/auth/sign-up.service';
 import {DoctorAppointmentsService} from '../services/doc-appoinment-service/doctor-appointments.service';
 import {DoctorsAppointmentDTO} from '../data/modelDTO/doctors-appointment-dto';
-import {AnimalUtilInfo} from "../data/modelDTO/animal-util-info";
+import {AnimalUtilInfo} from '../data/modelDTO/animal-util-info';
 
 @Component({
   selector: 'app-test',
@@ -15,7 +16,8 @@ export class TestComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     public signUpService: SignUpService,
-    private appointmentsService: DoctorAppointmentsService
+    private appointmentsService: DoctorAppointmentsService,
+    public signOutService: SignOutService
   ) {
   }
 
