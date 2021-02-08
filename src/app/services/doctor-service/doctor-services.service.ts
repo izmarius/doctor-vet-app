@@ -3,7 +3,7 @@ import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
 import {first, map} from 'rxjs/operators';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
-import {DoctorServiceDTO} from '../../data/modelDTO/DoctorService';
+import {DoctorServiceDTO} from '../../data/modelDTO/dorctor-service-DTO';
 
 @Injectable({
   providedIn: 'root'
