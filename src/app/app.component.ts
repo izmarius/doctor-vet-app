@@ -13,11 +13,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const callable = this.functions.httpsCallable('addAdminRole');
-    const obs = callable({email: 'izmarius.im@gmail.com'});
-
-    obs.subscribe((res) => {
-      console.log(res);
-    });
+    // const callable = this.functions.httpsCallable('addAdminRole');
+    // const obs = callable({email: 'izmarius.im@gmail.com'});
+    //
+    // obs.subscribe((res) => {
+    //   console.log(res);
+    // });
   }
 }

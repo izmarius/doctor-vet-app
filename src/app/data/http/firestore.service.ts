@@ -21,6 +21,13 @@ export class FirestoreService {
   }
 
   /**
+   * Gets all values from collection
+   */
+  getCollectionValueChanges(collection: string): Observable<any> {
+    return this.firestore.collection(collection).valueChanges();
+  }
+
+  /**
    * Gets the last modified data from a collection
    */
   getChangedDocuments(collection: string): Observable<any> {
