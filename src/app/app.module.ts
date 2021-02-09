@@ -10,6 +10,8 @@ import { environment } from '../environments/environment';
 import { TestComponent } from './test/test.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireFunctionsModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
