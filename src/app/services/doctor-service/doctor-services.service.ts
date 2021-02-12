@@ -27,7 +27,6 @@ export class DoctorServicesService {
     // todo: here will come db services + new services as a list
     this.getAllServices(doctorId).pipe(
       map(s => {
-        debugger;
         const numOfServices = s[0].services.length;
         if ((s || numOfServices > 0) && serviceDTO.id === s[0].id) {
           // check if service already exists in array
