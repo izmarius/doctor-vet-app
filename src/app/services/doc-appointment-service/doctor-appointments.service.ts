@@ -11,7 +11,7 @@ import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 export class DoctorAppointmentsService {
   private DOCTOR_COLLECTION = 'doctors/';
   private APPOINTMENT_COLLECTION = '/appointments';
-
+  // todo: when ui implemented move closer to ui component
   constructor(private firestoreService: FirestoreService) {
   }
 

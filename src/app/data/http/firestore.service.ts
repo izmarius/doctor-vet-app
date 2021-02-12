@@ -21,6 +21,13 @@ export class FirestoreService {
   }
 
   /**
+   * Gets all values from collection
+   */
+  getCollectionValueChanges(collection: string): Observable<any> {
+    return this.firestore.collection(collection).valueChanges();
+  }
+
+  /**
    * Gets the last modified data from a collection
    */
   getChangedDocuments(collection: string): Observable<any> {
@@ -61,7 +68,7 @@ export class FirestoreService {
    * Updates an existing document with the new field or updates an entire document
    */
   updateDocumentById(collection: string, id: string, data): Promise<void> {
-    return this.firestore.collection(collection).doc(id).update(Object.assign({}, data));
+    return this.firestore.collection(collection).doc(id).update(JSON.parse(JSON.stringify(data)));
   }
 
   // delete
