@@ -1,0 +1,42 @@
+background: #F8F9FF; #fff;
+used 2 main colors
+
+font-family: "Noto Sans",sans-serif;
+font color #002251;
+
+fonts-size: line-height: font-weight
+  desktop:
+    -title h1 4rem; 1.2; 600;
+    -subtitle h2 3rem, 1.2, 400
+    -subtitle bolded: h2 700
+    -button 1.01562rem, 1.5; 400- padding : 1rem 3 rem> 992px
+    -anchor     navigation : 1rem; 1.5; 400;  padding: 0.5rem 0.125rem;
+    -text in header after a title or subtitle: p 1.313rem; 300
+    -text in body: p 1rem; 300
+    -span - for frequently asked question : 1.5rem
+    -card title - h4 1.21875rem; 1.2, 500
+
+  mobile:
+       -title 2.4rem; 1,2; 600;
+       -subtitle h2 2rem, 1.2, 400
+       -button  1.01562rem; 1.5; 400;padding 0.5rem 1rem;
+       -anchor     navigation : 0.7rem; 1.5; 400; #000  padding: 0.5rem 0.125rem;
+       -text in header after a title or subtitle: p 1.313rem; 300
+       -text in body: p 1rem; 300
+       -span - for frequently asked question : 1.5rem
+
+SPACE BETWEEN SECTIONS
+-SET MAX WIDTH TO CONTAINER max-width: 93.75rem;
+
+-PADDING - 7.5REM 1.5REM
+-title, text under title, p - margin-bottom: 1rem
+-button - header - margin: 3rem 0
+-section title/subtitle     margin-bottom: 2rem;
+-section title + small text under - marg-bottom 3 rem
+-section title whihout text under - marg-botom - 3rem
+-card-title: marg-bottom: 1.5rem
+-card img marg-bottom: 1.5rem
+-card text- marg:b1 rem
+
+-2 cards on a row = max-width: 41.66667% + padding: 1rem
+
