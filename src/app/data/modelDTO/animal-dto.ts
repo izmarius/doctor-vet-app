@@ -5,14 +5,6 @@ export class AnimalDto {
     private name: string;
     private weight: string;
 
-    constructor(age = '', birthDay = '', bloodType = '', name = '', weight = '') {
-        this.age = age;
-        this.birthDay = birthDay;
-        this.bloodType = bloodType;
-        this.name = name;
-        this.weight = weight;
-    }
-
     getAnimalAge(): string {
         return this.age;
     }
