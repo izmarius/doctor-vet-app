@@ -13,14 +13,18 @@ export class UserService {
   private USER_COLLECTION = 'user/';
 
   constructor(
-    private afs: AngularFirestore,
+    private angularFirestore: AngularFirestore,
     private firestoreService: FirestoreService
   ) { }
 
   setUserData(user): Promise<void> {
-    const userRef: AngularFirestoreDocument<UserDto> = this.afs.doc(`user/${user.uid}`);
+    const userRef: AngularFirestoreDocument<UserDto> = this.angularFirestore.doc(`user/${user.uid}`);
     const userData = new UserDto();
-    userData.setUserEmail(user.email);
+    userData.setUserCity('')
+            .setUserEmail(user.email)
+            .setUserName('')
+            .setUserPhone('')
+            .setUserPhoto('');
     return userRef.set(JSON.parse(JSON.stringify(userData)) , { // firestore does not accept custom objects
       merge: true
     });
@@ -29,7 +33,7 @@ export class UserService {
   getAllUsers(): Observable<UserDto[]> {
     return this.firestoreService.getCollection(this.USER_COLLECTION)
     .pipe(
-      map((snaps) => convertSnapshots<UserService>(snaps)),
+      map((snaps) => convertSnapshots<UserDto>(snaps)),
       first()
     );
   }

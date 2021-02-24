@@ -5,14 +5,6 @@ export class UserDto {
     private phone: string;
     private photo: string;
 
-    constructor(city = '', email = '', name = '', phone = '', photo = '') {
-        this.city = city;
-        this.email = email;
-        this.name = name;
-        this.phone = phone;
-        this.photo = photo;
-    }
-
     getUserCity(): string {
         return this.city;
     }
