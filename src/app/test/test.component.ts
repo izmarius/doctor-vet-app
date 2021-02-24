@@ -1,4 +1,5 @@
 import { AnimalDto } from './../data/modelDTO/animal-dto';
+import { UserDto } from './../data/modelDTO/user-dto';
 import {Component, OnInit} from '@angular/core';
 
 import {LogInService} from '../services/auth/log-in.service';
@@ -8,6 +9,7 @@ import {SignUpService} from '../services/auth/sign-up.service';
 import {DoctorAppointmentsService} from '../services/doc-appointment-service/doctor-appointments.service';
 import {DoctorsAppointmentDTO} from '../data/modelDTO/doctors-appointment-dto';
 import {AnimalUtilInfo} from '../data/modelDTO/animal-util-info';
+import { UserService } from '../services/user/user.service';
 import {DoctorServicesService} from '../services/doctor-service/doctor-services.service';
 import {DoctorServiceDTO} from '../data/modelDTO/dorctor-service-DTO';
 import {DoctorService} from '../services/doctor/doctor.service';
@@ -27,6 +29,7 @@ export class TestComponent implements OnInit {
     private appointmentsService: DoctorAppointmentsService,
     public signOutService: SignOutService,
     public logInService: LogInService,
+    private userService: UserService,
     private doctorServicesService: DoctorServicesService,
     private doctorService: DoctorService,
     private animalService: AnimalService
@@ -42,6 +45,12 @@ export class TestComponent implements OnInit {
     // this.appointmentsService.deleteAppointment('8igbwSCLeaR6AW4ocbKR', 'o2Jt7YS9zCWvBfDWY08X');
     // this.appointmentsService.updateAppointment(this.getUpdatedDoctorsAppointment(), '7M7JRKmBlg8CxVveGOvW', 'o2Jt7YS9zCWvBfDWY08X');
 
+    // this.userService.createUser(this.getUserDto());
+    // this.userService.updateUserInfo(this.getUpdateUserDto(), 'b0Gkpo9nJJBrPL9gaHnD');
+    // this.userService.deleteUser('t6Ra4nekUVYhbM4TXDcbKyK4wUJ2');
+    // this.userService.getAllUsers().subscribe((res) => {
+    //   console.log(res);
+    // });
     // doctor service crud
     // this.doctorServicesService.getAllServices('o2Jt7YS9zCWvBfDWY08X');
     // this.doctorServicesService.createService(this.getServiceDTO(), 'o2Jt7YS9zCWvBfDWY08X');
@@ -76,6 +85,24 @@ export class TestComponent implements OnInit {
       .setDateTime(new Date().toLocaleString())
       .setLocation('Str. Pasteour, bl5, nr. 22, app. 12')
       .setUserId('3NaCJrnyv7lMkXcmQUPM');
+  }
+
+  getUserDto(): UserDto {
+    const user = new UserDto();
+    user.setUserCity('Cluj');
+    user.setUserEmail('testuser1@mail.com');
+    user.setUserName('Marius');
+    user.setUserPhone('07412345678');
+    return user;
+  }
+
+  getUpdateUserDto(): UserDto {
+    const user = new UserDto();
+    user.setUserCity('Cluj');
+    user.setUserEmail('testuser2@mail.com');
+    user.setUserName('Ionut');
+    user.setUserPhone('0740123456');
+    return user;
   }
 
   getServiceDTO(): DoctorServiceDTO {
