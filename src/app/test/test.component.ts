@@ -1,3 +1,4 @@
+import { AnimalDto } from './../data/modelDTO/animal-dto';
 import { UserDto } from './../data/modelDTO/user-dto';
 import {Component, OnInit} from '@angular/core';
 
@@ -13,6 +14,7 @@ import {DoctorServicesService} from '../services/doctor-service/doctor-services.
 import {DoctorServiceDTO} from '../data/modelDTO/dorctor-service-DTO';
 import {DoctorService} from '../services/doctor/doctor.service';
 import {DaySchedule, DoctorDTO} from '../data/modelDTO/doctor-DTO';
+import { AnimalService } from '../services/animal/animal.service';
 
 @Component({
   selector: 'app-test',
@@ -29,7 +31,8 @@ export class TestComponent implements OnInit {
     public logInService: LogInService,
     private userService: UserService,
     private doctorServicesService: DoctorServicesService,
-    private doctorService: DoctorService
+    private doctorService: DoctorService,
+    private animalService: AnimalService
   ) {
   }
 
@@ -58,6 +61,9 @@ export class TestComponent implements OnInit {
     // this.doctorService.createDoctor(this.getDoctorDTO());
     // this.doctorService.updateDoctorInfo(this.getDoctorDTOForUpdate(), 'vypbGbOTDW6KcsLSZbeK');
     // this.doctorService.deleteDoctor( 'ZXVARyYsk9QBO138Y02J');
+
+    // animal crud
+    // this.animalService.addAnimalToUser(this.getAnimalDto(), 'TP8JUTLKjNSwKpcvAIYFk25ngy82');
   }
 
 
@@ -137,5 +143,15 @@ export class TestComponent implements OnInit {
     schedule.push(monday);
     schedule.push(tuesday);
     return schedule;
+  }
+
+  getAnimalDto(): AnimalDto {
+    const animal = new AnimalDto();
+    animal.setAnimalAge('2');
+    animal.setAnimalBirthDay('01May2019');
+    animal.setAnimalBloodType('A2');
+    animal.setAnimalName('Balenciaga');
+    animal.setAnimalWeight('18kg');
+    return animal;
   }
 }
