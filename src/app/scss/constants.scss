@@ -1,0 +1,72 @@
+//fs = font size; m=margin; mb=marg bottom; p=padding; pb; lh=line height; bg = background; p-m = padding mobile; fs-m = fs mobile
+
+//start dimensions
+$container-max-width: 93.75rem;
+$card-max-width: 41.66667%;
+//end dimensions
+
+//start color
+//$first-color: ;
+//$second-color:
+$bg-main-color: #fff;
+$bg-alternate-color: #F8F9FF;
+$text-color: #002251;
+//end color
+
+//font-family
+$font-family: "Noto Sans",sans-serif;
+//end font-family
+
+//start font size
+$fs-title: 4rem;
+$fs-subtitle: 3rem;
+$fs-card-title: 1.21875rem;
+$fs-text: 1rem;
+$fs-btn: 1.01562rem;
+//end font size
+
+//start font weight
+$bold-title: 600;
+$bold-subtitle: 400;
+$bold-section-subtitle: 700;
+$bold-card-title: 500;
+$bold-text: 300;
+$bold-btn: 400;
+//end font weight
+
+//start font line height
+$lh-text: 1.2;
+$lh-btn: 1.5;
+//end font line height
+
+//start padding
+$p-btn: 1rem 3rem;
+$p-link: 0.5rem 0.125rem;
+$p-section-subtitle: 0.5rem 0.125rem;
+$p-section: 7.5rem 1.5rem;
+$p-card: 1rem;
+//end padding
+
+//start margin
+$mb-section-subtitle: 1rem;
+$m-btn: 3rem 0;
+$mb-section-title-subtitle: 2rem;
+$mb-section-header-title: 3 rem;
+$mb-card-elem: 1.5rem;
+
+//end margin
+
+//start mobile
+//start mobile font-size
+$fs-m-title: 2.4rem;
+$fs-m-subtitle: 2rem;
+$fs-link: 0.7rem;
+//end mobile font size
+
+//start mobile padding
+$p-m-btn: 0.5rem 1rem;
+$p-m-link: 0.5rem 0.125rem;
+$p-m-section-subtitle: 1.313rem;
+$p-m-text: 1rem;
+//end mobile padding
+//end mobile
