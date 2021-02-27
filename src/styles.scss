@@ -1,5 +1,28 @@
 @import "src/app/scss/constants";
 
-html, body { height: $full-size; }
-body { margin: 0; font-family: $font-family }
+html, body {
+  height: $full-size;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  color: $text-color;
+  line-height: $lh-text;
+}
+
+button {
+  line-height: $lh-btn;
+}
+
+.section-title {
+  font-size: $fs-section-title;
+  font-weight: $bold-subtitle;
+  margin-bottom: $mb-section-title;
+}
+
+.section-subtitle {
+  font-size: $fs-small-subtitle;
+  margin-bottom: $mb-section-small-subtitle;
+}
 

@@ -20,7 +20,8 @@ $font-family: "Noto Sans",sans-serif;
 
 //start font size
 $fs-title: 4rem;
-$fs-subtitle: 3rem;
+$fs-section-title: 3rem;
+$fs-small-subtitle: 1.313rem;
 $fs-card-title: 1.21875rem;
 $fs-text: 1rem;
 $fs-btn: 1.01562rem;
@@ -49,10 +50,11 @@ $p-card: 1rem;
 //end padding
 
 //start margin
-$mb-section-subtitle: 1rem;
+$mb-section-title: 2rem;
+$mb-section-small-subtitle: 1rem;
 $m-btn: 3rem 0;
 $mb-section-title-subtitle: 2rem;
-$mb-section-header-title: 3 rem;
+$mb-section-header: 3 rem;
 $mb-card-elem: 1.5rem;
 
 //end margin

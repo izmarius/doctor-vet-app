@@ -1,6 +1,8 @@
+@import "src/app/scss/constants";
+
 .header-container {
-  background: #f2f2f2;
-  min-height: 200px;
+  background: $bg-alternate-color;
+  padding: $p-section-subtitle;
 }
 
 .header-btn-container {
