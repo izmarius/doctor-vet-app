@@ -6,3 +6,5 @@
     // todo : see how is better ? to transform the promise into obs or let it as a promise?
 
     // todo : snapshot changes used to get also the document id - valuechanges will get only the value
+
+    // remove css to scss migration dependency
