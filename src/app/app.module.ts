@@ -14,13 +14,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './ui/shared/navbar/navbar.component';
 import { HeaderComponent } from './ui/shared/header/header.component';
+import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    SectionTitleComponent
    ],
   imports: [
     BrowserModule,
