@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './ui/shared/navbar/navbar.component';
 import { HeaderComponent } from './ui/shared/header/header.component';
 import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
+import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appointment.component';
+import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SectionTitleComponent } from './ui/shared/section-title/section-title.c
     TestComponent,
     NavbarComponent,
     HeaderComponent,
-    SectionTitleComponent
+    SectionTitleComponent,
+    DoctorAppointmentComponent,
+    HeaderTitleComponent
    ],
   imports: [
     BrowserModule,

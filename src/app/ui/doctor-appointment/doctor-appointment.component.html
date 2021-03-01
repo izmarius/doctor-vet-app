@@ -1,0 +1,29 @@
+<div class="p-container">
+  <app-navbar></app-navbar>
+  <div class="header-container d-flex col-flex-col-center">
+    <div class="header-content">
+      <div class="header-text mb-5">
+        <app-header-title
+          [title]="headerTitle"
+          [subTitle]="headerSubTitle"
+        ></app-header-title>
+      </div>
+      <div>
+        <div class="header-btn-container d-flex justify-content-center">
+          <button type="button" class="btn btn-dark">Client nou</button>
+          <button type="button" class="btn btn-light">Orele de lucru</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-container d-flex col-flex-col-center">
+    <div class="section-content">
+      <div class="section-text mb-5"></div>
+      <app-section-title
+        [title]="sectionTitle"
+        [subTitle]="sectionSubTitle"
+      ></app-section-title>
+      <div class="section-calendar"></div>
+    </div>
+  </div>
+</div>
