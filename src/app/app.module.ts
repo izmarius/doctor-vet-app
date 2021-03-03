@@ -17,6 +17,8 @@ import { HeaderComponent } from './ui/shared/header/header.component';
 import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
 import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appointment.component';
 import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { HeaderTitleComponent } from './ui/shared/header-title/header-title.comp
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory})
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

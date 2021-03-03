@@ -11,6 +11,8 @@ export class DoctorAppointmentComponent implements OnInit {
   sectionTitle: string;
   sectionSubTitle: string;
 
+  viewDate: Date = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
