@@ -11,13 +11,14 @@ import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 export class DoctorAppointmentsService {
   private DOCTOR_COLLECTION = 'doctors/';
   private APPOINTMENT_COLLECTION = '/appointments';
-  // todo: when ui implemented move closer to ui component
+
   constructor(private firestoreService: FirestoreService) {
   }
 
   getAllAppointments(doctorId: string): Observable<DoctorsAppointmentDTO[]> {
     return this.firestoreService.getCollection(this.getAppointmentUrl(doctorId)).pipe(
-      map(snaps => convertSnapshots<DoctorsAppointmentDTO[]>(snaps)),
+      map(snaps => convertSnapshots<DoctorsAppointmentDTO[]>(snaps)
+      ),
       first()
     );
     // firebase uses websocket to transfer data and first closes that connection after first value was transmited - for multiple tryes we will use take method
@@ -31,7 +32,7 @@ export class DoctorAppointmentsService {
 
   createAppointment(app: DoctorsAppointmentDTO[], doctorId: string): void {
     app.forEach(animal => {
-      this.firestoreService.saveDocumentByAutoId(this.getAppointmentUrl(doctorId), app).then(() => {
+      this.firestoreService.saveDocumentByAutoId(this.getAppointmentUrl(doctorId), animal).then(() => {
         // firebasse will not return the created object
         // if success - we will return the promise and display new created data in ui
       }, (error) => {

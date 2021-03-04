@@ -71,20 +71,24 @@ export class TestComponent implements OnInit {
     const app = new DoctorsAppointmentDTO();
     const animalInfo = new AnimalUtilInfo();
     animalInfo.setName('Marius').setUid('123');
-    return app.setAnimals(animalInfo)
+    return app.setAnimal(animalInfo)
       .setDateTime('')
       .setLocation('Str. dsaads, bl5, nr. 22, app. 12')
-      .setUserId('3NaCJrnyv7lMkXcmQUPM');
+      .setUserId('3NaCJrnyv7lMkXcmQUPM')
+      .setServices('Control')
+      .setUserName('Ion');
   }
 
-  getDoctorsAppointment(): DoctorsAppointmentDTO {
+  getDoctorsAppointment(): DoctorsAppointmentDTO[] {
     const app = new DoctorsAppointmentDTO();
     const animalInfo = new AnimalUtilInfo();
-    animalInfo.setName('Marius').setUid('123');
-    return app.setAnimals(animalInfo)
+    animalInfo.setName('Alex')
+      .setUid('123124');
+    app.setAnimal(animalInfo)
       .setDateTime(new Date().toLocaleString())
       .setLocation('Str. Pasteour, bl5, nr. 22, app. 12')
       .setUserId('3NaCJrnyv7lMkXcmQUPM');
+    return [app];
   }
 
   getUserDto(): UserDto {

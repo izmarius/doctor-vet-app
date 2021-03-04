@@ -11,10 +11,19 @@ body {
   line-height: $lh-text;
 }
 
+.bg-alternative {
+  background: $bg-alternate-color;
+}
+
 button {
   line-height: $lh-btn;
 }
 
+.vet-content {
+  width: $content-width;
+  margin: 0 auto;
+}
+//create generic components?
 .section-title {
   font-size: $fs-section-title;
   font-weight: $bold-subtitle;

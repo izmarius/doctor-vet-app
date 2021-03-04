@@ -16,6 +16,7 @@ import { NavbarComponent } from './ui/shared/navbar/navbar.component';
 import { HeaderComponent } from './ui/shared/header/header.component';
 import { UserCardComponent } from './ui/shared/user-card/user-card.component';
 import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
+import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitl
     NavbarComponent,
     HeaderComponent,
     UserCardComponent,
-    SectionTitleSubtitleComponent
+    SectionTitleSubtitleComponent,
+    DoctorAppointmentsComponent
    ],
   imports: [
     BrowserModule,
