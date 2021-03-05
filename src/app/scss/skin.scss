@@ -1,0 +1,30 @@
+//start colors
+.bg-main {
+  background: $bg-main-color;
+}
+
+.bg-alternative {
+  background: $bg-alternate-color;
+}
+
+//end colors
+
+//start border
+.border-with-radius {
+  border: $border;
+  border-radius: $border-radius;
+}
+//end border
+
+//start text
+.section-title {
+  font-size: $fs-section-title;
+  font-weight: $bold-subtitle;
+  margin-bottom: $mb-section-title;
+}
+
+.section-subtitle {
+  font-size: $fs-small-subtitle;
+  margin-bottom: $mb-section-small-subtitle;
+}
+//end text

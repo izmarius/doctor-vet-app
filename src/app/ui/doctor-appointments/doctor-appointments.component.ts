@@ -41,6 +41,4 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   openModalWithAnimalDetails(animalId: string | number): void {
     // todo: add modal component
   }
-
-
 }
