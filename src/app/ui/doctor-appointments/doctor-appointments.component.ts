@@ -3,7 +3,7 @@ import {userCard} from '../../shared-data/Constants';
 import {DoctorAppointmentsService} from '../../services/doc-appointment-service/doctor-appointments.service';
 import {Subscription} from 'rxjs';
 import {DoctorsAppointmentDTO} from '../../data/modelDTO/doctors-appointment-dto';
-import {ICardData} from "../shared/user-card/user-card.component";
+import {ICardData} from '../shared/user-card/user-card.component';
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -25,6 +25,10 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnDestroy(): void {
+    this.appointmentSubscription?.unsubscribe();
+  }
+
   mapToCardData(appointment): ICardData {
 
     return {
@@ -34,8 +38,9 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
     };
   }
 
-  ngOnDestroy(): void {
-    this.appointmentSubscription?.unsubscribe();
+  openModalWithAnimalDetails(animalId: string | number): void {
+    // todo: add modal component
   }
+
 
 }

@@ -11,8 +11,19 @@ body {
   line-height: $lh-text;
 }
 
+.bg-main {
+  background: $bg-main-color;
+}
+p {
+  font-size: $fs-text;
+}
 .bg-alternative {
   background: $bg-alternate-color;
+}
+
+.border-with-radius {
+  border: $border;
+  border-radius: $border-radius;
 }
 
 button {

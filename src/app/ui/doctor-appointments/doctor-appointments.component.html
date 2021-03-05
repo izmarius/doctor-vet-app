@@ -1,9 +1,10 @@
 <div class="bg-alternative">
   <div class="vet-content">
     <h4>date here</h4>
-    <div>
+    <div class="appointments d-flex justify-content-between">
       <app-user-card *ngFor="let appointment of appointmentList" [cardPlaceholder]="userCardPlaceholder"
-                     [cardData]="mapToCardData(appointment)"></app-user-card>
+                     [cardData]="mapToCardData(appointment)"
+      (cardButtonEmitter)="openModalWithAnimalDetails($event)"></app-user-card>
     </div>
   </div>
 </div>

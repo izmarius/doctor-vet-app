@@ -13,6 +13,7 @@ $full-size: 100%;
 $bg-main-color: #fff;
 $bg-alternate-color: #F8F9FF;
 $text-color: #002251;
+$text-grey: #aeacac;
 //end color
 
 //font-family
@@ -24,8 +25,9 @@ $fs-title: 4rem;
 $fs-section-title: 3rem;
 $fs-small-subtitle: 1.313rem;
 $fs-card-title: 1.21875rem;
-$fs-text: 1rem;
+$fs-text: 1.313rem;
 $fs-btn: 1.01562rem;
+$fs-link: 1rem;
 //end font size
 
 //start font weight
@@ -58,8 +60,13 @@ $m-btn: 3rem 0;
 $mb-section-title-subtitle: 2rem;
 $mb-section-header: 3 rem;
 $mb-card-elem: 1.5rem;
-
 //end margin
+
+
+//start border
+$border: 1px solid #EAE9F2;
+$border-radius: 0.625rem;
+//end border
 
 //start mobile
 //start mobile font-size
