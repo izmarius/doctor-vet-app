@@ -6,6 +6,8 @@ export class DoctorsAppointmentDTO {
   private dateTime: string;
   private location: string;
   private userId: string;
+  private userName: string;
+  private services: string;
 
 
   getId(): string {
@@ -17,11 +19,11 @@ export class DoctorsAppointmentDTO {
     return this;
   }
 
-  getAnimals(): AnimalUtilInfo {
+  getAnimal(): AnimalUtilInfo {
     return this.animalData;
   }
 
-  setAnimals(value: AnimalUtilInfo): DoctorsAppointmentDTO {
+  setAnimal(value: AnimalUtilInfo): DoctorsAppointmentDTO {
     this.animalData = value;
     return this;
   }
@@ -50,6 +52,24 @@ export class DoctorsAppointmentDTO {
 
   setUserId(value: string): DoctorsAppointmentDTO {
     this.userId = value;
+    return this;
+  }
+
+  getUserName(): string {
+    return this.userName;
+  }
+
+  setUserName(value: string): DoctorsAppointmentDTO {
+    this.userName = value;
+    return this;
+  }
+
+  getServices(): string {
+    return this.services;
+  }
+
+  setServices(value: string): DoctorsAppointmentDTO {
+    this.services = value;
     return this;
   }
 }

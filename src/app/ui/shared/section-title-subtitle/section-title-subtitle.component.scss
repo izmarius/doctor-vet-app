@@ -1,0 +1,15 @@
+@import "src/app/scss/constants";
+
+.header-container {
+  background: $bg-alternate-color;
+  padding: $p-section-subtitle;
+}
+
+.header-btn-container {
+  margin: 0 auto;
+}
+
+.header-content {
+  margin: auto;
+}
+
