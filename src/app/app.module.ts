@@ -31,7 +31,7 @@ import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-app
     HeaderComponent,
     SectionTitleComponent,
     DoctorAppointmentComponent,
-    HeaderTitleComponent
+    HeaderTitleComponent,
     UserCardComponent,
     SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent

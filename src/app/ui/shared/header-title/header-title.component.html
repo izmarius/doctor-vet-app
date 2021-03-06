@@ -1,2 +1,8 @@
-<h1 class="text-center p-big-title" [innerHTML]="title"></h1>
-<p class="text-center p-subtitle" [innerHTML]="subTitle"></p>
+<div class="header-container" *ngIf="subTitle || title">
+    <div class="header-content">
+      <div class="header-text">
+        <h1 class="text-center section-title" [innerHTML]="title"></h1>
+        <p class="text-center section-subtitle" [innerHTML]="subTitle"></p>
+      </div>
+    </div>
+  </div>

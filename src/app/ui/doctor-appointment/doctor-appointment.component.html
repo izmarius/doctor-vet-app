@@ -2,17 +2,19 @@
   <app-navbar></app-navbar>
   <div class="header-container d-flex col-flex-col-center">
     <div class="header-content">
-      <div class="header-text mb-5">
+      <div class="header-text">
         <app-header-title
           [title]="headerTitle"
           [subTitle]="headerSubTitle"
         ></app-header-title>
       </div>
-      <div>
-        <div class="header-btn-container d-flex justify-content-center">
-          <button type="button" class="btn btn-dark button">Programare noua</button>
-          <button type="button" class="btn btn-light button">Orele de lucru</button>
-        </div>
+      <div class="header-btn-container d-flex justify-content-center">
+        <button type="button" class="btn btn-dark button">
+          Programare noua
+        </button>
+        <button type="button" class="btn btn-light button">
+          Orele de lucru
+        </button>
       </div>
     </div>
   </div>
@@ -24,7 +26,9 @@
         [subTitle]="sectionSubTitle"
       ></app-section-title>
       <div class="section-calendar">
-        <mwl-calendar-month-view [viewDate]="viewDate"></mwl-calendar-month-view>
+        <mwl-calendar-month-view
+          [viewDate]="viewDate"
+        ></mwl-calendar-month-view>
       </div>
     </div>
   </div>

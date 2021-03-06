@@ -1,22 +1,20 @@
+@import "/src/app/scss/constants.scss";
+
 .header-container {
   background: #f2f2f2;
-  height: 250px;
+  height: 13.75rem;
 }
 
 .header-btn-container {
-  margin: 0 auto;
-}
-
-.header-content {
   margin: auto;
-}
-
-.section-content {
-  margin: auto;
-  max-width: 93.75rem;
 }
 
 .section-calendar {
+  margin: auto;
+  max-width: $container-max-width;
+}
+
+.header-content {
   margin: auto;
 }
 
