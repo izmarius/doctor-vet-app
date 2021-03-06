@@ -1,7 +1,8 @@
+@import "src/app/scss/constants";
+
 .header-container {
-  background: #f2f2f2;
-  height: 800px;
-  //50 rem
+  background: $bg-alternate-color;
+  padding: $p-section-subtitle;
 }
 
 .header-btn-container {
@@ -9,8 +10,6 @@
 }
 
 .header-content {
-  height: 150px;
   margin: auto;
-  //9.375rem
 }
 

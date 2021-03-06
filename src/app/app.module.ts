@@ -19,6 +19,9 @@ import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appoi
 import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { UserCardComponent } from './ui/shared/user-card/user-card.component';
+import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
+import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     SectionTitleComponent,
     DoctorAppointmentComponent,
     HeaderTitleComponent
+    UserCardComponent,
+    SectionTitleSubtitleComponent,
+    DoctorAppointmentsComponent
    ],
   imports: [
     BrowserModule,
