@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
@@ -45,7 +46,8 @@ import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module'
     AngularFirestoreModule,
     BrowserAnimationsModule,
     NgbModule,
-    AppCalendarModule
+    AppCalendarModule,
+    AppRoutingModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
