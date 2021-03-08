@@ -17,11 +17,10 @@ import { HeaderComponent } from './ui/shared/header/header.component';
 import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
 import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appointment.component';
 import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { UserCardComponent } from './ui/shared/user-card/user-card.component';
 import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
+import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +45,7 @@ import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-app
     AngularFirestoreModule,
     BrowserAnimationsModule,
     NgbModule,
-    CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory})
+    AppCalendarModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
