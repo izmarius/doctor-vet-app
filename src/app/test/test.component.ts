@@ -72,7 +72,6 @@ export class TestComponent implements OnInit {
     const animalInfo = new AnimalUtilInfo();
     animalInfo.setName('Marius').setUid('123');
     return app.setAnimal(animalInfo)
-      .setDateTime('')
       .setLocation('Str. dsaads, bl5, nr. 22, app. 12')
       .setUserId('3NaCJrnyv7lMkXcmQUPM')
       .setServices('Control')
@@ -83,7 +82,7 @@ export class TestComponent implements OnInit {
     const app = new DoctorsAppointmentDTO();
     const animalInfo = new AnimalUtilInfo();
     animalInfo.setName('Alex')
-      .setUid('123124');
+      .setUid('3214342');
     app.setAnimal(animalInfo)
       .setDateTime(new Date().toLocaleString())
       .setLocation('Str. Pasteour, bl5, nr. 22, app. 12')

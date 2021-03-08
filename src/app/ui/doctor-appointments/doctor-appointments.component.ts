@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {userCard} from '../../shared-data/Constants';
 import {DoctorAppointmentsService} from '../../services/doc-appointment-service/doctor-appointments.service';
 import {Subscription} from 'rxjs';
-import {DoctorsAppointmentDTO} from '../../data/modelDTO/doctors-appointment-dto';
 import {ICardData} from '../shared/user-card/user-card.component';
+import {IDoctorsAppointmentsDTO} from "../../data/modelDTO/doctors-appointment-dto";
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -13,7 +13,8 @@ import {ICardData} from '../shared/user-card/user-card.component';
 export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   public userCardPlaceholder;
   public appointmentSubscription: Subscription;
-  public appointmentList: DoctorsAppointmentDTO[];
+  public appointmentMap = {};
+  private appointmentList: IDoctorsAppointmentsDTO[];
 
   constructor(private doctorAppointmentService: DoctorAppointmentsService) {
   }
@@ -21,7 +22,9 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userCardPlaceholder = userCard;
     this.doctorAppointmentService.getAllAppointments('o2Jt7YS9zCWvBfDWY08X').subscribe((appointments) => {
+      // need to do this because we want to leave the card as a generic component
       this.appointmentList = appointments;
+      this.setAppointmentMap(appointments);
     });
   }
 
@@ -39,6 +42,21 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   }
 
   openModalWithAnimalDetails(animalId: string | number): void {
-    // todo: add modal component
+    const selectedAppointment = this.appointmentList.find(appointment => appointment.animalData.uid === animalId);
+//get user and animal data
+    // todo: to be implemented after crud for animals is done
+
+  }
+
+  setAppointmentMap(appointments: IDoctorsAppointmentsDTO[]): void {
+    appointments.forEach((appointment) => {
+      const date = appointment.dateTime.split(',')[0];
+      if (this.appointmentMap[date]) {
+        this.appointmentMap[date].push(appointment);
+      } else {
+        this.appointmentMap[date] = [];
+        this.appointmentMap[date].push(appointment);
+      }
+    });
   }
 }

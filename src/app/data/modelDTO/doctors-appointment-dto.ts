@@ -1,5 +1,16 @@
 import {AnimalUtilInfo} from './animal-util-info';
 
+export interface IDoctorsAppointmentsDTO {
+  id: string;
+  animalData: AnimalUtilInfo;
+  dateTime: string;
+  location: string;
+  userId: string;
+  userName: string;
+  services: string;
+}
+
+
 export class DoctorsAppointmentDTO {
   private id: string;
   private animalData: AnimalUtilInfo;
@@ -9,7 +20,7 @@ export class DoctorsAppointmentDTO {
   private userName: string;
   private services: string;
 
-
+// todo: getter and setter when to use in typescript
   getId(): string {
     return this.id;
   }
