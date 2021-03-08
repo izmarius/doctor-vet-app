@@ -17,6 +17,8 @@ import { HeaderComponent } from './ui/shared/header/header.component';
 import { UserCardComponent } from './ui/shared/user-card/user-card.component';
 import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
+import MaterialModule from './material-module';
+import { DialogComponent } from './ui/shared/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-app
     HeaderComponent,
     UserCardComponent,
     SectionTitleSubtitleComponent,
-    DoctorAppointmentsComponent
+    DoctorAppointmentsComponent,
+    DialogComponent
    ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-app
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MaterialModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

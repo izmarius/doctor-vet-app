@@ -4,6 +4,8 @@ import {DoctorAppointmentsService} from '../../services/doc-appointment-service/
 import {Subscription} from 'rxjs';
 import {ICardData} from '../shared/user-card/user-card.component';
 import {IDoctorsAppointmentsDTO} from "../../data/modelDTO/doctors-appointment-dto";
+import {MatDialog} from "@angular/material/dialog";
+import {DialogComponent} from "../shared/dialog/dialog.component";
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -16,7 +18,8 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   public appointmentMap = {};
   private appointmentList: IDoctorsAppointmentsDTO[];
 
-  constructor(private doctorAppointmentService: DoctorAppointmentsService) {
+  constructor(private doctorAppointmentService: DoctorAppointmentsService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -43,10 +46,20 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   openModalWithAnimalDetails(animalId: string | number): void {
     const selectedAppointment = this.appointmentList.find(appointment => appointment.animalData.uid === animalId);
-//get user and animal data
+    // open modal and get get user and animal data
     // todo: to be implemented after crud for animals is done
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: {test: 'dsadsasd'}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
+
+
 
   setAppointmentMap(appointments: IDoctorsAppointmentsDTO[]): void {
     appointments.forEach((appointment) => {
