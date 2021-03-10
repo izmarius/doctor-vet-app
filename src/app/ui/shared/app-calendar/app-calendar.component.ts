@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CalendarView } from 'angular-calendar';
+import { Component, Input, OnInit } from '@angular/core';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { th } from 'date-fns/locale';
 
 @Component({
   selector: 'app-app-calendar',
@@ -9,6 +10,12 @@ import { CalendarView } from 'angular-calendar';
 export class AppCalendarComponent implements OnInit {
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
+  CalendarView = CalendarView;
+  @Input() events: [];
+
+  setView(view: CalendarView): void {
+    this.view = view;
+  }
 
   constructor() { }
 
