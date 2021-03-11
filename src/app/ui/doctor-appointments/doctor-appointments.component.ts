@@ -3,9 +3,9 @@ import {userCard} from '../../shared-data/Constants';
 import {DoctorAppointmentsService} from '../../services/doc-appointment-service/doctor-appointments.service';
 import {Subscription} from 'rxjs';
 import {ICardData} from '../shared/user-card/user-card.component';
-import {IDoctorsAppointmentsDTO} from "../../data/modelDTO/doctors-appointment-dto";
-import {MatDialog} from "@angular/material/dialog";
-import {DialogComponent} from "../shared/dialog/dialog.component";
+import {IDoctorsAppointmentsDTO} from '../../data/modelDTO/doctors-appointment-dto';
+import {MatDialog} from '@angular/material/dialog';
+import {UserAnimalDataDialogComponent} from "../user-animal-data-dialog/user-animal-data-dialog.component";
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -48,7 +48,7 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
     const selectedAppointment = this.appointmentList.find(appointment => appointment.animalData.uid === animalId);
     // open modal and get get user and animal data
     // todo: to be implemented after crud for animals is done
-    const dialogRef = this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(UserAnimalDataDialogComponent, {
       width: '250px',
       data: {test: 'dsadsasd'}
     });
@@ -58,8 +58,6 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
       console.log(result);
     });
   }
-
-
 
   setAppointmentMap(appointments: IDoctorsAppointmentsDTO[]): void {
     appointments.forEach((appointment) => {

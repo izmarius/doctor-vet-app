@@ -18,7 +18,7 @@ import { UserCardComponent } from './ui/shared/user-card/user-card.component';
 import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 import MaterialModule from './material-module';
-import { DialogComponent } from './ui/shared/dialog/dialog.component';
+import { UserAnimalDataDialogComponent } from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { DialogComponent } from './ui/shared/dialog/dialog.component';
     UserCardComponent,
     SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent,
-    DialogComponent
+    UserAnimalDataDialogComponent
    ],
   imports: [
     BrowserModule,
