@@ -5,7 +5,7 @@ import {Subscription} from 'rxjs';
 import {ICardData} from '../shared/user-card/user-card.component';
 import {IDoctorsAppointmentsDTO} from '../../data/modelDTO/doctors-appointment-dto';
 import {MatDialog} from '@angular/material/dialog';
-import {UserAnimalDataDialogComponent} from "../user-animal-data-dialog/user-animal-data-dialog.component";
+import {UserAnimalDataDialogComponent} from '../user-animal-data-dialog/user-animal-data-dialog.component';
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -46,16 +46,13 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   openModalWithAnimalDetails(animalId: string | number): void {
     const selectedAppointment = this.appointmentList.find(appointment => appointment.animalData.uid === animalId);
-    // open modal and get get user and animal data
-    // todo: to be implemented after crud for animals is done
     const dialogRef = this.dialog.open(UserAnimalDataDialogComponent, {
       width: '250px',
-      data: {test: 'dsadsasd'}
+      data: selectedAppointment
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      // console.log(result);
     });
   }
 

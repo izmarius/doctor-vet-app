@@ -1,5 +1,5 @@
-import { AnimalDto } from './../data/modelDTO/animal-dto';
-import { UserDto } from './../data/modelDTO/user-dto';
+import {AnimalDto} from './../data/modelDTO/animal-dto';
+import {UserDto} from './../data/modelDTO/user-dto';
 import {Component, OnInit} from '@angular/core';
 
 import {LogInService} from '../services/auth/log-in.service';
@@ -9,12 +9,12 @@ import {SignUpService} from '../services/auth/sign-up.service';
 import {DoctorAppointmentsService} from '../services/doc-appointment-service/doctor-appointments.service';
 import {DoctorsAppointmentDTO} from '../data/modelDTO/doctors-appointment-dto';
 import {AnimalUtilInfo} from '../data/modelDTO/animal-util-info';
-import { UserService } from '../services/user/user.service';
+import {UserService} from '../services/user/user.service';
 import {DoctorServicesService} from '../services/doctor-service/doctor-services.service';
 import {DoctorServiceDTO} from '../data/modelDTO/dorctor-service-DTO';
 import {DoctorService} from '../services/doctor/doctor.service';
 import {DaySchedule, DoctorDTO} from '../data/modelDTO/doctor-DTO';
-import { AnimalService } from '../services/animal/animal.service';
+import {AnimalService} from '../services/animal/animal.service';
 
 @Component({
   selector: 'app-test',
@@ -64,6 +64,12 @@ export class TestComponent implements OnInit {
 
     // animal crud
     // this.animalService.addAnimalToUser(this.getAnimalDto(), 'TP8JUTLKjNSwKpcvAIYFk25ngy82');
+
+    // this.animalService.getAnimalsMedicalHistoryDocs('36pxiCX2WzLqLRcqTqXT', '3NaCJrnyv7lMkXcmQUPM').subscribe((res) => {
+    //   res.docs.map(doc => {
+    //     console.log(doc.data());
+    //   });
+    // });
   }
 
 

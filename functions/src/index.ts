@@ -1,5 +1,6 @@
-const addAdminRole = require('../role-management/role-functions');
+import * as admin from "firebase-admin";
+admin.initializeApp();
 
-exports.addAdminRole = addAdminRole.addAdminRole;
+const role = require("./role-management/role-functions");
 
-// todo : see what data to add to git ignore
+exports.addAdminRole = role.addAdminRole;

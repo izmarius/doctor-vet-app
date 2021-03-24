@@ -21,6 +21,13 @@ export class FirestoreService {
   }
 
   /**
+   * Gets all documents of a collection
+   */
+  getAllDocumentsOfCollection(collection: string): Observable<any> {
+    return this.firestore.collection(collection).get();
+  }
+
+  /**
    * Gets all values from collection
    */
   getCollectionValueChanges(collection: string): Observable<any> {
