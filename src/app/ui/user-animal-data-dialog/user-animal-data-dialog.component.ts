@@ -10,22 +10,16 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./user-animal-data-dialog.component.scss']
 })
 export class UserAnimalDataDialogComponent implements OnInit, OnDestroy {
-  private animalData: Subscription;
 
   constructor(public dialogRef: MatDialogRef<UserAnimalDataDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: IDoctorsAppointmentsDTO,
-              private animalService: AnimalService) {
+              @Inject(MAT_DIALOG_DATA) public data: IDoctorsAppointmentsDTO) {
   }
 
   ngOnInit(): void {
-    this.animalData = this.animalService.getAllUserAnimals(this.data.userId)
-      .subscribe((animalData) => {
-        console.log(animalData);
-      });
+
   }
 
   ngOnDestroy(): void {
-    this.animalData?.unsubscribe();
   }
 
 }
