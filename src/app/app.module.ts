@@ -12,7 +12,7 @@ import { TestComponent } from './test/test.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './ui/shared/navbar/navbar.component';
 import { HeaderComponent } from './ui/shared/header/header.component';
 import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
@@ -22,6 +22,8 @@ import { UserCardComponent } from './ui/shared/user-card/user-card.component';
 import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppoitmentFormModule } from './ui/shared/appoitment-form/appoitment-form.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module'
     BrowserAnimationsModule,
     NgbModule,
     AppCalendarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppoitmentFormModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
