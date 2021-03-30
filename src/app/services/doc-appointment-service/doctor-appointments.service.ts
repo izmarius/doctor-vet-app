@@ -17,7 +17,7 @@ export class DoctorAppointmentsService {
 
   getAllAppointments(doctorId: string): Observable<DoctorsAppointmentDTO[]> {
     return this.firestoreService.getCollection(this.getAppointmentUrl(doctorId)).pipe(
-      map(snaps => convertSnapshots<DoctorsAppointmentDTO[]>(snaps)
+      map(snaps => convertSnapshots<DoctorsAppointmentDTO[]>(snaps) // TODO how to return the obj not the interface
       ),
       first()
     );
