@@ -6,10 +6,11 @@ import {AnimalDto} from 'src/app/data/modelDTO/animal-dto';
 import {UserService} from '../user/user.service';
 
 
-interface IUserAnimalAndMedicalHistory {
+export interface IUserAnimalAndMedicalHistory {
   userData: any;
   animalData: any;
   animalMedicalHistory: any;
+  medicalHistoryDocId: string;
 }
 
 @Injectable({
@@ -62,7 +63,8 @@ export class AnimalService {
             map(medicalHistoryCollection => {
               return {
                 animalData,
-                animalMedicalHistory: medicalHistoryCollection.docs[0].data()
+                animalMedicalHistory: medicalHistoryCollection.docs[0].data(),
+                medicalHistoryDocId: medicalHistoryCollection.docs[0].id
               };
             })
           );
@@ -75,6 +77,7 @@ export class AnimalService {
   }
 
   addAnimalToUser(animalDto: AnimalDto, userId: string): Promise<void> {
+    // todo: add also animal Id to user - generate the id from here
     return this.fireStoreService.saveDocumentByAutoId(this.getAnimalUrl(userId), animalDto)
       .then(() => {
         window.alert('new animal addded');
@@ -92,6 +95,14 @@ export class AnimalService {
       .catch((error) => {
         console.log(error.message);
       });
+  }
+
+  updateAnimalsSubCollections(url: string, documentId: string, documentToUpdate): void {
+    this.fireStoreService.updateDocumentById(url, documentId, documentToUpdate).then(() => {
+      window.alert("Update success");
+    }).catch((error) => {
+      console.log(error.message);
+    });
   }
 
   deleteUserAnimal(animalId: string, userId: string): Promise<void> {

@@ -1,52 +1,62 @@
 export class AnimalDto {
-    private age: string;
-    private birthDay: string;
-    private bloodType: string;
-    private name: string;
-    private weight: string;
+  private age: string;
+  private birthDay: string;
+  private bloodType: string;
+  private id: string;
+  private name: string;
+  private weight: string;
 
-    getAnimalAge(): string {
-        return this.age;
-    }
+  getId(): string {
+    return this.id;
+  }
 
-    setAnimalAge(value: string): AnimalDto {
-        this.age = value;
-        return this;
-    }
+  setId(value: string): AnimalDto {
+    this.id = value;
+    return this;
+  }
 
-    getAnimalBirthDay(): string {
-        return this.birthDay;
-    }
+  getAnimalAge(): string {
+    return this.age;
+  }
 
-    setAnimalBirthDay(value: string): AnimalDto {
-        this.birthDay = value;
-        return this;
-    }
+  setAnimalAge(value: string): AnimalDto {
+    this.age = value;
+    return this;
+  }
 
-    getAnimalBloodType(): string {
-        return this.bloodType;
-    }
+  getAnimalBirthDay(): string {
+    return this.birthDay;
+  }
 
-    setAnimalBloodType(value: string): AnimalDto {
-        this.bloodType = value;
-        return this;
-    }
+  setAnimalBirthDay(value: string): AnimalDto {
+    this.birthDay = value;
+    return this;
+  }
 
-    getAnimalName(): string {
-        return this.name;
-    }
+  getAnimalBloodType(): string {
+    return this.bloodType;
+  }
 
-    setAnimalName(value: string): AnimalDto {
-        this.name = value;
-        return this;
-    }
+  setAnimalBloodType(value: string): AnimalDto {
+    this.bloodType = value;
+    return this;
+  }
 
-    getAnimalWeight(): string {
-        return this.weight;
-    }
+  getAnimalName(): string {
+    return this.name;
+  }
 
-    setAnimalWeight(value: string): AnimalDto {
-        this.weight = value;
-        return this;
-    }
+  setAnimalName(value: string): AnimalDto {
+    this.name = value;
+    return this;
+  }
+
+  getAnimalWeight(): string {
+    return this.weight;
+  }
+
+  setAnimalWeight(value: string): AnimalDto {
+    this.weight = value;
+    return this;
+  }
 }

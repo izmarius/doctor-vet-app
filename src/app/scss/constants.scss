@@ -14,6 +14,7 @@ $bg-main-color: #fff;
 $bg-alternate-color: #F8F9FF;
 $text-color: #002251;
 $text-grey: #aeacac;
+$border-color: #EAE9F2;
 //end color
 
 //font-family
@@ -64,7 +65,7 @@ $mb-card-elem: 1.5rem;
 
 
 //start border
-$border: 1px solid #EAE9F2;
+$border: 1px solid $border-color;
 $border-radius: 0.625rem;
 //end border
 

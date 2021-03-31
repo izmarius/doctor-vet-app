@@ -1,0 +1,35 @@
+.link--active {
+  color: red;
+}
+
+.animal-data {
+  max-width: 12.188rem;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+  text-decoration: underline #EAE9F2;
+}
+
+.action-icon {
+  align-self: center;
+}
+
+.action-input {
+  width: 70%;
+}
+
+.close-btn {
+  width: 20%;
+}
+
+.dialog-container {
+  position: relative;
+  height: 100%;
+}
+
+.dialog-btn-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

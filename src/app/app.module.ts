@@ -19,6 +19,7 @@ import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitl
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 import MaterialModule from './material-module';
 import { UserAnimalDataDialogComponent } from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -31,18 +32,19 @@ import { UserAnimalDataDialogComponent } from './ui/user-animal-data-dialog/user
     DoctorAppointmentsComponent,
     UserAnimalDataDialogComponent
    ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireFunctionsModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    MaterialModule
-  ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireFunctionsModule,
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        MaterialModule,
+        FormsModule
+    ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })

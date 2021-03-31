@@ -6,7 +6,7 @@ import {ICardData} from '../shared/user-card/user-card.component';
 import {IDoctorsAppointmentsDTO} from '../../data/modelDTO/doctors-appointment-dto';
 import {MatDialog} from '@angular/material/dialog';
 import {UserAnimalDataDialogComponent} from '../user-animal-data-dialog/user-animal-data-dialog.component';
-import {AnimalService} from "../../services/animal/animal.service";
+import {AnimalService} from '../../services/animal/animal.service';
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -49,11 +49,14 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   openModalWithAnimalDetails(animalId: string | number): void {
     // we do this because we want to let the card to be generic
     const selectedAppointment: IDoctorsAppointmentsDTO = this.appointmentList.find(appointment => appointment.animalData.uid === animalId);
-    this.animalService.getAnimalDataAndMedicalHistoryByAnimalId(animalId, selectedAppointment.userId);
+    const userAnimalObs$ = this.animalService.getAnimalDataAndMedicalHistoryByAnimalId(animalId, selectedAppointment.userId);
     const dialogRef = this.dialog.open(UserAnimalDataDialogComponent, {
       width: '50%',
-      height: '600px',
-      data: selectedAppointment
+      height: '45.625rem',
+      data: {
+        userAnimalDataObs: userAnimalObs$,
+        userId: selectedAppointment.userId
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
