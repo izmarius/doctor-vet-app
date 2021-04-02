@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
-import {DoctorsAppointmentDTO} from '../../data/modelDTO/doctors-appointment-dto';
+import {DoctorsAppointmentDTO, IDoctorsAppointmentsDTO} from '../../data/modelDTO/doctors-appointment-dto';
 import {first, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
@@ -15,9 +15,9 @@ export class DoctorAppointmentsService {
   constructor(private firestoreService: FirestoreService) {
   }
 
-  getAllAppointments(doctorId: string): Observable<DoctorsAppointmentDTO[]> {
+  getAllAppointments(doctorId: string): Observable<IDoctorsAppointmentsDTO[]> {
     return this.firestoreService.getCollection(this.getAppointmentUrl(doctorId)).pipe(
-      map(snaps => convertSnapshots<DoctorsAppointmentDTO[]>(snaps)
+      map(snaps => convertSnapshots<IDoctorsAppointmentsDTO[]>(snaps)
       ),
       first()
     );

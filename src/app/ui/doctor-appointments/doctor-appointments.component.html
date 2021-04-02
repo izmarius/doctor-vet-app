@@ -1,10 +1,12 @@
-<div class="bg-alternative">
-  <div class="vet-content">
-    <h4>date here</h4>
-    <div class="appointments d-flex justify-content-between">
-      <app-user-card *ngFor="let appointment of appointmentList" [cardPlaceholder]="userCardPlaceholder"
+<div class="bg-alternative vet-container">
+  <div class="vet-content" *ngFor="let appList of appointmentMap | keyvalue">
+    <h4 class="m-title-bottom">{{appList.key}}</h4>
+    <div class="m-btn-card-row d-flex justify-content-between">
+      <app-user-card #cardComponent *ngFor="let appointment of appList.value"
+                     [cardPlaceholder]="userCardPlaceholder"
                      [cardData]="mapToCardData(appointment)"
       (cardButtonEmitter)="openModalWithAnimalDetails($event)"></app-user-card>
+      <div class="user__animal__display"></div>
     </div>
   </div>
 </div>

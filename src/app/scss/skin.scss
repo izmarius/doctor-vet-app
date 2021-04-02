@@ -7,6 +7,11 @@
   background: $bg-alternate-color;
 }
 
+.error-msg {
+  color: $error-color;
+  font-size: $fs-link;
+}
+
 //end colors
 
 //start border
@@ -14,6 +19,15 @@
   border: $border;
   border-radius: $border-radius;
 }
+
+.vet-border {
+  border: $border;
+}
+
+.vet-border-right {
+  border-right: $border;
+}
+
 //end border
 
 //start text
@@ -23,8 +37,31 @@
   margin-bottom: $mb-section-title;
 }
 
+.bold-text {
+  font-size: $fs-small-subtitle;
+  font-weight: $bold-subtitle;
+}
+
 .section-subtitle {
   font-size: $fs-small-subtitle;
   margin-bottom: $mb-section-small-subtitle;
 }
+
+.list-style-type-none {
+  list-style-type: none;
+}
+
+span[class^="icon"] {
+  font-size: $fs-text;
+}
+
+span[class^="icon"]:hover {
+  cursor: pointer;
+}
 //end text
+
+//start display
+.hide {
+  display: none;
+}
+//end display

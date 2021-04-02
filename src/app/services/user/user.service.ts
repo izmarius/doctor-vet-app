@@ -30,6 +30,10 @@ export class UserService {
     });
   }
 
+  getUserDataById(userId: string): Observable<any> {
+    return this.firestoreService.getDocById(this.USER_COLLECTION, userId);
+  }
+
   getAllUsers(): Observable<UserDto[]> {
     return this.firestoreService.getCollection(this.USER_COLLECTION)
     .pipe(

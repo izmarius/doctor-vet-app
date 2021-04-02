@@ -1,4 +1,29 @@
 .vet-content {
   width: $content-width;
-  margin: 0 auto;
+  margin: $m-h-center;
 }
+
+.vet-container {
+  padding: $p-section
+}
+
+.m-subtitle-bottom {
+  margin-bottom: $mb-section-small-subtitle;
+}
+
+.m-btn-card-row {
+  margin-bottom: $mb-section-header;
+}
+
+.m-btn-dialog-row {
+  margin-bottom: $mb-section-title-subtitle;
+}
+
+.m-btn-small {
+  margin-bottom: $mb-card-elem;
+}
+
+input {
+  height: 2rem!important;
+}
+
