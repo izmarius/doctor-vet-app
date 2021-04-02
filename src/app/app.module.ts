@@ -31,19 +31,20 @@ import {FormsModule} from '@angular/forms';
     DoctorAppointmentsComponent,
     UserAnimalDataDialogComponent
    ],
-    imports: [
-        BrowserModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireDatabaseModule,
-        AngularFireFunctionsModule,
-        AngularFireDatabaseModule,
-        AngularFireAuthModule,
-        AngularFirestoreModule,
-        BrowserAnimationsModule,
-        NgbModule,
-        MaterialModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireFunctionsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    MaterialModule,
+    FormsModule,
+    AppRoutingModule
+  ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
