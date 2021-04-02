@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {userCard} from '../../shared-data/Constants';
 import {DoctorAppointmentsService} from '../../services/doc-appointment-service/doctor-appointments.service';
 import {Subscription} from 'rxjs';
@@ -14,11 +14,12 @@ import {AnimalService} from '../../services/animal/animal.service';
   styleUrls: ['./doctor-appointments.component.scss']
 })
 export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
-  public userCardPlaceholder;
-  public appointmentSubscription: Subscription;
-  public appointmentMap = {};
+  private APPOINTMENT_SUB: Subscription;
   private appointmentList: IDoctorsAppointmentsDTO[];
-  @ViewChild('cardComponent') cardComponent;
+  @ViewChild('cardComponent') private cardComponent;
+
+  public appointmentMap = {};
+  public userCardPlaceholder;
 
   constructor(private doctorAppointmentService: DoctorAppointmentsService,
               private dialog: MatDialog,
@@ -27,15 +28,17 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userCardPlaceholder = userCard;
-    this.doctorAppointmentService.getAllAppointments('o2Jt7YS9zCWvBfDWY08X').subscribe((appointments) => {
-      // need to do this because we want to leave the card as a generic component
-      this.appointmentList = appointments;
-      this.setAppointmentMap(appointments);
-    });
+    this.APPOINTMENT_SUB = this.doctorAppointmentService
+      .getAllAppointments('o2Jt7YS9zCWvBfDWY08X')
+      .subscribe((appointments) => {
+        // need to do this because we want to leave the card as a generic component
+        this.appointmentList = appointments;
+        this.setAppointmentMap(appointments);
+      });
   }
 
   ngOnDestroy(): void {
-    this.appointmentSubscription?.unsubscribe();
+    this.APPOINTMENT_SUB?.unsubscribe();
   }
 
   mapToCardData(appointment): ICardData {

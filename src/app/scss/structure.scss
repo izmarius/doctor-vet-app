@@ -1,6 +1,6 @@
 .vet-content {
   width: $content-width;
-  margin: 0 auto;
+  margin: $m-h-center;
 }
 
 .vet-container {
@@ -21,5 +21,9 @@
 
 .m-btn-small {
   margin-bottom: $mb-card-elem;
+}
+
+input {
+  height: 2rem!important;
 }
 

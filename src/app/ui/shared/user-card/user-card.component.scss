@@ -1,8 +1,10 @@
+@import "src/app/scss/constants";
+
 .card__container {
-  background: #fff;
-  border: 1px solid #EAE9F2;
-  border-radius: 0.625rem;
-  padding: 1rem;
+  background: $bg-main-color;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $p-card;
 }
 
 .card__img_container {
@@ -10,19 +12,19 @@
 }
 
 .card__img {
-  width: 3.75rem;
-  height: 3.75rem
+  width: $card-img-dimmensions;
+  height: $card-img-dimmensions
 }
 
 .mg-bottom {
-  margin-bottom: 1.5rem;
+  margin-bottom: $mb-card-elem;
 }
 
 .card__label {
   color: #aeacac;
-  font-size: 1rem;
+  font-size: $fs-link;
 }
 
 .card__button {
-  margin: 0 auto;
+  margin: $m-h-center;
 }

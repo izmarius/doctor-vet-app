@@ -1,5 +1,7 @@
+@import "src/app/scss/constants";
+
 .link--active {
-  color: red;
+  color: $error-color;
 }
 
 .animal-data {
@@ -8,7 +10,7 @@
 
 .add-btn:hover {
   cursor: pointer;
-  text-decoration: underline #EAE9F2;
+  text-decoration: underline $border-color;
 }
 
 .action-icon {
@@ -25,11 +27,23 @@
 
 .dialog-container {
   position: relative;
-  height: 100%;
+  height: $full-size;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .dialog-btn-container {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: $full-size;
+}
+
+.dialog-list-container {
+  width: 70%;
+}
+
+.dialog-list-item {
+  width: $full-size;
 }

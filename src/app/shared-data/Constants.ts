@@ -5,7 +5,7 @@ export const userCard = {
   buttonValue: 'Vezi detalii pacient'
 };
 
-export const userAnimalDialog = {
+export const USER_ANIMAL_DIALOG = {
   ownersPets: 'Animalele mele: ',
   medicalHistory: 'Istoric recomandari:',
   animalDiseases: 'Patologii asociate:',
@@ -17,3 +17,7 @@ export const userAnimalDialog = {
   addRecommendation: 'Adauga recomandare',
   addDisease: 'Adauga patologie'
 };
+
+export const DIALOG_UI_ERRORS = {
+  noChangeDetected: 'Nu a fost detectata nici o modificare!'
+}

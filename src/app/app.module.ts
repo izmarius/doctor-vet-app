@@ -7,7 +7,6 @@ import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-import { TestComponent } from './test/test.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,12 +18,11 @@ import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitl
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 import MaterialModule from './material-module';
 import { UserAnimalDataDialogComponent } from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     NavbarComponent,
     HeaderComponent,
     UserCardComponent,
