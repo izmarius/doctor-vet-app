@@ -15,9 +15,35 @@ export const USER_ANIMAL_DIALOG = {
   bloodType: 'Tipul de sange',
   birthDay: 'Zi de nastere',
   addRecommendation: 'Adauga recomandare',
-  addDisease: 'Adauga patologie'
+  addDisease: 'Adauga patologie',
+  editInputPlaceholder: 'Max 250 caractere'
 };
 
 export const DIALOG_UI_ERRORS = {
   noChangeDetected: 'Nu a fost detectata nici o modificare!'
+};
+
+export const FOOTER_ERROR_MSG = 'Verifica inca o data daca emailul tau este valid sau daca mesajul tau nu e gol sau are mai mult de 250 de caractere.';
+
+export const FOOTER_COMPONENT = {
+  buttonText : 'Trimite mesajul!',
+  placeholderMessage: 'Min 5 caractere, max 250 caractere',
+  placeholderEmail: 'popescu1234@gmail.com',
+  labelMessage: 'Scrie-ne un mesaj:',
+  labelEmail: 'Email'
+};
+
+export const NAVBAR_TEXT = {
+  locations: 'Locatii',
+  appointments: 'Programari',
+  patient: 'Pacienti',
+  schedule: 'Programul meu',
+  signOut: 'Iesi din cont',
+  signIn: 'Intra in cont'
+};
+
+export const HEADER_TEXT = {
+  title: 'Great products come by doing',
+  subtitle: 'Subtitlul aici Great products come by doing Great products come by doing Great products come by doing',
+  buttonText: 'See projects'
 }
