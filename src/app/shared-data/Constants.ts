@@ -46,4 +46,4 @@ export const HEADER_TEXT = {
   title: 'Great products come by doing',
   subtitle: 'Subtitlul aici Great products come by doing Great products come by doing Great products come by doing',
   buttonText: 'See projects'
-}
+};
