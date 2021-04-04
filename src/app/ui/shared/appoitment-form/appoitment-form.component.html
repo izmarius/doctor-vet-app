@@ -5,32 +5,61 @@
   </form>
 </div> -->
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form [formGroup]="sampleForm" (ngSubmit)='onSubmit()'>
-        <div class="form-group">
-          <label for="username">Date</label>
-          <input
-            ngbDatepicker
-            (click)="datePicker.toggle()"
-            #datePicker="ngbDatepicker"
-            formControlName="startDate"
-            placeholder="yyyy-mm-dd"
-            id="date"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-          <label for="time">Time</label>
-          <ngb-timepicker
-            formControlName="startTime"
-            meridian=""
-            [spinners]="false"
-            id="time"
-          ></ngb-timepicker>
-        </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </form>
+  <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="medic">Medic</label>
+      <input
+        type="text"
+        id="medic"
+        class="form-control"
+        formControlName="medicName"
+        readonly
+      />
     </div>
-  </div>
+    <div class="form-group">
+      <label for="date">Data</label>
+      <input
+        ngbDatepicker
+        (click)="datePicker.toggle()"
+        #datePicker="ngbDatepicker"
+        formControlName="startDate"
+        placeholder="yyyy-mm-dd"
+        id="date"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="time">Ora</label>
+      <ngb-timepicker
+        formControlName="startTime"
+        meridian=""
+        [spinners]="true"
+        id="time"
+        [minuteStep]="15"
+      ></ngb-timepicker>
+    </div>
+    <div class="form-group">
+      <label for="pacient">Pacient</label>
+      <input type="text" id="pacient" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="services">Servicii</label>
+      <select
+        name="services"
+        id="services"
+        class="form-control"
+        formControlName="medService"
+      >
+        <option value="" selected hidden>Aelege un serviciu</option>
+        <option
+          *ngFor="let medicService of medicServices"
+          [value]="medicService"
+        >
+          {{ medicService }}
+        </option>
+      </select>
+    </div>
+    <button class="btn btn-light" type="submit">Cancel</button>
+    <button class="btn btn-dark" type="submit">Submit</button>
+  </form>
 </div>

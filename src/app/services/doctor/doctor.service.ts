@@ -22,6 +22,10 @@ export class DoctorService {
       );
   }
 
+  getDoctorById(doctorId: string): Observable<DoctorDTO> {
+    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId);
+  }
+
   createDoctor(doctorDTO: DoctorDTO): void {
         this.firestoreService.saveDocumentByAutoId(this.DOCTOR_COLLECTION, doctorDTO).then((res) => {
           console.log('DOCTOR created');
