@@ -18,8 +18,10 @@ import {UserCardComponent} from './ui/shared/user-card/user-card.component';
 import {SectionTitleSubtitleComponent} from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import {DoctorAppointmentsComponent} from './ui/doctor-appointments/doctor-appointments.component';
 import MaterialModule from './material-module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
+import {FooterComponent} from './ui/shared/footer/footer.component';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-a
     UserCardComponent,
     SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent,
-    UserAnimalDataDialogComponent
+    UserAnimalDataDialogComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +46,14 @@ import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-a
     NgbModule,
     MaterialModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore,
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {appearance: 'fill'}
+    }, ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

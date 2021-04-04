@@ -1,14 +1,13 @@
 <div class="p-container">
-  <app-navbar></app-navbar>
   <div class="header-container d-flex col-flex-col-center">
     <div class="header-content">
       <div class="header-text mb-5">
-        <h2 class="text-center">Great products come by doing</h2>
-        <p class="text-center p-subtitle">Subtitlul aici Great products come by doing Great products come by doing Great products come by doing</p>
+        <h2 class="text-center">{{headerText.title}}</h2>
+        <p class="text-center p-subtitle">{{headerText.subtitle}}</p>
       </div>
       <div>
         <div class="header-btn-container d-flex justify-content-center">
-          <button type="button" class="btn btn-dark">See projects</button>
+          <button type="button" class="btn btn-dark">{{headerText.buttonText}}</button>
         </div>
       </div>
     </div>
