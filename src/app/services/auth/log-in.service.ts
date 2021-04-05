@@ -41,4 +41,11 @@ constructor(
     }
     return true;
   }
+
+  signOut(): Promise<void> {
+    return this.afAuth.signOut()
+      .then(() => {
+        localStorage.removeItem('user'); // todo redirect to sign up/log in page, also add for doctor
+      });
+  }
 }

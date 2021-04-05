@@ -22,6 +22,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
 import {FooterComponent} from './ui/shared/footer/footer.component';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { LoginDialogComponent } from './ui/login-dialog/login-dialog.component';
+import { SignupDialogComponent } from './ui/signup-dialog/signup-dialog.component';
+import { AuthDialogComponent } from './ui/shared/auth-dialog/auth-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent,
     UserAnimalDataDialogComponent,
-    FooterComponent
+    FooterComponent,
+    LoginDialogComponent,
+    SignupDialogComponent,
+    AuthDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: {appearance: 'fill'}
-    },],
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

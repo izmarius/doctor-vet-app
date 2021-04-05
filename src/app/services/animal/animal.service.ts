@@ -99,7 +99,7 @@ export class AnimalService {
 
   updateAnimalsSubCollections(url: string, documentId: string, documentToUpdate): void {
     this.fireStoreService.updateDocumentById(url, documentId, documentToUpdate).then(() => {
-      window.alert("Update success");
+      window.alert('Update success');
     }).catch((error) => {
       console.log(error.message);
     });

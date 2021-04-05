@@ -47,3 +47,13 @@ export const HEADER_TEXT = {
   subtitle: 'Subtitlul aici Great products come by doing Great products come by doing Great products come by doing',
   buttonText: 'See projects'
 };
+
+export const AUTH_LOGIN_FORM_TEXT = {
+  googleBtnTxt: 'Logheaza-te cu Google',
+  title: 'Intra in aplicatie',
+  emailPlaceholder: 'john@gmail.com',
+  passwordPlaceholder: 'Parola - minim 6 caractere',
+  btnText: 'Intra in cont',
+  isLogin: true,
+  forgotPasswordMsg: 'Ai uitat parola?'
+};
