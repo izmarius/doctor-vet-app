@@ -4,6 +4,7 @@ import {FirebaseUtilsService} from '../../services/firebase-utils.service';
 import {SignUpService} from '../../services/auth/sign-up.service';
 import {AUTH_SIGNUP_FORM_TEXT, COUNTIES} from '../../shared-data/Constants';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
 @Component({
   selector: 'app-signup-dialog',
@@ -15,7 +16,13 @@ export class SignupDialogComponent implements OnInit {
   signupText;
   counties: string[];
   isAllowedToGoToSecondStep: boolean;
+  isErrorMessage: boolean;
+  isNextStepButtonDisabled = true;
+  isRegisterButtonDisabled = true;
+  photo: string;
   secondStepGuide: string[];
+  // todo: delete after testing
+  selectedCounty: string;
 
   constructor(public dialogRef: MatDialogRef<SignupDialogComponent>,
               private firebaseUtils: FirebaseUtilsService,
@@ -32,42 +39,50 @@ export class SignupDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  getCounty($event): void {
-    console.log($event);
+  setCounty(value): void {
+    this.selectedCounty = value;
+  }
+
+  getUploadedImage(base64Image): void {
+    this.photo = base64Image;
+    this.isRegisterButtonDisabled = false;
   }
 
   initAuthForm(): void {
     const emailPattern = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
+    const phonePattern = '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$';
     this.authFormGroup = new FormGroup({
-      email: new FormControl('pausan@gmail.com', [Validators.required, Validators.pattern(emailPattern)]),
+      email: new FormControl('pausan.ionut.adrian@gmail.com', [Validators.required, Validators.pattern(emailPattern)]),
       password: new FormControl('Start123', [Validators.required, Validators.minLength(6)]),
-      phoneNumber: new FormControl('0743922689', [Validators.required, Validators.minLength(10)]),
+      phoneNumber: new FormControl('0743922689', [Validators.required, Validators.minLength(10), Validators.pattern(phonePattern)]),
       name: new FormControl('ionu', Validators.required),
-      address: new FormControl('dsadascas dasda', Validators.required),
+      address: new FormControl('Cluj-Napoca, 5', Validators.required),
     });
   }
 
   onFormSubmit(): void {
-    if (!this.authFormGroup.valid) {
-      // set error message - also to login
-      // this.uiAlert.setUiAlertMessage(new AlertDTO(AUTH_DATA.signUp.emailWarning, ALERT_STYLE_CLASS.error));
-    } else if (!this.authFormGroup.valid && this.authFormGroup.controls.password.value.length < 6) {
-      // this.uiAlert.setUiAlertMessage(new AlertDTO(AUTH_DATA.signUp.passwordLengthWarning, ALERT_STYLE_CLASS.error));
+    if (!this.authFormGroup.valid || !this.selectedCounty) {
+      this.isErrorMessage = true;
     } else {
+      this.isNextStepButtonDisabled = false;
+      this.isErrorMessage = false;
       this.secondStepGuide = AUTH_SIGNUP_FORM_TEXT.secondStepText.split(';');
       this.isAllowedToGoToSecondStep = true;
-      // save user
     }
   }
 
-
-  signupWithEmailAndPassword(loginPayload): void {
-    this.signUpService.signUp(loginPayload.email, loginPayload.password, this.dialogRef);
+  signupWithEmailAndPassword(): void {
+    this.signUpService.signUpDoctor(this.authFormGroup.controls.password.value, this.dialogRef, this.getDoctorDto());
   }
 
-  signupWithGoogle(): void {
-    this.signUpService.googleSignup();
-    //go to add also the phone and the other data
+  getDoctorDto(): any {
+    const doctor = new DoctorDTO();
+    doctor.photoCertificate = this.photo;
+    doctor.location = this.selectedCounty + ', ' + this.authFormGroup.controls.address.value;
+    doctor.doctorName = this.authFormGroup.controls.name.value;
+    doctor.phoneNumber = this.authFormGroup.controls.phoneNumber.value;
+    doctor.email = this.authFormGroup.controls.email.value;
+    return doctor;
   }
 
   resendValidationEmail(): void {

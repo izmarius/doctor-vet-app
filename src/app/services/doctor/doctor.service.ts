@@ -9,9 +9,13 @@ import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
   providedIn: 'root'
 })
 export class DoctorService {
-  private DOCTOR_COLLECTION = 'doctors/';
+  private DOCTOR_COLLECTION = 'doctors';
 
   constructor(private firestoreService: FirestoreService) {
+  }
+
+  getDoctorById(doctorId: string): Observable<DoctorDTO[]> {
+    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId);
   }
 
   getAllDoctors(): Observable<DoctorDTO[]> {
@@ -22,16 +26,15 @@ export class DoctorService {
       );
   }
 
-  createDoctor(doctorDTO: DoctorDTO): void {
-        this.firestoreService.saveDocumentByAutoId(this.DOCTOR_COLLECTION, doctorDTO).then((res) => {
-          console.log('DOCTOR created');
-        }).catch((err) => {
-          console.log(err);
-        });
+  createDoctor(doctorDTO): void {
+    this.firestoreService.saveDocumentWithCustomId('doctors', doctorDTO, doctorDTO.id)
+      .then(() => {
+      }).catch((err) => {
+    });
   }
 
   updateDoctorInfo(doctor: DoctorDTO, doctorId: string): void {
-    this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION, doctorId, doctor)
+    this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION + '/', doctorId, doctor)
       .then(() => {
         // do something here
         console.log('service updated');
@@ -42,7 +45,7 @@ export class DoctorService {
 
   deleteDoctor(doctorId: string): void {
     // todo: see if exists a recursive delete for a document
-    this.firestoreService.deleteDocById(this.DOCTOR_COLLECTION, doctorId).then(() => {
+    this.firestoreService.deleteDocById(this.DOCTOR_COLLECTION + '/', doctorId).then(() => {
       // do something here
     }, (error) => {
       console.log('Error deleting service', error);

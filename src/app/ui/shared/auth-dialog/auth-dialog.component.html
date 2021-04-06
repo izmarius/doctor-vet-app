@@ -3,14 +3,14 @@
   <p class="section-subtitle text-center m-btn-dialog-row"><strong>{{authText?.title}}</strong></p>
   <p class="card-text text-center" *ngIf="!!authText?.subtitle">{{authText?.subtitle}}</p>
   <div class="m-btn-dialog-row">
-    <button class="btn btn-light m-btn-dialog-row" (click)="authWithGoogle()">
+    <button *ngIf="isGoogleAuth" class="btn btn-light m-btn-dialog-row" (click)="authWithGoogle()">
           <span aria-hidden="true" class="mr-2">
             <img src="../../assets/photos/google-icon.png" alt="Google auth">
           </span>
       {{authText?.googleBtnTxt}}
     </button>
     <form class="mg-bottom" [formGroup]="authFormGroup" (ngSubmit)="onFormSubmit()">
-      <input formControlName="email" type="email" mat
+      <input formControlName="email" type="email"
              class="m-btn-dialog-row form-control" [placeholder]="authText?.emailPlaceholder">
       <input formControlName="password" type="password" minlength="6"
              class="m-btn-dialog-row form-control" [placeholder]="authText?.passwordPlaceholder">

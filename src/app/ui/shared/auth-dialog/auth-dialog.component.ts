@@ -11,6 +11,7 @@ export class AuthDialogComponent implements OnInit {
   authFormGroup: FormGroup;
   @Input() authText: any;
   @Input() dialogRef: MatDialogRef<unknown>;
+  @Input() isGoogleAuth: boolean;
   @Output() emailVerificationEmitter = new EventEmitter();
   @Output() emailPasswordEmitter = new EventEmitter();
   @Output() forgotPasswordEmitter = new EventEmitter();
@@ -34,7 +35,7 @@ export class AuthDialogComponent implements OnInit {
   initAuthForm(): void {
     const emailPattern = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
     this.authFormGroup = new FormGroup({
-      email: new FormControl('pausan@gmail.com', [Validators.required, Validators.pattern(emailPattern)]),
+      email: new FormControl('pausan.ionut.adrian@gmail.com', [Validators.required, Validators.pattern(emailPattern)]),
       password: new FormControl('Start123', [Validators.required, Validators.minLength(6)]),
     });
   }

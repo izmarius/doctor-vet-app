@@ -7,9 +7,12 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 })
 export class UploadPhotoComponent implements OnInit {
   @ViewChild('uploadInput') uploadInput: ElementRef<HTMLElement>;
-  @Output() fileEmitter: EventEmitter<string>;
+  @Output() fileEmitter: EventEmitter<string> = new EventEmitter<string>();
   isUploaded: boolean;
-  constructor() { }
+  private MAX_FILE_SIZE = 400000;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -20,11 +23,15 @@ export class UploadPhotoComponent implements OnInit {
 
   readFile(event): void {
     const reader = new FileReader();
-    reader.readAsText(event.target.files[0]);
+    // returns the file as base64
+    reader.readAsDataURL(event.target.files[0]);
+    if (event.target.files[0].size > this.MAX_FILE_SIZE) {
+      // todo -set max size of file alert('Image to big - it should be less than 4MB');
+      // return;
+    }
     reader.onloadend = () => {
-      const photo = reader.result as string;
       this.isUploaded = true;
-      this.fileEmitter.emit(photo);
+      this.fileEmitter.emit(reader.result as string);
       event.target.value = '';
     };
   }

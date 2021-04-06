@@ -22,11 +22,7 @@ export class LoginDialogComponent implements OnInit {
   }
 
   loginWithEmailAndPassword(loginPayload): void {
-    this.loginService.logIn(loginPayload.email, loginPayload.password);
-  }
-
-  loginWithGoogle(): void {
-    this.loginService.loginWithGoogle(this.dialogRef);
+    this.loginService.logIn(loginPayload.email, loginPayload.password, this.dialogRef);
   }
 
   resetPassword(): void {

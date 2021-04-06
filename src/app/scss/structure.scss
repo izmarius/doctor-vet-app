@@ -23,7 +23,14 @@
   margin-bottom: $mb-card-elem;
 }
 
-input {
-  height: 2rem!important;
+.m-top-small {
+  margin-top: $mb-section-small-subtitle;
 }
 
+input {
+  height: 2rem !important;
+}
+
+button {
+  min-width: 8rem;
+}

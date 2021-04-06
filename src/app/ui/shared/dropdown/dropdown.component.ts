@@ -42,6 +42,7 @@ export class DropdownComponent implements OnInit {
 
   emitSelectedValue(value: string): void {
     this.inputText = value;
+    this.isSearchResult = false;
     this.valueEmitter.emit(value);
   }
 

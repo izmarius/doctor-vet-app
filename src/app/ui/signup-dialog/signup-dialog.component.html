@@ -4,12 +4,6 @@
     <p class="section-subtitle text-center m-btn-dialog-row"><strong>{{signupText?.title}}</strong></p>
     <p class="card-text text-center" *ngIf="!!signupText?.subtitle">{{signupText?.subtitle}}</p>
     <div class="m-btn-dialog-row">
-      <button class="btn btn-light m-btn-dialog-row" (click)="signupWithGoogle()">
-          <span aria-hidden="true" class="mr-2">
-            <img src="../../assets/photos/google-icon.png" alt="Google auth">
-          </span>
-        {{signupText?.googleBtnTxt}}
-      </button>
       <form class="mg-bottom" [formGroup]="authFormGroup" (ngSubmit)="onFormSubmit()">
         <div class="d-flex">
           <input formControlName="email" type="email"
@@ -23,7 +17,8 @@
           <input formControlName="phoneNumber" type="text"
                  class="m-btn-dialog-row form-control" [placeholder]="signupText?.phonePlaceholder">
         </div>
-        <app-dropdown (valueEmitter)="getCounty($event)" [placeholder]="signupText?.county" [seriesList]="counties"></app-dropdown>
+        <app-dropdown (valueEmitter)="setCounty($event)" [placeholder]="signupText?.county"
+                      [seriesList]="counties"></app-dropdown>
         <input formControlName="address" type="text"
                class="m-btn-dialog-row form-control" [placeholder]="signupText?.address">
 
@@ -31,6 +26,7 @@
           <a *ngIf="!signupText?.isLogin" class="txt--underline"
              (click)="resendValidationEmail()">{{signupText?.emailValidationTxt}}</a>
         </div>
+        <li *ngIf="isErrorMessage" class="m-btn-dialog-row error-msg list-style-type-none">{{signupText?.formErrorMessage}}</li>
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-dark">{{signupText?.step1}}</button>
         </div>
@@ -41,6 +37,10 @@
     <div class="d-flex justify-content-end"><span class="icon-close" (click)="closeDialog()"></span></div>
     <p class="section-subtitle text-center m-btn-dialog-row"><strong>{{signupText?.secondStepTitle}}</strong></p>
     <p class="card-text text-center m-btn-dialog-row" *ngFor="let step of secondStepGuide">{{step}}</p>
-    <app-upload-photo></app-upload-photo>
+    <app-upload-photo (fileEmitter)="getUploadedImage($event)"></app-upload-photo>
+    <div class="d-flex justify-content-center">
+      <button [disabled]="isRegisterButtonDisabled" class="btn btn-dark"
+              (click)="signupWithEmailAndPassword()">{{signupText?.buttonStepTwo}}</button>
+    </div>
   </div>
 </div>

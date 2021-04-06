@@ -2,20 +2,27 @@ import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {MatDialogRef} from '@angular/material/dialog';
 import {LoginDialogComponent} from '../../ui/login-dialog/login-dialog.component';
-import firebase from 'firebase';
-import auth = firebase.auth;
+import {DoctorService} from '../doctor/doctor.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogInService {
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(private afAuth: AngularFireAuth,
+              private doctorService: DoctorService) {
   }
 
-  logIn(email, password): Promise<void> {
+  logIn(email, password, dialogRef: MatDialogRef<LoginDialogComponent>): Promise<void> {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((userCredentials) => {
+        if (!userCredentials.user.emailVerified) {
+          this.signOut();
+          return;
+        }
+        // add to local storage
+        this.doctorService.getDoctorById(userCredentials.user.tenantId);
+        dialogRef.close();
         // success message
       })
       .catch((error) => {
@@ -23,28 +30,15 @@ export class LogInService {
       });
   }
 
-  loginWithGoogle(dialog: MatDialogRef<LoginDialogComponent>): Promise<void> {
-    return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider()).then((user) => {
-      if (user.user) {
-        alert('logged');
-        dialog.close();
-      }
-    }).catch((err) => {
-    });
-  }
-
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user === null && user.emailVerified === false) {
-      return false;
-    }
-    return true;
+    return !(user === null || user.emailVerified === false);
   }
 
   signOut(): Promise<void> {
     return this.afAuth.signOut()
       .then(() => {
-        localStorage.removeItem('user'); // todo redirect to sign up/log in page, also add for doctor
+        localStorage.removeItem('user');
       });
   }
 }

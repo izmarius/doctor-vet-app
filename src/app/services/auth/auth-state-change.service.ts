@@ -12,16 +12,15 @@ export class AuthStateChangeService {
       if (user) {
         if (!user.emailVerified) {
           alert('Please verify your email');
-          this.afAuth.signOut();
+          setTimeout(() => {
+            this.afAuth.signOut();
+          }, 1500);
           return;
         }
         this.userData = user;
-        // delete -and create new?
         localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user'));
       } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
+        localStorage.removeItem('user');
       }
     });
   }

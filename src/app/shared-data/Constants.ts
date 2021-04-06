@@ -74,7 +74,9 @@ export const AUTH_SIGNUP_FORM_TEXT = {
   emailValidationTxt: 'Retrimite emailul de validare',
   phonePlaceholder: '0743934XXX',
   namePlaceholder: 'Nume si prenume',
-  county: 'Alege judetul'
+  county: 'Alege judetul',
+  buttonStepTwo: 'Creeaza cont',
+  formErrorMessage: 'Te rugam sa verifici ca toate inputurile sunt completate si ca datele sunt corecte.'
 };
 
 export const COUNTIES = [
