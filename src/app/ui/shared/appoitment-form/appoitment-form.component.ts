@@ -5,6 +5,7 @@ import { take } from 'rxjs/operators';
 import { DoctorDTO } from 'src/app/data/modelDTO/doctor-DTO';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { DoctorServicesService } from 'src/app/services/doctor-service/doctor-services.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-appoitment-form',
@@ -19,7 +20,8 @@ export class AppoitmentFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private doctorService: DoctorService,
-    private servicesService: DoctorServicesService
+    private servicesService: DoctorServicesService,
+    private activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +47,9 @@ export class AppoitmentFormComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.sampleForm.value);
+  }
+
+  onCancelForm(): void {
+    this.activeModal.close();
   }
 }

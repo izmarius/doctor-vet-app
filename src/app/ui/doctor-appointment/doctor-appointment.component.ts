@@ -3,8 +3,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DoctorsAppointmentDTO } from 'src/app/data/modelDTO/doctors-appointment-dto';
 import { DoctorAppointmentsService } from 'src/app/services/doc-appointment-service/doctor-appointments.service';
-import { startOfDay } from 'date-fns';
-import { th } from 'date-fns/locale';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppoitmentFormComponent } from '../shared/appoitment-form/appoitment-form.component';
 
 @Component({
   selector: 'app-doctor-appointment',
@@ -19,7 +19,7 @@ export class DoctorAppointmentComponent implements OnInit, OnDestroy {
   appoitmentList: CalendarEvent[] = [];
   appointmentSubscription: Subscription;
 
-  constructor(private doctorAppoitmentService: DoctorAppointmentsService) { }
+  constructor(private doctorAppoitmentService: DoctorAppointmentsService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.headerTitle = 'Creeaza o programare';
@@ -41,6 +41,10 @@ export class DoctorAppointmentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.appointmentSubscription?.unsubscribe();
+  }
+
+  openApointmentForm(): void {
+    this.modalService.open(AppoitmentFormComponent);
   }
 
 }

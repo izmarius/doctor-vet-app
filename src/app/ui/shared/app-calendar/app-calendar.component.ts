@@ -12,7 +12,7 @@ export class AppCalendarComponent implements OnInit {
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
-  activeDayIsOpen = true;
+  activeDayIsOpen = false;
   @Input() events: [];
 
   setView(view: CalendarView): void {

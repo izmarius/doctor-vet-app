@@ -1,10 +1,4 @@
-<!-- <div class="container-fluid">
-  <form [formGroup]="sampleForm">
-    <input ngbDatepicker (click)="datePicker.toggle()" #datePicker="ngbDatepicker" formControlName="startDate" placeholder="yyyy-mm-dd">
-    <ngb-timepicker formControlName="startTime" meridian="meridian" [spinners]="false"></ngb-timepicker>
-  </form>
-</div> -->
-<div class="container">
+<div class="container" class="modal-body">
   <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="medic">Medic</label>
@@ -59,7 +53,9 @@
         </option>
       </select>
     </div>
-    <button class="btn btn-light" type="submit">Cancel</button>
+    <button class="btn btn-light" type="button" (click)="onCancelForm()">
+      Cancel
+    </button>
     <button class="btn btn-dark" type="submit">Submit</button>
   </form>
 </div>

@@ -24,6 +24,7 @@ import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-app
 import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppoitmentFormModule } from './ui/shared/appoitment-form/appoitment-form.module';
+import { AppoitmentFormComponent } from './ui/shared/appoitment-form/appoitment-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AppoitmentFormModule } from './ui/shared/appoitment-form/appoitment-for
     AppoitmentFormModule
   ],
   providers: [AngularFirestore],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ AppoitmentFormComponent ]
 })
 export class AppModule { }
