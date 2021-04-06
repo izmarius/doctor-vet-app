@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {MatDialogRef} from "@angular/material/dialog";
-import {FirebaseUtilsService} from '../../../services/firebase-utils.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -10,14 +9,14 @@ import {FirebaseUtilsService} from '../../../services/firebase-utils.service';
 })
 export class AuthDialogComponent implements OnInit {
   authFormGroup: FormGroup;
-  @Output() emailPasswordEmitter: EventEmitter<void>;
   @Input() authText: any;
   @Input() dialogRef: MatDialogRef<unknown>;
-  @Output() googleAuthEmitter: EventEmitter<void>;
-  @Output() forgotPasswordEmitter: EventEmitter<void>;
-  @Output() emailVerificationEmitter: EventEmitter<void>;
+  @Output() emailVerificationEmitter = new EventEmitter();
+  @Output() emailPasswordEmitter = new EventEmitter();
+  @Output() forgotPasswordEmitter = new EventEmitter();
+  @Output() googleAuthEmitter = new EventEmitter();
 
-  constructor(private firebaseUtils: FirebaseUtilsService) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -25,7 +24,7 @@ export class AuthDialogComponent implements OnInit {
   }
 
   authWithGoogle(): void {
-    this.googleAuthEmitter.emit();
+    this.googleAuthEmitter.emit(true);
   }
 
   emitCloseEvent(): void {
@@ -35,11 +34,10 @@ export class AuthDialogComponent implements OnInit {
   initAuthForm(): void {
     const emailPattern = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
     this.authFormGroup = new FormGroup({
-      email: new FormControl('ionut.pausan@yahoo.com', [Validators.required, Validators.pattern(emailPattern)]),
+      email: new FormControl('pausan@gmail.com', [Validators.required, Validators.pattern(emailPattern)]),
       password: new FormControl('Start123', [Validators.required, Validators.minLength(6)]),
     });
   }
-
 
   onFormSubmit(): void {
     if (!this.authFormGroup.valid) {
@@ -48,17 +46,17 @@ export class AuthDialogComponent implements OnInit {
       // this.uiAlert.setUiAlertMessage(new AlertDTO(AUTH_DATA.signUp.passwordLengthWarning, ALERT_STYLE_CLASS.error));
     } else {
       this.emailPasswordEmitter.emit({
-        user: this.authFormGroup.controls.email.value,
+        email: this.authFormGroup.controls.email.value,
         password: this.authFormGroup.controls.password.value
       });
     }
   }
 
   resetPassword(): void {
-    this.forgotPasswordEmitter.emit();
+    this.forgotPasswordEmitter.emit(true);
   }
 
   resendValidationEmail(): void {
-    this.emailVerificationEmitter.emit();
+    this.emailVerificationEmitter.emit(true);
   }
 }

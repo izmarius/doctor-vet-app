@@ -8,3 +8,8 @@
     // todo : snapshot changes used to get also the document id - valuechanges will get only the value
 
     // remove css to scss migration dependency
+    // todo: // login only for doctors in web app?
+    // todo login as a doctor or as a user?
+
+    // tab cu "magazinul animalelor sanatoase"
+    // tab cu blog - de ce as cumpara o zgarda cu electososcuri si gps (povestea lui Dino)

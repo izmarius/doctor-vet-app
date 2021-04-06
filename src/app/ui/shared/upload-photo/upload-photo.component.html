@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-center">
+  <button (click)="uploadFile()" class="btn btn-dark">Upload<span class="ml-2 icon-cloud-upload"></span></button>
+  <input class="hide" type="file" #uploadInput (change)="readFile($event)" accept=".png, .jpeg, .jpg"/>
+  <p *ngIf="isUploaded">Image uploaded</p>
+</div>

@@ -21,10 +21,13 @@ import MaterialModule from './material-module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
 import {FooterComponent} from './ui/shared/footer/footer.component';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import { LoginDialogComponent } from './ui/login-dialog/login-dialog.component';
-import { SignupDialogComponent } from './ui/signup-dialog/signup-dialog.component';
-import { AuthDialogComponent } from './ui/shared/auth-dialog/auth-dialog.component';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import {LoginDialogComponent} from './ui/login-dialog/login-dialog.component';
+import {SignupDialogComponent} from './ui/signup-dialog/signup-dialog.component';
+import {AuthDialogComponent} from './ui/shared/auth-dialog/auth-dialog.component';
+import {UploadPhotoComponent} from './ui/shared/upload-photo/upload-photo.component';
+import {DropdownComponent} from './ui/shared/dropdown/dropdown.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { AuthDialogComponent } from './ui/shared/auth-dialog/auth-dialog.compone
     FooterComponent,
     LoginDialogComponent,
     SignupDialogComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    UploadPhotoComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -49,13 +54,14 @@ import { AuthDialogComponent } from './ui/shared/auth-dialog/auth-dialog.compone
     AngularFireAuthModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    NgbModule,
     MaterialModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
   ],
-  providers: [AngularFirestore,
+  providers: [
+    AngularFirestore,
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: {appearance: 'fill'}

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireFunctions} from '@angular/fire/functions';
+import {AuthStateChangeService} from './services/auth/auth-state-change.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import {AngularFireFunctions} from '@angular/fire/functions';
 export class AppComponent implements OnInit {
   title = 'doctor-vet-app';
 
-  constructor(private functions: AngularFireFunctions) {
+  constructor(private functions: AngularFireFunctions,
+              private authStateChange: AuthStateChangeService) {
   }
 
   ngOnInit(): void {

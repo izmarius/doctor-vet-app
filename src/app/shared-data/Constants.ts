@@ -1,4 +1,4 @@
-export const userCard = {
+export const USER_CARD_TXT = {
   datePlaceholder: 'Data si ora procesarii',
   services: 'Servicii cerute',
   animalName: 'Nume animal',
@@ -26,7 +26,7 @@ export const DIALOG_UI_ERRORS = {
 export const FOOTER_ERROR_MSG = 'Verifica inca o data daca emailul tau este valid sau daca mesajul tau nu e gol sau are mai mult de 250 de caractere.';
 
 export const FOOTER_COMPONENT = {
-  buttonText : 'Trimite mesajul!',
+  buttonText: 'Trimite mesajul!',
   placeholderMessage: 'Min 5 caractere, max 250 caractere',
   placeholderEmail: 'popescu1234@gmail.com',
   labelMessage: 'Scrie-ne un mesaj:',
@@ -39,7 +39,8 @@ export const NAVBAR_TEXT = {
   patient: 'Pacienti',
   schedule: 'Programul meu',
   signOut: 'Iesi din cont',
-  signIn: 'Intra in cont'
+  signIn: 'Intra in cont',
+  signUp: 'Creeaza cont'
 };
 
 export const HEADER_TEXT = {
@@ -57,3 +58,66 @@ export const AUTH_LOGIN_FORM_TEXT = {
   isLogin: true,
   forgotPasswordMsg: 'Ai uitat parola?'
 };
+
+
+export const AUTH_SIGNUP_FORM_TEXT = {
+  address: 'Adresa clinicii - Oras, Strada, Numar',
+  googleBtnTxt: 'Creeaza cont cu Google',
+  title: 'Creeaza cont nou',
+  emailPlaceholder: 'john@gmail.com',
+  passwordPlaceholder: 'Parola - minim 6 caractere',
+  step1: 'Urmatorul pas - 1/2 ',
+  step2: 'Trimite inspre validare - 2/2',
+  secondStepTitle: 'Mai ai inca un pas',
+  secondStepText: 'Incarca o fotografie cu buletinul si certificatul de doctor; Asigura-te ca ambele documente sunt in original; Tine documentele la piept astfel incat sa te putem identifica',
+  isLogin: false,
+  emailValidationTxt: 'Retrimite emailul de validare',
+  phonePlaceholder: '0743934XXX',
+  namePlaceholder: 'Nume si prenume',
+  county: 'Alege judetul'
+};
+
+export const COUNTIES = [
+  'Bucuresti',
+  'Iasi',
+  'Prahova',
+  'Cluj',
+  'Constanta',
+  'Timis',
+  'Dolj',
+  'Suceava',
+  'Bacau',
+  'Arges',
+  'Bihor',
+  'Mures',
+  'Brasov',
+  'Galati',
+  'Dambovita',
+  'Maramures',
+  'Neamt',
+  'Buzau',
+  'Olt',
+  'Arad',
+  'Hunedoara',
+  'Botosani',
+  'Sibiu',
+  'Vaslui',
+  'Ilfov',
+  'Teleorman',
+  'Valcea',
+  'Satu Mare',
+  'Alba',
+  'Gorj',
+  'Vrancea',
+  'Braila',
+  'Harghita',
+  'Calarasi',
+  'Caras-Severin',
+  'Bistrita-Nasaud',
+  'Giurgiu',
+  'Ialomiţa',
+  'Mehedinti',
+  'Salaj',
+  'Tulcea',
+  'Covasna'
+];

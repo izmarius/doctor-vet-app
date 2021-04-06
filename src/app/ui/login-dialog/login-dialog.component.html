@@ -1,1 +1,7 @@
-<app-auth-dialog  [authText]="loginText" [dialogRef]="dialogRef"></app-auth-dialog>
+<app-auth-dialog (forgotPasswordEmitter)="resetPassword()"
+                 (googleAuthEmitter)="loginWithGoogle()"
+                 (emailPasswordEmitter)="loginWithEmailAndPassword($event)"
+                 [authText]="loginText"
+                 [dialogRef]="dialogRef">
+
+</app-auth-dialog>

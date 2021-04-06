@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {userCard} from '../../shared-data/Constants';
+import {USER_CARD_TXT} from '../../shared-data/Constants';
 import {DoctorAppointmentsService} from '../../services/doc-appointment-service/doctor-appointments.service';
 import {Subscription} from 'rxjs';
 import {ICardData} from '../shared/user-card/user-card.component';
@@ -27,7 +27,7 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.userCardPlaceholder = userCard;
+    this.userCardPlaceholder = USER_CARD_TXT;
     this.APPOINTMENT_SUB = this.doctorAppointmentService
       .getAllAppointments('o2Jt7YS9zCWvBfDWY08X')
       .subscribe((appointments) => {

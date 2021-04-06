@@ -1,36 +1,35 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { UserService } from '../user/user.service';
-import { AuthStateChangeService } from './auth-state-change.service';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {MatDialogRef} from '@angular/material/dialog';
+import {LoginDialogComponent} from '../../ui/login-dialog/login-dialog.component';
+import firebase from 'firebase';
+import auth = firebase.auth;
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogInService {
 
-constructor(
-  private afAuth: AngularFireAuth,
-  private userService: UserService,
-  private authService: AuthStateChangeService
-) { }
+  constructor(private afAuth: AngularFireAuth) {
+  }
 
   logIn(email, password): Promise<void> {
     return this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((userCredentials) => {
-      this.userService.setUserData(userCredentials.user);
-    })
-    .catch((error) => {
-      window.alert(error.message);
-    });
+      .then((userCredentials) => {
+        // success message
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 
-  forgotPassword(email): Promise<void> {
-    return this.afAuth.sendPasswordResetEmail(email)
-    .then(() => {
-      window.alert('Password email sent, please check your inbox');
-    })
-    .catch((error) => {
-      window.alert(error.message);
+  loginWithGoogle(dialog: MatDialogRef<LoginDialogComponent>): Promise<void> {
+    return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider()).then((user) => {
+      if (user.user) {
+        alert('logged');
+        dialog.close();
+      }
+    }).catch((err) => {
     });
   }
 
