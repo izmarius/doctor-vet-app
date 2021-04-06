@@ -2,15 +2,13 @@ import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {MatDialogRef} from '@angular/material/dialog';
 import {LoginDialogComponent} from '../../ui/login-dialog/login-dialog.component';
-import {DoctorService} from '../doctor/doctor.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogInService {
 
-  constructor(private afAuth: AngularFireAuth,
-              private doctorService: DoctorService) {
+  constructor(private afAuth: AngularFireAuth) {
   }
 
   logIn(email, password, dialogRef: MatDialogRef<LoginDialogComponent>): Promise<void> {
@@ -20,9 +18,8 @@ export class LogInService {
           this.signOut();
           return;
         }
-        // add to local storage
-        this.doctorService.getDoctorById(userCredentials.user.tenantId);
-        dialogRef.close();
+        alert('Login success');
+        dialogRef.close(true);
         // success message
       })
       .catch((error) => {

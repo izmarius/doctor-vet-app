@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
-import {first, map} from 'rxjs/operators';
+import {first, map, take} from 'rxjs/operators';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
@@ -14,8 +14,8 @@ export class DoctorService {
   constructor(private firestoreService: FirestoreService) {
   }
 
-  getDoctorById(doctorId: string): Observable<DoctorDTO[]> {
-    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId);
+  getDoctorById(doctorId: string): Observable<DoctorDTO> {
+    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId).pipe(take(1));
   }
 
   getAllDoctors(): Observable<DoctorDTO[]> {

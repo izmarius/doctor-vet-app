@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireFunctions} from '@angular/fire/functions';
 import {AuthStateChangeService} from './services/auth/auth-state-change.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,15 @@ export class AppComponent implements OnInit {
   title = 'doctor-vet-app';
 
   constructor(private functions: AngularFireFunctions,
-              private authStateChange: AuthStateChangeService) {
+              private authStateChange: AuthStateChangeService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    if (!localStorage.getItem('user')) {
+      alert('Please login');
+      this.router.navigate(['']);
+    }
     // const callable = this.functions.httpsCallable('addAdminRole');
     // const obs = callable({email: 'izmarius.im@gmail.com'});
     //

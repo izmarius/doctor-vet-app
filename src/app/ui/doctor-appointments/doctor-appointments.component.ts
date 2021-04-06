@@ -7,6 +7,7 @@ import {IDoctorsAppointmentsDTO} from '../../data/modelDTO/doctors-appointment-d
 import {MatDialog} from '@angular/material/dialog';
 import {UserAnimalDataDialogComponent} from '../user-animal-data-dialog/user-animal-data-dialog.component';
 import {AnimalService} from '../../services/animal/animal.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-doctor-appointments',
@@ -20,16 +21,19 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   public appointmentMap = {};
   public userCardPlaceholder;
+  private user;
 
   constructor(private doctorAppointmentService: DoctorAppointmentsService,
               private dialog: MatDialog,
-              private animalService: AnimalService) {
+              private animalService: AnimalService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('user');
     this.userCardPlaceholder = USER_CARD_TXT;
     this.APPOINTMENT_SUB = this.doctorAppointmentService
-      .getAllAppointments('o2Jt7YS9zCWvBfDWY08X')
+      .getAllAppointments(this.user.id)
       .subscribe((appointments) => {
         // need to do this because we want to leave the card as a generic component
         this.appointmentList = appointments;
