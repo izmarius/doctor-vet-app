@@ -28,6 +28,8 @@ import {AuthDialogComponent} from './ui/shared/auth-dialog/auth-dialog.component
 import {UploadPhotoComponent} from './ui/shared/upload-photo/upload-photo.component';
 import {DropdownComponent} from './ui/shared/dropdown/dropdown.component';
 import {MatSelectModule} from "@angular/material/select";
+import { DoctorScheduleComponent } from './ui/doctor-schedule/doctor-schedule.component';
+import { AdjustableHeaderComponent } from './ui/shared/adjustable-header/adjustable-header.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {MatSelectModule} from "@angular/material/select";
     SignupDialogComponent,
     AuthDialogComponent,
     UploadPhotoComponent,
-    DropdownComponent
+    DropdownComponent,
+    DoctorScheduleComponent,
+    AdjustableHeaderComponent
   ],
   imports: [
     BrowserModule,

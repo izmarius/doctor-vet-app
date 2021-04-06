@@ -5,20 +5,20 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item" *ngIf="isUserLoggedIn">
           <a class="nav-link"> <span class="icon-location-pin px-1"></span>{{navbarText.locations}}</a>
         </li>
         <li class="nav-item" *ngIf="isUserLoggedIn">
-          <a class="nav-link" routerLink="/doctor-appointments"><span class="icon-calendar px-2"></span>{{navbarText.appointments}}</a>
+          <a class="nav-link" routerLink="/doctor-appointments"><span
+            class="icon-calendar px-2"></span>{{navbarText.appointments}}</a>
         </li>
         <li class="nav-item dropdown" *ngIf="isUserLoggedIn">
           <a class="nav-link"><span class="icon-people px-2"></span>{{navbarText.patient}}</a>
         </li>
         <li class="nav-item" *ngIf="isUserLoggedIn">
-          <a class="nav-link"><span class="icon-clock px-2"></span>{{navbarText.schedule}}</a>
+          <a class="nav-link" routerLink="/doctor-schedule"><span class="icon-clock px-2"></span>{{navbarText.schedule}}</a>
         </li>
         <li class="nav-item" (click)="openLoginDialog()">
           <a class="nav-link"><span class="icon-login px-2"></span>{{navbarText.signIn}}</a>

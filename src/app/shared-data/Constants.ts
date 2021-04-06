@@ -79,6 +79,11 @@ export const AUTH_SIGNUP_FORM_TEXT = {
   formErrorMessage: 'Te rugam sa verifici ca toate inputurile sunt completate si ca datele sunt corecte.'
 };
 
+export const SCHEDULE_HEADER_TEXT = {
+  title: 'Seteaza orele de munca pentru aceasta saptamana',
+  subtitle: 'Orele se vor propaga in calendarul dumneavoastra timp de o luna'
+};
+
 export const COUNTIES = [
   'Bucuresti',
   'Iasi',
