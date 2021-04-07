@@ -14,6 +14,24 @@
 
 //end colors
 
+//start input
+.input-checkbox:hover {
+  cursor: pointer;
+}
+
+//end input
+
+//start anchor
+.highlighted-link {
+  color: cornflowerblue;
+}
+
+.highlighted-link:hover {
+  text-decoration: underline $border-color;
+}
+
+//end anchor
+
 //start border
 .border-with-radius {
   border: $border;
@@ -58,10 +76,12 @@ span[class^="icon"] {
 span[class^="icon"]:hover {
   cursor: pointer;
 }
+
 //end text
 
 //start display
 .hide {
   display: none;
 }
+
 //end display

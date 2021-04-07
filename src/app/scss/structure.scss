@@ -27,6 +27,12 @@
   margin-top: $mb-section-small-subtitle;
 }
 
+.p-bottom-top-small {
+  padding: $p-card 0;
+}
+
+//todo - see where to use boostrap and clean this paddings
+
 input {
   height: 2rem !important;
 }

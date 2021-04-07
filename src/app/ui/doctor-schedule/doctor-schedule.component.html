@@ -1,4 +1,9 @@
   <div>
     <app-adjustable-header [headerContent]="headerContent"></app-adjustable-header>
-    <div class="vet-content"></div>
+    <div class="vet-content test">
+      <app-schedule-setter *ngFor="let day of weekDaysList" [day]="day" (checkEmitter)="getAndSetDay($event)"></app-schedule-setter>
+      <div class="schedule-btn-container">
+        <button class="schedule-btn btn btn-dark" [disabled]="getScheduleStatus()" (click)="saveSchedule()">{{scheduleBtnText}}</button>
+      </div>
+    </div>
   </div>

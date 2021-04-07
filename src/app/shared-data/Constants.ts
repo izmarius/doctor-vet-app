@@ -81,9 +81,24 @@ export const AUTH_SIGNUP_FORM_TEXT = {
 
 export const SCHEDULE_HEADER_TEXT = {
   title: 'Seteaza orele de munca pentru aceasta saptamana',
-  subtitle: 'Orele se vor propaga in calendarul dumneavoastra timp de o luna'
+  subtitle: 'Orele se vor propaga in calendarul dumneavoastra timp de o luna',
+  scheduleButtonText: 'Salveaza programul'
 };
 
+export const DAYS_OF_WEEK = ['Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata', 'Duminica'];
+
+export const DAYS_OF_WEEK_MAP = {
+  monday: 'Luni',
+  tuesday: 'Marti',
+  wednesday: 'Miercuri',
+  thursday: 'Joi',
+  friday: 'Vineri',
+  saturday: 'Sambata',
+  sunday: 'Duminica'
+};
+
+
+export const SCHEDULE_COMPONENT_ERROR_MSG = 'Asigura-te ca orele de inceput si de sfarsit ale zilei sunt completate';
 export const COUNTIES = [
   'Bucuresti',
   'Iasi',

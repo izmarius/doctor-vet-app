@@ -30,6 +30,7 @@ import {DropdownComponent} from './ui/shared/dropdown/dropdown.component';
 import {MatSelectModule} from "@angular/material/select";
 import { DoctorScheduleComponent } from './ui/doctor-schedule/doctor-schedule.component';
 import { AdjustableHeaderComponent } from './ui/shared/adjustable-header/adjustable-header.component';
+import { ScheduleSetterComponent } from './ui/doctor-schedule/schedule-setter/schedule-setter.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdjustableHeaderComponent } from './ui/shared/adjustable-header/adjusta
     UploadPhotoComponent,
     DropdownComponent,
     DoctorScheduleComponent,
-    AdjustableHeaderComponent
+    AdjustableHeaderComponent,
+    ScheduleSetterComponent
   ],
   imports: [
     BrowserModule,
