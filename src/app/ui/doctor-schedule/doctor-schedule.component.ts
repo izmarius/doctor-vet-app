@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SCHEDULE_HEADER_TEXT, DAYS_OF_WEEK, DAYS_OF_WEEK_MAP} from '../../shared-data/Constants';
+import {DoctorService} from '../../services/doctor/doctor.service';
+import {IDaySchedule} from '../../data/modelDTO/doctor-DTO';
 
 @Component({
   selector: 'app-doctor-schedule',
@@ -7,18 +9,18 @@ import {SCHEDULE_HEADER_TEXT, DAYS_OF_WEEK, DAYS_OF_WEEK_MAP} from '../../shared
   styleUrls: ['./doctor-schedule.component.scss']
 })
 export class DoctorScheduleComponent implements OnInit {
+  private storedDoctor;
   headerContent;
-  // interface
-  schedule = DAYS_OF_WEEK_MAP;
-  schedulePayload = {};
-  // create interface?
+  daysOfWeekMap = DAYS_OF_WEEK_MAP;
   weekDaysList: any[] = [];
   scheduleBtnText: string;
+  isSaveButtonDisabled = false;
 
-  constructor() {
+  constructor(private doctorService: DoctorService) {
   }
 
   ngOnInit(): void {
+    this.storedDoctor = JSON.parse(localStorage.getItem('user'));
     this.scheduleBtnText = SCHEDULE_HEADER_TEXT.scheduleButtonText;
     this.weekDaysList = DAYS_OF_WEEK;
     this.headerContent = {
@@ -28,11 +30,10 @@ export class DoctorScheduleComponent implements OnInit {
     };
   }
 
-  getAndSetDay(dayPayload): void {
-    for (const enDay in this.schedule) {
-      if (this.schedule[enDay] === dayPayload.day) {
-        this.schedulePayload[enDay] = dayPayload;
-        console.log(this.schedulePayload);
+  getAndSetDay(dayPayload: IDaySchedule): void {
+    for (const engDay in this.daysOfWeekMap) {
+      if (this.daysOfWeekMap[engDay] === dayPayload.day) {
+        this.storedDoctor.schedule[engDay] = dayPayload;
         return;
       }
     }
@@ -50,14 +51,17 @@ export class DoctorScheduleComponent implements OnInit {
     };
   }
 
-  getScheduleStatus(): boolean {
-    if (this.weekDaysList.length === 0) {
-      return false;
-    }
-    return true;
-  }
-
   saveSchedule(): void {
-
+    if (!this.storedDoctor.schedule && Object.keys(this.storedDoctor.schedule).length === 0) {
+      return;
+    }
+    this.doctorService.updateDoctorInfo({schedule: this.storedDoctor.schedule}, this.storedDoctor.id)
+      .then(() => {
+        localStorage.setItem('user', JSON.stringify(this.storedDoctor));
+        console.log('service updated');
+      }, (error) => {
+        console.log('Error updating service', error);
+      });
   }
+
 }

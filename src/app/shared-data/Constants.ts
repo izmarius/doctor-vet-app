@@ -98,7 +98,10 @@ export const DAYS_OF_WEEK_MAP = {
 };
 
 
-export const SCHEDULE_COMPONENT_ERROR_MSG = 'Asigura-te ca orele de inceput si de sfarsit ale zilei sunt completate';
+export const SCHEDULE_COMPONENT = {
+  ERROR_MSG: 'Asigura-te ca orele de inceput si de sfarsit ale zilei sunt completate corect.',
+  DAY_OFF: 'Zi libera'
+};
 export const COUNTIES = [
   'Bucuresti',
   'Iasi',

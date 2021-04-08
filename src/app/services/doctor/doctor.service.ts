@@ -33,14 +33,8 @@ export class DoctorService {
     });
   }
 
-  updateDoctorInfo(doctor: DoctorDTO, doctorId: string): void {
-    this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION + '/', doctorId, doctor)
-      .then(() => {
-        // do something here
-        console.log('service updated');
-      }, (error) => {
-        console.log('Error updating service', error);
-      });
+  updateDoctorInfo(doctor, doctorId: string): Promise<void> {
+    return this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION + '/', doctorId, doctor);
   }
 
   deleteDoctor(doctorId: string): void {

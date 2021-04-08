@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SCHEDULE_COMPONENT_ERROR_MSG} from '../../../shared-data/Constants';
+import {SCHEDULE_COMPONENT} from '../../../shared-data/Constants';
+import {IDaySchedule} from '../../../data/modelDTO/doctor-DTO';
 
 @Component({
   selector: 'app-schedule-setter',
@@ -7,26 +8,69 @@ import {SCHEDULE_COMPONENT_ERROR_MSG} from '../../../shared-data/Constants';
   styleUrls: ['./schedule-setter.component.scss']
 })
 export class ScheduleSetterComponent implements OnInit {
-  @Output() checkEmitter = new EventEmitter();
+  @Output() checkEmitter = new EventEmitter<IDaySchedule>();
   @Input() day: string;
-  endHour: string = 10;
-  endMinute: string = 10;
-  isChecked = false;
-  startHour: string = 10;
-  startMinute: string = 10;
-  isErrorMessageShown: boolean;
+  @Input() doctorSchedule: Map<string, IDaySchedule>;
+  dayOffMsg: string;
+  endHour: string;
+  endMinute: string;
   errorMessage: string;
+  isChecked = false;
+  isErrorMessageShown: boolean;
+  isOutOfOffice = false;
+  startHour: string;
+  startMinute: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.errorMessage = SCHEDULE_COMPONENT_ERROR_MSG;
+    this.errorMessage = SCHEDULE_COMPONENT.ERROR_MSG;
+    this.dayOffMsg = SCHEDULE_COMPONENT.DAY_OFF;
+    for (const dayKey in this.doctorSchedule) {
+      if (this.day === this.doctorSchedule[dayKey].day) {
+        this.isChecked = this.doctorSchedule[dayKey].isChecked;
+        this.isOutOfOffice = this.doctorSchedule[dayKey].isOutOfOffice;
+        const startTime = this.doctorSchedule[dayKey].startTime.split(':');
+        const endTime = this.doctorSchedule[dayKey].endTime.split(':');
+        this.startHour = startTime[0];
+        this.startMinute = startTime[1];
+        this.endHour = endTime[0];
+        this.endMinute = endTime[1];
+        return;
+      }
+    }
+  }
+
+  areDayHoursInvalid(): boolean {
+    return !this.startMinute || !this.endMinute || !this.startHour || !this.endHour || this.isHourMinuteIntervalInvalid();
+  }
+
+  isHourMinuteIntervalInvalid(): boolean {
+    return parseInt(this.startHour, 10) > 23 || parseInt(this.endHour, 10) > 23
+      || parseInt(this.startMinute, 10) > 60 || parseInt(this.endMinute, 10) > 60;
+  }
+
+  getDoctorSchedulePayload(): IDaySchedule {
+    return {
+      isChecked: this.isChecked,
+      startTime: this.startHour + ':' + this.startMinute,
+      endTime: this.endHour + ':' + this.endMinute,
+      day: this.day,
+      isOutOfOffice: this.isOutOfOffice
+    };
+  }
+
+  changeDate(): void {
+    if (!this.areDayHoursInvalid()) {
+      this.checkEmitter.emit(this.getDoctorSchedulePayload());
+      this.isErrorMessageShown = false;
+    } else {
+      this.isErrorMessageShown = true;
+    }
   }
 
   setAndEmitDayInfo(): void {
-
-    // todo: end time > start time!!! validation
     if (this.isChecked && this.areDayHoursInvalid()) {
       this.isErrorMessageShown = false;
       return;
@@ -35,21 +79,14 @@ export class ScheduleSetterComponent implements OnInit {
       return;
     }
     this.isErrorMessageShown = false;
-
-    const dayPayload = {
-      isChecked: !this.isChecked,
-      startTime: this.startHour + ':' + this.startMinute,
-      endTime: this.endMinute + ':' + this.endMinute,
-      day: this.day,
-    };
-    this.checkEmitter.emit(dayPayload);
+    this.isChecked = !this.isChecked;
+    this.checkEmitter.emit(this.getDoctorSchedulePayload());
   }
 
-  areDayHoursInvalid(): boolean {
-    return !this.startMinute || !this.endMinute || !this.startHour || !this.endHour;
-  }
 
   setOutOfOfficeDay(): void {
-
+    this.isOutOfOffice = !this.isOutOfOffice;
+    this.isChecked = false;
+    this.setAndEmitDayInfo();
   }
 }

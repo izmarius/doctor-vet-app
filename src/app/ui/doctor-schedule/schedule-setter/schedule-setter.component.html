@@ -5,14 +5,23 @@
       <p>{{day}}</p>
     </div>
     <div class="d-flex justify-content-center time-inputs">
-      <input class="form-control mr-1" type="text" maxlength="2" placeholder="00" [(ngModel)]="startHour">
-      <input class="form-control mr-2" type="text" maxlength="2" placeholder="00" [(ngModel)]="startMinute">
+      <input class="form-control mr-1" type="text" maxlength="2" placeholder="00"
+             (focusout)="changeDate()"
+             [(ngModel)]="startHour">
+      <input class="form-control mr-2" type="text" maxlength="2" placeholder="00"
+             (focusout)="changeDate()"
+             [(ngModel)]="startMinute">
       <span class="mr-2">to</span>
-      <input class="form-control mr-1" type="text" maxlength="2" placeholder="23" [(ngModel)]="endHour">
-      <input class="form-control mr-2" type="text" maxlength="2" placeholder="45" [(ngModel)]="endMinute">
+      <input class="form-control mr-1" type="text" maxlength="2" placeholder="23"
+             (focusout)="changeDate()"
+             [(ngModel)]="endHour">
+      <input class="form-control mr-2" type="text" maxlength="2" placeholder="45"
+             (focusout)="changeDate()"
+             [(ngModel)]="endMinute">
       <a class="highlighted-link" (click)="setOutOfOfficeDay()">concediu</a>
     </div>
   </div>
+  <p *ngIf="isOutOfOffice">{{dayOffMsg}}</p>
   <li class="list-style-type-none error-msg m-btn-dialog-row" *ngIf="isErrorMessageShown">{{errorMessage}}</li>
 </div>
 
