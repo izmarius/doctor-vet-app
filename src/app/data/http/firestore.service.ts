@@ -70,6 +70,13 @@ export class FirestoreService {
     return this.firestore.collection(collection).add(JSON.parse(JSON.stringify(data)));
   }
 
+  /**
+   * Saves a new document into a collection
+   */
+  saveDocumentWithCustomId(collection: string, data = null, documentId: string): Promise<any> {
+    return this.firestore.collection(collection).doc(documentId).set(JSON.parse(JSON.stringify(data)));
+  }
+
   // update
   /**
    * Updates an existing document with the new field or updates an entire document

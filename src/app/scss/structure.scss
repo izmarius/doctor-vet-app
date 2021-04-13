@@ -23,7 +23,20 @@
   margin-bottom: $mb-card-elem;
 }
 
-input {
-  height: 2rem!important;
+.m-top-small {
+  margin-top: $mb-section-small-subtitle;
 }
 
+.p-bottom-top-small {
+  padding: $p-card 0;
+}
+
+//todo - see where to use boostrap and clean this paddings
+
+input {
+  height: 2rem !important;
+}
+
+button {
+  min-width: 8rem;
+}
