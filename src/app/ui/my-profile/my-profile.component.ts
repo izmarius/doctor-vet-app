@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import IPhotoTitle from './photo-text/photo-text.component';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {MY_PROFILE} from '../../shared-data/Constants';
+import {INPUT_LABELS_TXT, INPUT_REGEX_TEXTS, MY_PROFILE} from '../../shared-data/Constants';
 import {DoctorService} from '../../services/doctor/doctor.service';
 
 @Component({
@@ -24,15 +24,15 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDataText = MY_PROFILE;
+    this.userDataText.labels = INPUT_LABELS_TXT;
     this.userData = JSON.parse(localStorage.getItem('user'));
     this.setProfileData();
     this.initEditUserForm();
   }
 
   initEditUserForm(): void {
-    // todo: add it to constants?
-    const emailPattern = '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$';
-    const phonePattern = '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$';
+    const emailPattern = INPUT_REGEX_TEXTS.email;
+    const phonePattern = INPUT_REGEX_TEXTS.phoneNumber;
 
     this.userForm = new FormGroup({
       email: new FormControl(this.userData.email, [Validators.required, Validators.pattern(emailPattern)]),
@@ -86,10 +86,9 @@ export class MyProfileComponent implements OnInit {
         }
       }
     }
-    // todo: check if the data is changed? to not do so many requests to db - compare with what is in cache
     this.doctorService.updateDoctorInfo(this.getUserData(), this.userData.id).then(() => {
       localStorage.setItem('user', JSON.stringify(this.getUserData()));
-      this.formSuccessMessage = MY_PROFILE.formSuccesMessage;
+      this.formSuccessMessage = MY_PROFILE.formSuccessMessage;
       this.isFormValid = false;
       this.profileHeaderData.title = this.userData.doctorName;
       setTimeout(() => {

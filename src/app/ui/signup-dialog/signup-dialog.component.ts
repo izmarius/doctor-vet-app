@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FirebaseUtilsService} from '../../services/firebase-utils.service';
 import {SignUpService} from '../../services/auth/sign-up.service';
-import {AUTH_SIGNUP_FORM_TEXT, COUNTIES} from '../../shared-data/Constants';
+import {AUTH_SIGNUP_FORM_TEXT, COUNTIES, INPUT_LABELS_TXT} from '../../shared-data/Constants';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
@@ -32,6 +32,7 @@ export class SignupDialogComponent implements OnInit {
   ngOnInit(): void {
     this.counties = COUNTIES;
     this.signupText = AUTH_SIGNUP_FORM_TEXT;
+    this.signupText.labels = INPUT_LABELS_TXT;
     this.initAuthForm();
   }
 

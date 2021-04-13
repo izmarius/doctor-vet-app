@@ -36,19 +36,29 @@ export const FOOTER_COMPONENT = {
 export const MY_PROFILE = {
   editBtn: 'Editeaza profilul',
   namePlaceholder: 'Ion Popescu',
-  doctorNameLabel: 'Nume',
   emailPlaceholder: 'pausan@gmail.com',
-  emailLabel: 'Email',
   locationPlaceholder: 'Cluj-Napoca, nr 5, sc 5 app 33',
-  locationLabel: 'Location',
   locationURLPlaceholder: 'URL se poate copia de pe google maps',
-  locationURLLabel: 'Google Maps URL',
   phonePlaceholder: '0743922xxx',
-  phoneLabel: 'Telefon',
-  clinicLabel: 'Clinica',
   clinicPlaceholder: 'Regina Maria',
   errorMessage: ['Campul', 'lipseste sau este incorect'],
-  formSuccesMessage: 'Editarea profilului a fost facuta cu succes'
+  formSuccessMessage: 'Editarea profilului a fost facuta cu succes'
+};
+
+export const INPUT_LABELS_TXT = {
+  doctorNameLabel: 'Nume',
+  locationLabel: 'Location',
+  locationURLLabel: 'Google Maps URL',
+  clinicLabel: 'Clinica',
+  emailLabel: 'Email',
+  phoneLabel: 'Telefon',
+  passwordLabel: 'Parola',
+  countyLabel: 'Judet'
+};
+
+export const INPUT_REGEX_TEXTS = {
+  email: '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$',
+  phoneNumber: '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$'
 };
 
 export const NAVBAR_TEXT = {

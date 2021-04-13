@@ -10,8 +10,10 @@
       {{authText?.googleBtnTxt}}
     </button>
     <form class="mg-bottom" [formGroup]="authFormGroup" (ngSubmit)="onFormSubmit()">
+      <label>{{authText?.labels.emailLabel}}</label>
       <input formControlName="email" type="email"
              class="m-btn-dialog-row form-control" [placeholder]="authText?.emailPlaceholder">
+      <label>{{authText?.labels.passwordLabel}}</label>
       <input formControlName="password" type="password" minlength="6"
              class="m-btn-dialog-row form-control" [placeholder]="authText?.passwordPlaceholder">
       <div class="m-btn-dialog-row d-flex justify-content-between">

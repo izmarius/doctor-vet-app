@@ -1,22 +1,22 @@
 <div class="vet-content my-profile-container">
   <app-photo-text [data]="profileHeaderData"></app-photo-text>
   <form class="mg-bottom" [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
-    <label>{{userDataText?.emailLabel}}</label>
-    <input formControlName="email" type="email" id="email"
+    <label>{{userDataText?.labels.emailLabel}}</label>
+    <input formControlName="email" type="email"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.emailPlaceholder">
-    <label>{{userDataText?.doctorNameLabel}}</label>
+    <label>{{userDataText?.labels.doctorNameLabel}}</label>
     <input formControlName="doctorName" type="text"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.doctorName">
-    <label>{{userDataText?.phoneLabel}}</label>
+    <label>{{userDataText?.labels.phoneLabel}}</label>
     <input formControlName="phoneNumber" type="text" maxlength="10"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.phonePlaceholder">
-    <label>{{userDataText?.clinicLabel}}</label>
+    <label>{{userDataText?.labels.clinicLabel}}</label>
     <input formControlName="clinicName" type="text"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.clinicPlaceholder">
-    <label>{{userDataText?.locationLabel}}</label>
+    <label>{{userDataText?.labels.locationLabel}}</label>
     <input formControlName="location" type="text"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.locationPlaceholder">
-    <label>{{userDataText?.locationURLLabel}}</label>
+    <label>{{userDataText?.labels.locationURLLabel}}</label>
     <input formControlName="locationGMapsUrl" type="text"
            class="m-btn-dialog-row form-control" [placeholder]="userDataText?.locationURLPlaceholder">
     <li class="error-msg list-style-type-none mt-2 mb-4" *ngIf="isFormValid">{{formErrorMessage}}</li>

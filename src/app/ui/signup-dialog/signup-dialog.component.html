@@ -5,20 +5,34 @@
     <p class="card-text text-center" *ngIf="!!signupText?.subtitle">{{signupText?.subtitle}}</p>
     <div class="m-btn-dialog-row">
       <form class="mg-bottom" [formGroup]="authFormGroup" (ngSubmit)="onFormSubmit()">
-        <div class="d-flex">
-          <input formControlName="email" type="email"
-                 class="m-btn-dialog-row form-control mr-2" [placeholder]="signupText?.emailPlaceholder">
-          <input formControlName="password" type="password"
-                 class="m-btn-dialog-row form-control" [placeholder]="signupText?.passwordPlaceholder">
+        <div class="d-flex justify-content-between">
+          <div class="col-element">
+            <label>{{signupText?.labels.emailLabel}}</label>
+            <input formControlName="email" type="email"
+                   class="m-btn-dialog-row form-control mr-2" [placeholder]="signupText?.emailPlaceholder">
+          </div>
+          <div class="col-element">
+            <label>{{signupText?.labels.passwordLabel}}</label>
+            <input formControlName="password" type="password"
+                   class="m-btn-dialog-row form-control" [placeholder]="signupText?.passwordPlaceholder">
+          </div>
         </div>
-        <div class="d-flex">
-          <input formControlName="name" type="text"
-                 class="m-btn-dialog-row form-control mr-2" [placeholder]="signupText?.namePlaceholder">
-          <input formControlName="phoneNumber" type="text"
-                 class="m-btn-dialog-row form-control" [placeholder]="signupText?.phonePlaceholder">
+        <div class="d-flex justify-content-between">
+          <div class="col-element">
+            <label>{{signupText?.labels.doctorNameLabel}}</label>
+            <input formControlName="name" type="text"
+                   class="m-btn-dialog-row form-control mr-2" [placeholder]="signupText?.namePlaceholder">
+          </div>
+          <div class="col-element">
+            <label>{{signupText?.labels.phoneLabel}}</label>
+            <input formControlName="phoneNumber" type="text"
+                   class="m-btn-dialog-row form-control" [placeholder]="signupText?.phonePlaceholder">
+          </div>
         </div>
+        <label>{{signupText?.labels.countyLabel}}</label>
         <app-dropdown (valueEmitter)="setCounty($event)" [placeholder]="signupText?.county"
                       [seriesList]="counties"></app-dropdown>
+        <label>{{signupText?.labels.locationLabel}}</label>
         <input formControlName="address" type="text"
                class="m-btn-dialog-row form-control" [placeholder]="signupText?.address">
 
@@ -26,7 +40,8 @@
           <a *ngIf="!signupText?.isLogin" class="txt--underline"
              (click)="resendValidationEmail()">{{signupText?.emailValidationTxt}}</a>
         </div>
-        <li *ngIf="isErrorMessage" class="m-btn-dialog-row error-msg list-style-type-none">{{signupText?.formErrorMessage}}</li>
+        <li *ngIf="isErrorMessage"
+            class="m-btn-dialog-row error-msg list-style-type-none">{{signupText?.formErrorMessage}}</li>
         <div class="d-flex justify-content-center">
           <button type="submit" class="btn btn-dark">{{signupText?.step1}}</button>
         </div>

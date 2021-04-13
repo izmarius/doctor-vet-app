@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AUTH_LOGIN_FORM_TEXT} from '../../shared-data/Constants';
+import {AUTH_LOGIN_FORM_TEXT, INPUT_LABELS_TXT} from '../../shared-data/Constants';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FirebaseUtilsService} from '../../services/firebase-utils.service';
 import {LogInService} from '../../services/auth/log-in.service';
@@ -19,6 +19,7 @@ export class LoginDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginText = AUTH_LOGIN_FORM_TEXT;
+    this.loginText.labels = INPUT_LABELS_TXT;
   }
 
   loginWithEmailAndPassword(loginPayload): void {
