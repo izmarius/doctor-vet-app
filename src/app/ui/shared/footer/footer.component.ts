@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {FOOTER_COMPONENT, FOOTER_ERROR_MSG} from '../../../shared-data/Constants';
+import {FOOTER_COMPONENT, FOOTER_ERROR_MSG, INPUT_LABELS_TXT} from '../../../shared-data/Constants';
 import {MessagesService} from '../../../services/messages/messages.service';
 
 @Component({
@@ -18,6 +18,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.formText = FOOTER_COMPONENT;
+    this.formText.labels = INPUT_LABELS_TXT;
     this.initContactForm();
   }
 

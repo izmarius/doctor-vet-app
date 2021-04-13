@@ -29,8 +29,6 @@ export const FOOTER_COMPONENT = {
   buttonText: 'Trimite mesajul!',
   placeholderMessage: 'Min 5 caractere, max 250 caractere',
   placeholderEmail: 'popescu1234@gmail.com',
-  labelMessage: 'Scrie-ne un mesaj:',
-  labelEmail: 'Email'
 };
 
 export const MY_PROFILE = {
@@ -53,7 +51,8 @@ export const INPUT_LABELS_TXT = {
   emailLabel: 'Email',
   phoneLabel: 'Telefon',
   passwordLabel: 'Parola',
-  countyLabel: 'Judet'
+  countyLabel: 'Judet',
+  messageLabel: 'Scrie-ne un mesaj:',
 };
 
 export const INPUT_REGEX_TEXTS = {

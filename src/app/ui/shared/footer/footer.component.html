@@ -9,10 +9,10 @@
       <div class="footer__form__container">
         <p class=""><strong>Scrie-ne un mesaj:</strong></p>
         <form class="d-flex flex-column" [formGroup]="contactForm" (ngSubmit)="onFormSubmit(errorElement)">
-          <label class="m-btn-small" for="email">{{formText.labelEmail}}</label>
-          <input id="email" type="text" name="email" class="form-control m-btn-small"
+          <label>{{formText?.labels.emailLabel}}</label>
+          <input type="text" name="email" class="form-control m-btn-small"
                  [placeholder]="formText.placeholderEmail" formControlName="email">
-          <label class="m-btn-small" for="message">{{formText.labelMessage}}</label>
+          <label for="message">{{formText?.labels.messageLabel}}</label>
           <textarea id="message" type="text" name="message" class="form-control m-btn-small"
                     [placeholder]="formText.placeholderMessage" formControlName="message"></textarea>
           <li class="hide error-msg m-btn-small" #errorElement>{{errorMessage}}</li>
