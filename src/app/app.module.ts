@@ -27,10 +27,11 @@ import {SignupDialogComponent} from './ui/signup-dialog/signup-dialog.component'
 import {AuthDialogComponent} from './ui/shared/auth-dialog/auth-dialog.component';
 import {UploadPhotoComponent} from './ui/shared/upload-photo/upload-photo.component';
 import {DropdownComponent} from './ui/shared/dropdown/dropdown.component';
-import {MatSelectModule} from "@angular/material/select";
 import { DoctorScheduleComponent } from './ui/doctor-schedule/doctor-schedule.component';
 import { AdjustableHeaderComponent } from './ui/shared/adjustable-header/adjustable-header.component';
 import { ScheduleSetterComponent } from './ui/doctor-schedule/schedule-setter/schedule-setter.component';
+import { MyProfileComponent } from './ui/my-profile/my-profile.component';
+import { PhotoTextComponent } from './ui/my-profile/photo-text/photo-text.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { ScheduleSetterComponent } from './ui/doctor-schedule/schedule-setter/sc
     DropdownComponent,
     DoctorScheduleComponent,
     AdjustableHeaderComponent,
-    ScheduleSetterComponent
+    ScheduleSetterComponent,
+    MyProfileComponent,
+    PhotoTextComponent
   ],
   imports: [
     BrowserModule,

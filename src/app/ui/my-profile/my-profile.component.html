@@ -1,0 +1,28 @@
+<div class="vet-content my-profile-container">
+  <app-photo-text [data]="profileHeaderData"></app-photo-text>
+  <form class="mg-bottom" [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <label>{{userDataText?.emailLabel}}</label>
+    <input formControlName="email" type="email" id="email"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.emailPlaceholder">
+    <label>{{userDataText?.doctorNameLabel}}</label>
+    <input formControlName="doctorName" type="text"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.doctorName">
+    <label>{{userDataText?.phoneLabel}}</label>
+    <input formControlName="phoneNumber" type="text" maxlength="10"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.phonePlaceholder">
+    <label>{{userDataText?.clinicLabel}}</label>
+    <input formControlName="clinicName" type="text"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.clinicPlaceholder">
+    <label>{{userDataText?.locationLabel}}</label>
+    <input formControlName="location" type="text"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.locationPlaceholder">
+    <label>{{userDataText?.locationURLLabel}}</label>
+    <input formControlName="locationGMapsUrl" type="text"
+           class="m-btn-dialog-row form-control" [placeholder]="userDataText?.locationURLPlaceholder">
+    <li class="error-msg list-style-type-none mt-2 mb-4" *ngIf="isFormValid">{{formErrorMessage}}</li>
+    <li class="list-style-type-none success-msg mt-2 mb-4" *ngIf="!isFormValid">{{formSuccessMessage}}</li>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-dark" [disabled]="!userForm.dirty || isDataChanged()">{{userDataText?.editBtn}}</button>
+    </div>
+  </form>
+</div>

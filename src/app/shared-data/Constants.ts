@@ -33,6 +33,24 @@ export const FOOTER_COMPONENT = {
   labelEmail: 'Email'
 };
 
+export const MY_PROFILE = {
+  editBtn: 'Editeaza profilul',
+  namePlaceholder: 'Ion Popescu',
+  doctorNameLabel: 'Nume',
+  emailPlaceholder: 'pausan@gmail.com',
+  emailLabel: 'Email',
+  locationPlaceholder: 'Cluj-Napoca, nr 5, sc 5 app 33',
+  locationLabel: 'Location',
+  locationURLPlaceholder: 'URL se poate copia de pe google maps',
+  locationURLLabel: 'Google Maps URL',
+  phonePlaceholder: '0743922xxx',
+  phoneLabel: 'Telefon',
+  clinicLabel: 'Clinica',
+  clinicPlaceholder: 'Regina Maria',
+  errorMessage: ['Campul', 'lipseste sau este incorect'],
+  formSuccesMessage: 'Editarea profilului a fost facuta cu succes'
+};
+
 export const NAVBAR_TEXT = {
   locations: 'Locatii',
   appointments: 'Programari',
@@ -40,7 +58,8 @@ export const NAVBAR_TEXT = {
   schedule: 'Programul meu',
   signOut: 'Iesi din cont',
   signIn: 'Intra in cont',
-  signUp: 'Creeaza cont'
+  signUp: 'Creeaza cont',
+  myProfile: 'Profilul meu'
 };
 
 export const HEADER_TEXT = {
