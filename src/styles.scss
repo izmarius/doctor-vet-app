@@ -8,9 +8,9 @@ html, body {
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", sans-serif;
   color: $text-color;
   line-height: $lh-text;
+  font-family: Raleway-Bold,Helvetica,"Helvetica Neue",sans-serif!important;
 }
 
 p {
@@ -24,11 +24,4 @@ button {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-a{
-  text-decoration: none;
-  color: $text-color;
-  font-size: $fs-text;
-}
-a:hover {
-  cursor: pointer;
-}
+

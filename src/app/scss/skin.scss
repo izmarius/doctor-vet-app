@@ -1,3 +1,5 @@
+
+
 //start colors
 .bg-main {
   background: $bg-main-color;
@@ -31,6 +33,16 @@
   color: cornflowerblue;
 }
 
+a {
+  text-decoration: none;
+  color: $text-color;
+  font-size: $fs-link;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 .highlighted-link:hover {
   text-decoration: underline $border-color;
 }
@@ -54,6 +66,11 @@
 //end border
 
 //start text
+.main-title {
+  font-size: $fs-title;
+  font-weight: $bold-title;
+}
+
 .section-title {
   font-size: $fs-section-title;
   font-weight: $bold-subtitle;
