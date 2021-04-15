@@ -21,17 +21,18 @@ import MaterialModule from './material-module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
 import {FooterComponent} from './ui/shared/footer/footer.component';
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {LoginDialogComponent} from './ui/login-dialog/login-dialog.component';
 import {SignupDialogComponent} from './ui/signup-dialog/signup-dialog.component';
 import {AuthDialogComponent} from './ui/shared/auth-dialog/auth-dialog.component';
 import {UploadPhotoComponent} from './ui/shared/upload-photo/upload-photo.component';
 import {DropdownComponent} from './ui/shared/dropdown/dropdown.component';
-import { DoctorScheduleComponent } from './ui/doctor-schedule/doctor-schedule.component';
-import { AdjustableHeaderComponent } from './ui/shared/adjustable-header/adjustable-header.component';
-import { ScheduleSetterComponent } from './ui/doctor-schedule/schedule-setter/schedule-setter.component';
-import { MyProfileComponent } from './ui/my-profile/my-profile.component';
-import { PhotoTextComponent } from './ui/my-profile/photo-text/photo-text.component';
+import {DoctorScheduleComponent} from './ui/doctor-schedule/doctor-schedule.component';
+import {AdjustableHeaderComponent} from './ui/shared/adjustable-header/adjustable-header.component';
+import {ScheduleSetterComponent} from './ui/doctor-schedule/schedule-setter/schedule-setter.component';
+import {MyProfileComponent} from './ui/my-profile/my-profile.component';
+import {PhotoTextComponent} from './ui/my-profile/photo-text/photo-text.component';
+import {NgParticlesModule} from 'ng-particles';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { PhotoTextComponent } from './ui/my-profile/photo-text/photo-text.compon
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    NgParticlesModule
   ],
   providers: [
     AngularFirestore,
