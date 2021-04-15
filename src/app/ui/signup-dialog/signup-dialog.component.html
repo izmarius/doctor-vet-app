@@ -1,6 +1,6 @@
 <div id="container" class="d-flex align-content-center justify-content-center">
   <div *ngIf="!isAllowedToGoToSecondStep">
-    <div class="d-flex justify-content-end"><span class="icon-close" (click)="closeDialog()"></span></div>
+    <div class="d-flex justify-content-end"><span class="icon-close modal-close-icon" (click)="closeDialog()"></span></div>
     <p class="section-subtitle text-center m-btn-dialog-row"><strong>{{signupText?.title}}</strong></p>
     <p class="card-text text-center" *ngIf="!!signupText?.subtitle">{{signupText?.subtitle}}</p>
     <div class="m-btn-dialog-row">
@@ -43,7 +43,7 @@
         <li *ngIf="isErrorMessage"
             class="m-btn-dialog-row error-msg list-style-type-none">{{signupText?.formErrorMessage}}</li>
         <div class="d-flex justify-content-center">
-          <button type="submit" class="btn btn-dark">{{signupText?.step1}}</button>
+          <button type="submit" class="btn button--active">{{signupText?.step1}}</button>
         </div>
       </form>
     </div>
@@ -54,7 +54,7 @@
     <p class="card-text text-center m-btn-dialog-row" *ngFor="let step of secondStepGuide">{{step}}</p>
     <app-upload-photo (fileEmitter)="getUploadedImage($event)"></app-upload-photo>
     <div class="d-flex justify-content-center">
-      <button [disabled]="isRegisterButtonDisabled" class="btn btn-dark"
+      <button [disabled]="isRegisterButtonDisabled" class="btn button--active"
               (click)="signupWithEmailAndPassword()">{{signupText?.buttonStepTwo}}</button>
     </div>
   </div>

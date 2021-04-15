@@ -9,6 +9,10 @@
   background: $bg-alternate-color;
 }
 
+.bg-second-color {
+  background: $second-color;
+}
+
 .error-msg {
   color: $error-color;
   font-size: $fs-link;
@@ -19,6 +23,20 @@
   font-size: $fs-link;
 }
 
+.button--active {
+  background: $first-color;
+  color: $bg-main-color;
+}
+
+.modal-close-icon {
+  color: $first-color;
+}
+
+.button--active:hover {
+  background: $first-color;
+  font-size: calc(1rem + 0.1rem);
+  color: $bg-main-color;
+}
 //end colors
 
 //start input

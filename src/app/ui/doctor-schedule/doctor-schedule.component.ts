@@ -43,7 +43,7 @@ export class DoctorScheduleComponent implements OnInit {
     return {
       headerContainer: {
         height: '300px',
-        background: '#f2f2f2'
+        background: '#ffdc4d',
       },
       headerContent: {
         height: '180px'

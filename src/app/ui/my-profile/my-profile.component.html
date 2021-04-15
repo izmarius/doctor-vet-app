@@ -22,7 +22,7 @@
     <li class="error-msg list-style-type-none mt-2 mb-4" *ngIf="isFormValid">{{formErrorMessage}}</li>
     <li class="list-style-type-none success-msg mt-2 mb-4" *ngIf="!isFormValid">{{formSuccessMessage}}</li>
     <div class="d-flex justify-content-center">
-      <button type="submit" class="btn btn-dark" [disabled]="!userForm.dirty || isDataChanged()">{{userDataText?.editBtn}}</button>
+      <button type="submit" class="btn button--active" [disabled]="!userForm.dirty || isDataChanged()">{{userDataText?.editBtn}}</button>
     </div>
   </form>
 </div>

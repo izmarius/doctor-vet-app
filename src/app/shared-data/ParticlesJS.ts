@@ -37,7 +37,7 @@ export const PARTICLE_OPTIONS = {
   },
   particles: {
     color: {
-      value: ['#16a085', '#f1c40f', '#e67e22', '#e74c3c', '#1abc9c']
+      value: ['#ed553b', '#ffdc4d', '#F8F9FF', '#e74c3c', '#1abc9c']
     },
     links: {
       color: '#ffffff',

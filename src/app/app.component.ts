@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (!localStorage.getItem('user')) {
-      alert('Please login');
       this.router.navigate(['']);
     }
     // const callable = this.functions.httpsCallable('addAdminRole');
