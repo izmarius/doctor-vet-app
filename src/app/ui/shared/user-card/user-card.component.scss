@@ -1,14 +1,16 @@
 @import "src/app/scss/constants";
 
 .card__container {
-  background: $bg-main-color;
   border: $border;
   border-radius: $border-radius;
-  padding: $p-card;
+}
+
+.card__container p {
+  padding: 0 $p-card;
 }
 
 .card__img_container {
-  width: 30%;
+  padding: $p-card;
 }
 
 .card__img {

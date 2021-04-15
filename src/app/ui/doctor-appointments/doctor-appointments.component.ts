@@ -25,12 +25,11 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   constructor(private doctorAppointmentService: DoctorAppointmentsService,
               private dialog: MatDialog,
-              private animalService: AnimalService,
-              private router: Router) {
+              private animalService: AnimalService) {
   }
 
   ngOnInit(): void {
-    this.user = localStorage.getItem('user');
+    this.user = JSON.parse(localStorage.getItem('user'));
     this.userCardPlaceholder = USER_CARD_TXT;
     this.APPOINTMENT_SUB = this.doctorAppointmentService
       .getAllAppointments(this.user.id)
