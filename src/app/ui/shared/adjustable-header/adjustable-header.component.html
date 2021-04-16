@@ -2,7 +2,7 @@
   <div class="d-flex col-flex-col-center" [ngStyle]="headerContent?.style.headerContainer">
     <div class="header-content">
       <div class="header-text mb-5">
-        <h2 *ngIf="isTitle" class="text-center">{{headerContent?.title}}</h2>
+        <h2 *ngIf="isTitle" class="text-center header-title">{{headerContent?.title}}</h2>
         <p *ngIf="isSubtitle" class="text-center p-subtitle">{{headerContent?.subtitle}}</p>
       </div>
       <div class="header-btn-container d-flex justify-content-center" *ngIf="isButton">

@@ -33,6 +33,13 @@ import {ScheduleSetterComponent} from './ui/doctor-schedule/schedule-setter/sche
 import {MyProfileComponent} from './ui/my-profile/my-profile.component';
 import {PhotoTextComponent} from './ui/my-profile/photo-text/photo-text.component';
 import {NgParticlesModule} from 'ng-particles';
+import { TextCardComponent } from './ui/shared/text-card/text-card.component';
+import { FeaturesComponent } from './ui/features/features.component';
+import { HomePageComponent } from './ui/home-page/home-page.component';
+import { ActionSectionComponent } from './ui/shared/action-section/action-section.component';
+import { ArticleSectionTextComponent } from './ui/shared/article-section-text/article-section-text.component';
+import { ArticleSectionStepsComponent } from './ui/shared/article-section-steps/article-section-steps.component';
+import { ArticleSectionImageComponent } from './ui/shared/article-section-image/article-section-image.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +60,14 @@ import {NgParticlesModule} from 'ng-particles';
     AdjustableHeaderComponent,
     ScheduleSetterComponent,
     MyProfileComponent,
-    PhotoTextComponent
+    PhotoTextComponent,
+    TextCardComponent,
+    FeaturesComponent,
+    HomePageComponent,
+    ActionSectionComponent,
+    ArticleSectionTextComponent,
+    ArticleSectionStepsComponent,
+    ArticleSectionImageComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@
   margin-bottom: $mb-section-title-subtitle;
 }
 
+.m-btn-header {
+  margin-bottom: $mb-section-header;
+}
+
 .m-btn-small {
   margin-bottom: $mb-card-elem;
 }
@@ -46,3 +50,7 @@ button {
   height: 100%!important;
 }
 //end for header particles
+
+ul{
+  padding: 0;
+}

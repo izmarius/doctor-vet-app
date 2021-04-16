@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="vet-container bg-alternative section-relative">
+  <div class="circle circle-2"></div>
+  <div class="circle circle-5"></div>
+  <app-section-title-subtitle class="vet-container" [title]="'Aici vin feature urile aplicatiei doctor vet'"
+                              [subtitle]="'subtitle here in care s povesti be aburit'"></app-section-title-subtitle>
+  <div class="row vet-content ">
+    <app-features class="text-card-container col-4"></app-features>
+    <app-features class="text-card-container col-4"></app-features>
+    <app-features class="text-card-container col-4"></app-features>
+    <app-features class="text-card-container col-4"></app-features>
+    <app-features class="text-card-container col-4"></app-features>
+  </div>
+</div>
+
+
+
+<!--todo : create generic component-->
+
+<div class="vet-container vet-content d-flex justify-content-between">
+  <div class="img-container bg-alternative">
+    <img class="article-image" src="../../../assets/photos/cow.png" alt="Image with something">
+  </div>
+  <div class="article-container">
+    <div class="m-btn-dialog-row">
+      <app-article-section-text [data]="data"></app-article-section-text>
+    </div>
+    <app-article-section-steps [articleStepsData]="articleStepsData"></app-article-section-steps>
+  </div>
+</div>
+
+<div class="vet-container vet-content d-flex justify-content-between">
+  <div class="article-container">
+    <div class="m-btn-dialog-row">
+      <app-article-section-text [data]="data"></app-article-section-text>
+    </div>
+    <app-article-section-steps [articleStepsData]="articleStepsData"></app-article-section-steps>
+  </div>
+  <div class="img-container bg-alternative">
+    <img class="article-image" src="../../../assets/photos/cow.png" alt="Image with something">
+  </div>
+</div>
+<app-adjustable-header [headerContent]="headerContent"></app-adjustable-header>
+
