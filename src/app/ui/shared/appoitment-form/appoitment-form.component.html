@@ -38,7 +38,7 @@
       <label for="pacient">{{appoinementFormPlaceHolder.pacientLabel}}</label>
       <input [(ngModel)]="pacientName" type="text" id="pacient" class="form-control" formControlName="pacientName" (ngModelChange)="filterPacients($event)" #inputPacientName/>
       <ul class="list-group" #pacientList>
-        <li class="list-group-item list-group-item-action" *ngFor="let user of users" (click)="onSeclectPacient(user)" >
+        <li class="list-group-item list-group-item-action" *ngFor="let user of users | async" (click)="onSeclectPacient(user)" >
           {{ user.name }}
         </li>
       </ul>

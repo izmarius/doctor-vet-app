@@ -18,6 +18,7 @@ import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { DoctorServicesService } from 'src/app/services/doctor-service/doctor-services.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserDto } from 'src/app/data/modelDTO/user-dto';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-appoitment-form',
@@ -39,7 +40,7 @@ export class AppoitmentFormComponent implements OnInit {
   medicServices: string[];
   formTitle: string;
   pacientName: string;
-  users: UserDto[];
+  users: Observable<any>;
   animals: AnimalUtilInfo[];
   doctorAppointment: DoctorsAppointmentDTO;
   appoinementFormPlaceHolder;
@@ -109,21 +110,7 @@ export class AppoitmentFormComponent implements OnInit {
   }
 
   filterPacients(searchText: string): void {
-    searchText = this.pacientName;
-    // this.appointmentFormService.filterPacients(searchText, this.pacientName); TODO check why is not working
-    // console.log(this.appointmentFormService.filteredUsers);
-    this.users = [];
-    if (this.pacientName.length >= 2) {
-      this.userService
-        .getAllUsers()
-        .pipe(take(1), debounceTime(200), distinctUntilChanged())
-        .subscribe((users: UserDto[]) => {
-          this.users = users.filter(
-            (user) =>
-              user['name'].toLowerCase().indexOf(searchText.toLowerCase()) > -1
-          );
-        });
-    }
+    this.users = this.appointmentFormService.filterPacients(searchText, this.pacientName);
   }
 
   onSeclectPacient(selectedPacient: UserDto): void {

@@ -1,29 +1,28 @@
-import { take, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { take, debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { UserDto } from './../../data/modelDTO/user-dto';
 import { UserService } from './../user/user.service';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppointmentFormService {
-filteredUsers: UserDto[];
+  constructor(private userService: UserService) {}
 
-constructor(private userService: UserService) { }
-
-filterPacients(searchText: string, pacientName: string): void {
-  searchText = pacientName;
-  if (pacientName.length >= 2) {
-    this.userService
-      .getAllUsers()
-      .pipe(take(1), debounceTime(200), distinctUntilChanged())
-      .subscribe((usersList: UserDto[]) => {
-         this.filteredUsers = usersList.filter(
-          (user) =>
-            user['name'].toLowerCase().indexOf(searchText.toLowerCase()) > -1
-        );
-      });
+  filterPacients(searchText: string, pacientName: string): Observable<any> {
+    searchText = pacientName;
+    if (pacientName.length >= 2) {
+      return this.userService.getAllUsers().pipe(
+        debounceTime(200),
+        distinctUntilChanged(),
+        map((usersList: UserDto[]) => {
+          return usersList.filter(
+            (user) =>
+              user['name'].toLowerCase().indexOf(searchText.toLowerCase()) > -1
+          );
+        })
+      );
+    }
   }
-}
-
 }
