@@ -10,23 +10,22 @@
       </div>
       <div class="header-btn-container d-flex justify-content-center">
         <button type="button" class="btn btn-dark button" (click)="openApointmentForm()">
-          Programare noua
+          {{doctorAppointmentPlaceHolder.newAppointmentBtn}}
         </button>
         <button type="button" class="btn btn-light button">
-          Orele de lucru
+          {{doctorAppointmentPlaceHolder.scheduleBtn}}
         </button>
       </div>
     </div>
   </div>
   <div class="section-container">
     <div class="section-content">
-      <div class="section-text"></div>
       <app-section-title
         [title]="sectionTitle"
         [subTitle]="sectionSubTitle"
       ></app-section-title>
       <div class="section-calendar">
-        <app-app-calendar [events]="appoitmentList"></app-app-calendar>
+        <app-app-calendar [events]="appoitmentList" [calendarPlaceHolder]="calendar"></app-app-calendar>
       </div>
     </div>
   </div>

@@ -36,7 +36,6 @@ import { AppoitmentFormComponent } from './ui/shared/appoitment-form/appoitment-
     DoctorAppointmentComponent,
     HeaderTitleComponent,
     UserCardComponent,
-    SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent
    ],
   imports: [
@@ -51,7 +50,9 @@ import { AppoitmentFormComponent } from './ui/shared/appoitment-form/appoitment-
     NgbModule,
     AppCalendarModule,
     AppRoutingModule,
-    AppoitmentFormModule
+    AppoitmentFormModule,
+    NgbDatepickerModule,
+    NgbTimepickerModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],

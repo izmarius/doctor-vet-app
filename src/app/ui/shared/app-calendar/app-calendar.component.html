@@ -7,14 +7,14 @@
         [view]="view"
         [(viewDate)]="viewDate"
       >
-        Previous
+        {{calendarPlaceHolder.previousBtn}}
       </div>
       <div
         class="btn btn-light"
         mwlCalendarToday
         [(viewDate)]="viewDate"
       >
-        Today
+        {{calendarPlaceHolder.todayBtn}}
       </div>
       <div
         class="btn btn-dark"
@@ -22,7 +22,7 @@
         [view]="view"
         [(viewDate)]="viewDate"
       >
-        Next
+        {{calendarPlaceHolder.nextBtn}}
       </div>
     </div>
   </div>
@@ -38,21 +38,21 @@
         (click)="setView(CalendarView.Month)"
         [class.active]="view === CalendarView.Month"
       >
-        Month
+        {{calendarPlaceHolder.monthBtn}}
       </div>
       <div
         class="btn btn-dark"
         (click)="setView(CalendarView.Week)"
         [class.active]="view === CalendarView.Week"
       >
-        Week
+        {{calendarPlaceHolder.weekBtn}}
       </div>
       <div
         class="btn btn-dark"
         (click)="setView(CalendarView.Day)"
         [class.active]="view === CalendarView.Day"
       >
-        Day
+        {{calendarPlaceHolder.dayBtn}}
       </div>
     </div>
   </div>

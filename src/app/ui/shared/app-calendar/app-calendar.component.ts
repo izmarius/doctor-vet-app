@@ -14,6 +14,7 @@ export class AppCalendarComponent implements OnInit {
   CalendarView = CalendarView;
   activeDayIsOpen = false;
   @Input() events: [];
+  @Input() calendarPlaceHolder;
 
   setView(view: CalendarView): void {
     this.view = view;
