@@ -21,6 +21,13 @@ export class FirestoreService {
   }
 
   /**
+   * Gets all documents of a collection
+   */
+  getAllDocumentsOfCollection(collection: string): Observable<any> {
+    return this.firestore.collection(collection).get();
+  }
+
+  /**
    * Gets all values from collection
    */
   getCollectionValueChanges(collection: string): Observable<any> {
@@ -61,6 +68,13 @@ export class FirestoreService {
    */
   saveDocumentByAutoId(collection: string, data = null): Promise<any> {
     return this.firestore.collection(collection).add(JSON.parse(JSON.stringify(data)));
+  }
+
+  /**
+   * Saves a new document into a collection
+   */
+  saveDocumentWithCustomId(collection: string, data = null, documentId: string): Promise<any> {
+    return this.firestore.collection(collection).doc(documentId).set(JSON.parse(JSON.stringify(data)));
   }
 
   // update

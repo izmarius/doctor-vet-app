@@ -1,28 +1,28 @@
+@import "src/app/scss/constants";
+
 .card__container {
-  background: #fff;
-  border: 1px solid #EAE9F2;
-  border-radius: 0.625rem;
-  padding: 1rem;
+  border: $border;
+  border-radius: $border-radius;
+}
+
+.card__container p {
+  padding: 0 $p-card;
 }
 
 .card__img_container {
-  width: 30%;
+  padding: $p-card;
 }
 
 .card__img {
-  width: 3.75rem;
-  height: 3.75rem
-}
-
-.mg-bottom {
-  margin-bottom: 1.5rem;
+  width: $card-img-dimmensions;
+  height: $card-img-dimmensions
 }
 
 .card__label {
   color: #aeacac;
-  font-size: 1rem;
+  font-size: $fs-link;
 }
 
 .card__button {
-  margin: 0 auto;
+  margin: $m-h-center;
 }

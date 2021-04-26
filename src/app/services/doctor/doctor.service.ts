@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
-import {first, map, mergeMap} from 'rxjs/operators';
+import {first, map, mergeMap, take} from 'rxjs/operators';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
@@ -9,7 +9,7 @@ import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
   providedIn: 'root'
 })
 export class DoctorService {
-  private DOCTOR_COLLECTION = 'doctors/';
+  private DOCTOR_COLLECTION = 'doctors';
 
   constructor(private firestoreService: FirestoreService) {
   }
@@ -34,19 +34,13 @@ export class DoctorService {
         });
   }
 
-  updateDoctorInfo(doctor: DoctorDTO, doctorId: string): void {
-    this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION, doctorId, doctor)
-      .then(() => {
-        // do something here
-        console.log('service updated');
-      }, (error) => {
-        console.log('Error updating service', error);
-      });
+  updateDoctorInfo(doctor, doctorId: string): Promise<void> {
+    return this.firestoreService.updateDocumentById(this.DOCTOR_COLLECTION + '/', doctorId, doctor);
   }
 
   deleteDoctor(doctorId: string): void {
     // todo: see if exists a recursive delete for a document
-    this.firestoreService.deleteDocById(this.DOCTOR_COLLECTION, doctorId).then(() => {
+    this.firestoreService.deleteDocById(this.DOCTOR_COLLECTION + '/', doctorId).then(() => {
       // do something here
     }, (error) => {
       console.log('Error deleting service', error);

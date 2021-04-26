@@ -8,16 +8,20 @@ $full-size: 100%;
 //end dimensions
 
 //start color
-//$first-color: ;
-//$second-color:
+$first-color: #ed553b;
+$second-color: #ffdc4d;
 $bg-main-color: #fff;
-$bg-alternate-color: #F8F9FF;
+$bg-alternate-color: #f8f6f4;
+//$bg-alternate-color: #F8F9FF;
 $text-color: #002251;
 $text-grey: #aeacac;
+$border-color: #EAE9F2;
+$error-color: red;
+$success-msg-color: lightgreen;
 //end color
 
 //font-family
-$font-family: "Noto Sans",sans-serif;
+$font-family: "Noto Sans", sans-serif;
 //end font-family
 
 //start font size
@@ -51,6 +55,7 @@ $p-link: 0.5rem 0.125rem;
 $p-section-subtitle: 0.5rem 0.125rem;
 $p-section: 7.5rem 1.5rem;
 $p-card: 1rem;
+$p-exterior-card: 0 3.5rem 5rem;
 //end padding
 
 //start margin
@@ -58,13 +63,14 @@ $mb-section-title: 2rem;
 $mb-section-small-subtitle: 1rem;
 $m-btn: 3rem 0;
 $mb-section-title-subtitle: 2rem;
-$mb-section-header: 3 rem;
+$mb-section-header: 3rem;
 $mb-card-elem: 1.5rem;
+$m-h-center: 0 auto;
 //end margin
 
 
 //start border
-$border: 1px solid #EAE9F2;
+$border: 1px solid $border-color;
 $border-radius: 0.625rem;
 //end border
 
@@ -72,7 +78,7 @@ $border-radius: 0.625rem;
 //start mobile font-size
 $fs-m-title: 2.4rem;
 $fs-m-subtitle: 2rem;
-$fs-link: 0.7rem;
+$fs-m-link: 0.7rem;
 //end mobile font size
 
 //start mobile padding
@@ -82,3 +88,7 @@ $p-m-section-subtitle: 1.313rem;
 $p-m-text: 1rem;
 //end mobile padding
 //end mobile
+
+//card images
+$card-img-dimmensions: 3.75rem;
+//card images

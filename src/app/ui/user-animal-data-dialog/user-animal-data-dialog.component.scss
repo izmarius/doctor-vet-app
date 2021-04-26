@@ -1,0 +1,49 @@
+@import "src/app/scss/constants";
+
+.link--active {
+  color: $error-color;
+}
+
+.animal-data {
+  max-width: 12.188rem;
+}
+
+.add-btn:hover {
+  cursor: pointer;
+  text-decoration: underline $border-color;
+}
+
+.action-icon {
+  align-self: center;
+}
+
+.action-input {
+  width: 70%;
+}
+
+.close-btn {
+  width: 20%;
+}
+
+.dialog-container {
+  position: relative;
+  height: $full-size;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dialog-btn-container {
+  position: absolute;
+  bottom: 0;
+  width: $full-size;
+}
+
+.dialog-list-container {
+  width: 70%;
+}
+
+.dialog-list-item {
+  width: $full-size;
+}

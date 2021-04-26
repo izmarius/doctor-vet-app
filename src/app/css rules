@@ -4,7 +4,7 @@ used 2 main colors
 font-family: "Noto Sans",sans-serif;
 font color #002251;
 
-fonts-size: line-height: font-weight
+  fonts-size: line-height: font-weight
   desktop:
     -title h1 4rem; 1.2; 600;
     -subtitle h2 3rem, 1.2, 400

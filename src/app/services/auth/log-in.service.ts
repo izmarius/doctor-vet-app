@@ -1,44 +1,41 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { UserService } from '../user/user.service';
-import { AuthStateChangeService } from './auth-state-change.service';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {MatDialogRef} from '@angular/material/dialog';
+import {LoginDialogComponent} from '../../ui/login-dialog/login-dialog.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogInService {
 
-constructor(
-  private afAuth: AngularFireAuth,
-  private userService: UserService,
-  private authService: AuthStateChangeService
-) { }
-
-  logIn(email, password): Promise<void> {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((userCredentials) => {
-      this.userService.setUserData(userCredentials.user);
-    })
-    .catch((error) => {
-      window.alert(error.message);
-    });
+  constructor(private afAuth: AngularFireAuth) {
   }
 
-  forgotPassword(email): Promise<void> {
-    return this.afAuth.sendPasswordResetEmail(email)
-    .then(() => {
-      window.alert('Password email sent, please check your inbox');
-    })
-    .catch((error) => {
-      window.alert(error.message);
-    });
+  logIn(email, password, dialogRef: MatDialogRef<LoginDialogComponent>): Promise<void> {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        if (!userCredentials.user.emailVerified) {
+          this.signOut();
+          return;
+        }
+        alert('Login success');
+        dialogRef.close(true);
+        // success message
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user === null && user.emailVerified === false) {
-      return false;
-    }
-    return true;
+    return !(user === null || user.emailVerified === false);
+  }
+
+  signOut(): Promise<void> {
+    return this.afAuth.signOut()
+      .then(() => {
+        localStorage.removeItem('user');
+      });
   }
 }
