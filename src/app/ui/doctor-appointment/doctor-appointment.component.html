@@ -1,0 +1,32 @@
+<div class="p-container">
+  <app-navbar></app-navbar>
+  <div class="header-container d-flex col-flex-col-center">
+    <div class="header-content">
+      <div class="header-text">
+        <app-header-title
+          [title]="headerTitle"
+          [subTitle]="headerSubTitle"
+        ></app-header-title>
+      </div>
+      <div class="header-btn-container d-flex justify-content-center">
+        <button type="button" class="btn btn-dark button" (click)="openApointmentForm()">
+          {{doctorAppointmentPlaceHolder.newAppointmentBtn}}
+        </button>
+        <button type="button" class="btn btn-light button">
+          {{doctorAppointmentPlaceHolder.scheduleBtn}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="section-container">
+    <div class="section-content">
+      <app-section-title
+        [title]="sectionTitle"
+        [subTitle]="sectionSubTitle"
+      ></app-section-title>
+      <div class="section-calendar">
+        <app-app-calendar [events]="appoitmentList | async" [calendarPlaceHolder]="calendar"></app-app-calendar>
+      </div>
+    </div>
+  </div>
+</div>

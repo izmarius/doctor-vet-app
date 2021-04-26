@@ -1,3 +1,4 @@
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import "src/app/scss/constants";
 @import "src/app/scss/skin.scss";
 @import "src/app/scss/structure";
@@ -23,4 +24,3 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-

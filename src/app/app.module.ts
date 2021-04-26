@@ -5,20 +5,27 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {environment} from '../environments/environment';
-import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './ui/shared/navbar/navbar.component';
+import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
+import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appointment.component';
+import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
+import { UserCardComponent } from './ui/shared/user-card/user-card.component';
+import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
+import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
+import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppoitmentFormModule } from './ui/shared/appoitment-form/appoitment-form.module';
+import { AppoitmentFormComponent } from './ui/shared/appoitment-form/appoitment-form.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NavbarComponent} from './ui/shared/navbar/navbar.component';
 import {HeaderComponent} from './ui/shared/header/header.component';
-import {UserCardComponent} from './ui/shared/user-card/user-card.component';
-import {SectionTitleSubtitleComponent} from './ui/shared/section-title-subtitle/section-title-subtitle.component';
-import {DoctorAppointmentsComponent} from './ui/doctor-appointments/doctor-appointments.component';
 import MaterialModule from './material-module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserAnimalDataDialogComponent} from './ui/user-animal-data-dialog/user-animal-data-dialog.component';
 import {FooterComponent} from './ui/shared/footer/footer.component';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
@@ -45,8 +52,11 @@ import { ArticleSectionImageComponent } from './ui/shared/article-section-image/
   declarations: [
     AppComponent,
     NavbarComponent,
-    HeaderComponent,
+    SectionTitleComponent,
+    DoctorAppointmentComponent,
+    HeaderTitleComponent,
     UserCardComponent,
+    DoctorAppointmentsComponent,
     SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent,
     UserAnimalDataDialogComponent,
@@ -67,7 +77,8 @@ import { ArticleSectionImageComponent } from './ui/shared/article-section-image/
     ActionSectionComponent,
     ArticleSectionTextComponent,
     ArticleSectionStepsComponent,
-    ArticleSectionImageComponent
+    ArticleSectionImageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +94,13 @@ import { ArticleSectionImageComponent } from './ui/shared/article-section-image/
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    AppCalendarModule,
+    AppRoutingModule,
+    AppoitmentFormModule,
+    NgbDatepickerModule,
+    NgbTimepickerModule
+  ],
+  entryComponents: [ AppoitmentFormComponent,
     NgParticlesModule
   ],
   providers: [

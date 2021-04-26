@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
-import {first, map, take} from 'rxjs/operators';
+import {first, map, mergeMap, take} from 'rxjs/operators';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
@@ -14,10 +14,6 @@ export class DoctorService {
   constructor(private firestoreService: FirestoreService) {
   }
 
-  getDoctorById(doctorId: string): Observable<DoctorDTO> {
-    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId).pipe(take(1));
-  }
-
   getAllDoctors(): Observable<DoctorDTO[]> {
     return this.firestoreService.getCollection(this.DOCTOR_COLLECTION)
       .pipe(
@@ -26,11 +22,16 @@ export class DoctorService {
       );
   }
 
-  createDoctor(doctorDTO): void {
-    this.firestoreService.saveDocumentWithCustomId('doctors', doctorDTO, doctorDTO.id)
-      .then(() => {
-      }).catch((err) => {
-    });
+  getDoctorById(doctorId: string): Observable<DoctorDTO> {
+    return this.firestoreService.getDocById(this.DOCTOR_COLLECTION, doctorId);
+  }
+
+  createDoctor(doctorDTO: DoctorDTO): void {
+        this.firestoreService.saveDocumentByAutoId(this.DOCTOR_COLLECTION, doctorDTO).then((res) => {
+          console.log('DOCTOR created');
+        }).catch((err) => {
+          console.log(err);
+        });
   }
 
   updateDoctorInfo(doctor, doctorId: string): Promise<void> {
@@ -45,4 +46,5 @@ export class DoctorService {
       console.log('Error deleting service', error);
     });
   }
+
 }

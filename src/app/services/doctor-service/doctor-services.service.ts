@@ -15,7 +15,7 @@ export class DoctorServicesService {
   constructor(private firestoreService: FirestoreService) {
   }
 
-  getAllServices(doctorId: string): Observable<DoctorServiceDTO[]> {
+  getAllServices(doctorId: string): Observable<DoctorServiceDTO> {
     return this.firestoreService.getCollection(this.getServiceUrl(doctorId))
       .pipe(
         map((snaps) => convertSnapshots<DoctorServiceDTO>(snaps)),
@@ -68,4 +68,13 @@ export class DoctorServicesService {
   getServiceUrl(doctorId: string): string {
     return this.DOCTOR_COLLECTION + doctorId + this.SERVICES_COLLECTION;
   }
+
+  getDoctorServices(doctorId: string): Observable<any> {
+    return this.getAllServices(doctorId).pipe(
+      map((docServices) =>
+      docServices[0].services
+      )
+    );
+  }
+
 }

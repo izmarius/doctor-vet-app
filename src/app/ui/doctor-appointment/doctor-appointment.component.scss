@@ -1,0 +1,23 @@
+@import "/src/app/scss/constants.scss";
+
+.header-container {
+  background: #f2f2f2;
+  height: 13.75rem;
+}
+
+.header-btn-container {
+  margin: auto;
+}
+
+.section-calendar {
+  margin: auto;
+  max-width: $container-max-width;
+}
+
+.header-content {
+  margin: auto;
+}
+
+.button {
+  margin-left: 1rem;
+}
