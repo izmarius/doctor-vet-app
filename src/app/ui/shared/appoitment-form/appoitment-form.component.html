@@ -1,20 +1,22 @@
 <div class="container" class="modal-body">
   <div class="modal-header">
-    <app-section-title-subtitle [title]="formTitle"> </app-section-title-subtitle>
+    <app-section-title-subtitle [title]="formTitle">
+    </app-section-title-subtitle>
   </div>
   <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="medic">{{appoinementFormPlaceHolder.medicLabel}}</label>
+      <label for="medic">{{ appoinementFormPlaceHolder.medicLabel }}</label>
       <input
         type="text"
         id="medic"
         class="form-control"
         formControlName="medicName"
+        [placeholder]="appoinementFormPlaceHolder.medicInputPlaceholder"
         readonly
       />
     </div>
     <div class="form-group">
-      <label for="date">{{appoinementFormPlaceHolder.dateLabel}}</label>
+      <label for="date">{{ appoinementFormPlaceHolder.dateLabel }}</label>
       <input
         ngbDatepicker
         (click)="datePicker.toggle()"
@@ -26,7 +28,7 @@
       />
     </div>
     <div class="form-group">
-      <label for="time">{{appoinementFormPlaceHolder.startTimeLabel}}</label>
+      <label for="time">{{ appoinementFormPlaceHolder.startTimeLabel }}</label>
       <ngb-timepicker
         formControlName="startTime"
         [spinners]="true"
@@ -35,16 +37,33 @@
       ></ngb-timepicker>
     </div>
     <div class="form-group">
-      <label for="pacient">{{appoinementFormPlaceHolder.pacientLabel}}</label>
-      <input [(ngModel)]="pacientName" type="text" id="pacient" class="form-control" formControlName="pacientName" (ngModelChange)="filterPacients($event)" #inputPacientName/>
+      <label for="pacient">{{ appoinementFormPlaceHolder.pacientLabel }}</label>
+      <input
+        [(ngModel)]="pacientName"
+        type="text"
+        id="pacient"
+        class="form-control"
+        formControlName="pacientName"
+        [placeholder]="appoinementFormPlaceHolder.userNameInputPlaceholder"
+        (ngModelChange)="filterPacients($event)"
+        #inputPacientName
+        (focus)="onFocusPacient()"
+      />
       <ul class="list-group" #pacientList>
-        <li class="list-group-item list-group-item-action" *ngFor="let user of users | async" (click)="onSeclectPacient(user)" >
+        <li
+          class="list-group-item list-group-item-action"
+          *ngFor="let user of users | async"
+          (click)="onSeclectPacient(user)"
+        >
           {{ user.name }}
         </li>
       </ul>
+      <div class="help-block" *ngIf="focusedPacient">
+        {{ appoinementFormPlaceHolder.pacientOnFocusMessage }}
+      </div>
     </div>
-    <div class="form-group">
-      <label for="animal">{{appoinementFormPlaceHolder.animalLabel}}</label>
+    <div class="form-group" #animalList>
+      <label for="animal">{{ appoinementFormPlaceHolder.animalLabel }}</label>
       <select
         name="animal"
         id="animal"
@@ -52,7 +71,9 @@
         formControlName="pacientAnimal"
         ngModel
       >
-        <option value="null" disabled="true" [selected]="true">Alegeti un animal</option>
+        <option value="" disabled="true" [selected]="true">
+          {{ appoinementFormPlaceHolder.animalSelectDefaultOption }}
+        </option>
         <option
           *ngFor="let pacientAnimal of animals"
           [value]="pacientAnimal"
@@ -63,27 +84,38 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="services">{{appoinementFormPlaceHolder.servicesLabel}}</label>
+      <label for="services">{{
+        appoinementFormPlaceHolder.servicesLabel
+      }}</label>
       <select
         name="services"
         id="services"
         class="form-control"
         formControlName="medService"
       >
-        <option value="null" disabled="true" [selected]="true">Alegeti un serviciu</option>
+        <option value="null" disabled="true" [selected]="true">
+          {{ appoinementFormPlaceHolder.servicesSelectDefaultOption }}
+        </option>
         <option
-          *ngFor="let medicService of medicServices"
+          *ngFor="let medicService of medicServices | async"
           [value]="medicService"
+          [ngValue]="medicService"
         >
           {{ medicService }}
         </option>
       </select>
+      <div class="help-block" *ngIf="!sampleForm.valid">
+        <hr>
+        {{ appoinementFormPlaceHolder.formValidationMessage }}
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-light" type="button" (click)="onCancelForm()">
-        {{appoinementFormPlaceHolder.cancelBtn}}
+        {{ appoinementFormPlaceHolder.cancelBtn }}
       </button>
-      <button class="btn btn-dark" type="submit">{{appoinementFormPlaceHolder.submitBtn}}</button>
+      <button class="btn btn-dark" type="submit" [disabled]="!sampleForm.valid">
+        {{ appoinementFormPlaceHolder.submitBtn }}
+      </button>
     </div>
   </form>
 </div>

@@ -1,59 +1,35 @@
-import { calendarData, doctorAppointmentData, doctorAppointmentHeader } from './../../shared-data/Constants';
-import { CalendarEvent } from 'angular-calendar';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { DoctorsAppointmentDTO } from 'src/app/data/modelDTO/doctors-appointment-dto';
-import { DoctorAppointmentsService } from 'src/app/services/doc-appointment-service/doctor-appointments.service';
+import { CALENDAR_DATA, DOCTORAPPOINTMENT_DATA, DOCTORAPPOINTMENTHEADER_DATA, DOCTORAPPOINTMENTSECTION_DATA } from './../../shared-data/Constants';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppoitmentFormComponent } from '../shared/appoitment-form/appoitment-form.component';
+import { DoctorAppointmentsService } from 'src/app/services/doc-appointment-service/doctor-appointments.service';
 
 @Component({
   selector: 'app-doctor-appointment',
   templateUrl: './doctor-appointment.component.html',
   styleUrls: ['./doctor-appointment.component.scss']
 })
-export class DoctorAppointmentComponent implements OnInit, OnDestroy {
+export class DoctorAppointmentComponent implements OnInit{
   headerTitle: string;
   headerSubTitle: string;
   sectionTitle: string;
   sectionSubTitle: string;
-  appoitmentList: CalendarEvent[] = [];
-  appointmentSubscription: Subscription;
+  appoitmentList: Observable<any>;
   calendar;
   doctorAppointmentPlaceHolder;
+  doctorId = 'o2Jt7YS9zCWvBfDWY08X';
 
-  constructor(private doctorAppoitmentService: DoctorAppointmentsService, private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private doctorAppointmentService: DoctorAppointmentsService ) { }
 
   ngOnInit(): void {
-    this.doctorAppointmentPlaceHolder = doctorAppointmentData;
-    this.calendar = calendarData;
-    this.headerTitle = doctorAppointmentHeader.title;
-    this.headerSubTitle = doctorAppointmentHeader.subTitle;
-    this.sectionTitle = 'Section title here';
-    this.sectionSubTitle = 'Section subtitle here';
-    this.doctorAppoitmentService.getAllAppointments('o2Jt7YS9zCWvBfDWY08X').subscribe((appoitments) => {
-      appoitments.forEach((appointment) => {
-        this.appoitmentList = [
-          ...this.appoitmentList,
-          {
-            start: new Date(appointment['dateTime']), // cant use DTO methods, why??
-            title: appointment['services']
-                  + ', '
-                  + new Date(appointment['dateTime']).toLocaleTimeString('ro')
-                  + ', '
-                  + 'Pacient: '
-                  + appointment['userName']
-                  + ', '
-                  + 'Animal: '
-                  + appointment['animalData']['name']
-          }
-        ];
-      });
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.appointmentSubscription?.unsubscribe();
+    this.doctorAppointmentPlaceHolder = DOCTORAPPOINTMENT_DATA;
+    this.calendar = CALENDAR_DATA;
+    this.headerTitle = DOCTORAPPOINTMENTHEADER_DATA.title;
+    this.headerSubTitle = DOCTORAPPOINTMENTHEADER_DATA.subTitle;
+    this.sectionTitle = DOCTORAPPOINTMENTSECTION_DATA.title;
+    this.sectionSubTitle = DOCTORAPPOINTMENTSECTION_DATA.subTitle;
+    this.appoitmentList = this.doctorAppointmentService.getDcotorAppointments(this.doctorId);
   }
 
   openApointmentForm(): void {

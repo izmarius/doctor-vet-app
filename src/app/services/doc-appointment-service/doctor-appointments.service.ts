@@ -1,3 +1,4 @@
+import { CalendarEvent } from 'angular-calendar';
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {DoctorsAppointmentDTO} from '../../data/modelDTO/doctors-appointment-dto';
@@ -11,6 +12,7 @@ import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 export class DoctorAppointmentsService {
   private DOCTOR_COLLECTION = 'doctors/';
   private APPOINTMENT_COLLECTION = '/appointments';
+  private appoitmentList: CalendarEvent[] = [];
 
   constructor(private firestoreService: FirestoreService) {
   }
@@ -60,5 +62,29 @@ export class DoctorAppointmentsService {
 
   getAppointmentUrl(doctorId: string): string {
     return this.DOCTOR_COLLECTION + doctorId + this.APPOINTMENT_COLLECTION;
+  }
+
+  getDcotorAppointments(doctorId: string): Observable<any> {
+    return this.getAllAppointments(doctorId).pipe(
+      map((appointments) => {
+        appointments.forEach((appointment) => {
+          this.appoitmentList = [...this.appoitmentList,
+            {
+              start: new Date(appointment['dateTime']), // cant use DTO methods, why??
+              title: appointment['services']
+                    + ', '
+                    + new Date(appointment['dateTime']).toLocaleTimeString('ro')
+                    + ', '
+                    + 'Pacient: '
+                    + appointment['userName']
+                    + ', '
+                    + 'Animal: '
+                    + appointment['animalData']['name']
+            }
+          ];
+        });
+        return this.appoitmentList;
+      })
+    );
   }
 }

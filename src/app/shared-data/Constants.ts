@@ -5,7 +5,7 @@ export const userCard = {
   buttonValue: 'Vezi detalii pacient'
 };
 
-export const calendarData = {
+export const CALENDAR_DATA = {
   previousBtn: 'Luna anterioara',
   nextBtn: 'Luna urmatoare',
   todayBtn: 'Luna curenta',
@@ -14,17 +14,17 @@ export const calendarData = {
   dayBtn: 'Zi'
 };
 
-export const doctorAppointmentData = {
+export const DOCTORAPPOINTMENT_DATA = {
   newAppointmentBtn: 'Programare noua',
   scheduleBtn: 'Orele de lucru'
 };
 
-export const doctorAppointmentHeader = {
+export const DOCTORAPPOINTMENTHEADER_DATA = {
   title: 'Creeaza o programare',
   subTitle: 'Rapid si eficient'
 };
 
-export const appointmentFormData = {
+export const APPOINTMENTFORM_DATA = {
   title: 'Programare noua',
   medicLabel: 'Medic',
   dateLabel: 'Data',
@@ -33,5 +33,16 @@ export const appointmentFormData = {
   animalLabel: 'Animal',
   servicesLabel: 'Sericii',
   cancelBtn: 'Anuleaza',
-  submitBtn: 'Salveaza'
+  submitBtn: 'Salveaza',
+  medicInputPlaceholder: 'Nume doctor veterinar',
+  userNameInputPlaceholder: 'Cauta in lista de pacienti',
+  servicesSelectDefaultOption: 'Alege un serviciu',
+  animalSelectDefaultOption: 'Alege un animal',
+  formValidationMessage: 'Toate campurile trebuie completate!',
+  pacientOnFocusMessage: 'Selecteaza un client din lista'
+};
+
+export const DOCTORAPPOINTMENTSECTION_DATA = {
+  title: 'Section title here',
+  subTitle: 'Section Subtitle here'
 };

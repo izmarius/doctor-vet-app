@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppointmentFormService {
-  constructor(private userService: UserService) {}
+
+  constructor(private userService: UserService) { }
 
   filterPacients(searchText: string, pacientName: string): Observable<any> {
     searchText = pacientName;
@@ -25,4 +26,5 @@ export class AppointmentFormService {
       );
     }
   }
+
 }

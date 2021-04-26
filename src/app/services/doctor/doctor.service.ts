@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
-import {first, map} from 'rxjs/operators';
+import {first, map, mergeMap} from 'rxjs/operators';
 import {convertSnapshots} from '../../data/utils/firestore-utils.service';
 import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 
@@ -52,4 +52,5 @@ export class DoctorService {
       console.log('Error deleting service', error);
     });
   }
+
 }

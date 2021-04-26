@@ -25,7 +25,7 @@
         [subTitle]="sectionSubTitle"
       ></app-section-title>
       <div class="section-calendar">
-        <app-app-calendar [events]="appoitmentList" [calendarPlaceHolder]="calendar"></app-app-calendar>
+        <app-app-calendar [events]="appoitmentList | async" [calendarPlaceHolder]="calendar"></app-app-calendar>
       </div>
     </div>
   </div>

@@ -1,11 +1,12 @@
+import { DateUtilsService } from './../../../data/utils/date-utils.service';
 import { AppointmentFormService } from './../../../services/appointment-form/appointment-form.service';
-import { appointmentFormData } from './../../../shared-data/Constants';
+import { APPOINTMENTFORM_DATA } from './../../../shared-data/Constants';
 import { AnimalUtilInfo } from './../../../data/modelDTO/animal-util-info';
 import { DoctorAppointmentsService } from './../../../services/doc-appointment-service/doctor-appointments.service';
 import { DoctorsAppointmentDTO } from 'src/app/data/modelDTO/doctors-appointment-dto';
 import { UserService } from './../../../services/user/user.service';
 import { DoctorServiceDTO } from './../../../data/modelDTO/dorctor-service-DTO';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -25,7 +26,7 @@ import { Observable } from 'rxjs';
   templateUrl: './appoitment-form.component.html',
   styleUrls: ['./appoitment-form.component.scss'],
 })
-export class AppoitmentFormComponent implements OnInit {
+export class AppoitmentFormComponent implements OnInit, AfterViewInit {
   sampleForm = new FormGroup({
     startDate: new FormControl(null, Validators.required),
     startTime: new FormControl(null, Validators.required),
@@ -33,51 +34,56 @@ export class AppoitmentFormComponent implements OnInit {
     medicName: new FormControl(null, Validators.required),
     medService: new FormControl(null, Validators.required),
     medLocation: new FormControl(null, Validators.required),
-    pacientName: new FormControl('', Validators.required),
-    pacientId: new FormControl('', Validators.required),
-    pacientAnimal: new FormControl({}, Validators.required),
+    pacientName: new FormControl(null, Validators.required),
+    pacientId: new FormControl(null, Validators.required),
+    pacientAnimal: new FormControl(null, Validators.required),
   });
-  medicServices: string[];
+  medicServices: Observable<any>;
   formTitle: string;
   pacientName: string;
   users: Observable<any>;
   animals: AnimalUtilInfo[];
   doctorAppointment: DoctorsAppointmentDTO;
   appoinementFormPlaceHolder;
+  pacientSelected: boolean;
+  focusedPacient: boolean;
+  doctorId: string;
   @ViewChild('pacientList') pacientList: any;
   @ViewChild('inputPacientName') inputPacientName: any;
+  @ViewChild('animalList') animalList: any;
 
   constructor(
     private doctorService: DoctorService,
     private servicesService: DoctorServicesService,
     private activeModal: NgbActiveModal,
-    private userService: UserService,
     private doctorAppointmentService: DoctorAppointmentsService,
-    private appointmentFormService: AppointmentFormService
+    private appointmentFormService: AppointmentFormService,
+    private dateUtilsService: DateUtilsService
   ) {}
 
   ngOnInit(): void {
-    this.appoinementFormPlaceHolder = appointmentFormData;
-    this.formTitle = appointmentFormData.title;
+    this.appoinementFormPlaceHolder = APPOINTMENTFORM_DATA;
+    this.formTitle = APPOINTMENTFORM_DATA.title;
     this.pacientName = '';
+    this.focusedPacient = false;
+    this.doctorId = 'o2Jt7YS9zCWvBfDWY08X';
+  }
+
+  ngAfterViewInit(): void {
+    this.animalList.nativeElement.classList.add('hidden');
 
     this.doctorService
-      .getDoctorById('o2Jt7YS9zCWvBfDWY08X')
-      .pipe(take(1))
-      .subscribe((medic: DoctorDTO) => {
-        this.sampleForm.patchValue({
-          medicName: medic.doctorName,
-          medLocation: medic.location,
-          medicId: 'o2Jt7YS9zCWvBfDWY08X',
-        });
+    .getDoctorById(this.doctorId)
+    .pipe(take(1))
+    .subscribe((medic: DoctorDTO) => {
+      this.sampleForm.patchValue({
+        medicName: medic.doctorName,
+        medLocation: medic.location,
+        medicId: this.doctorId,
       });
+    });
 
-    this.servicesService
-      .getAllServices('o2Jt7YS9zCWvBfDWY08X')
-      .pipe(take(1))
-      .subscribe((docServices: DoctorServiceDTO) => {
-        this.medicServices = docServices[0].services;
-      });
+    this.medicServices = this.servicesService.getDoctorServices(this.doctorId);
   }
 
   onSubmit(): void {
@@ -90,7 +96,7 @@ export class AppoitmentFormComponent implements OnInit {
       .setUserId(this.sampleForm.value.pacientId)
       .setServices(this.sampleForm.value.medService)
       .setDateTime(
-        this.formatDateAndTime(
+        this.dateUtilsService.formatDateAndTime(
           this.sampleForm.value.startDate,
           this.sampleForm.value.startTime
         )
@@ -98,10 +104,13 @@ export class AppoitmentFormComponent implements OnInit {
       .setAnimal(newAnimalInfo)
       .setLocation(this.sampleForm.value.medLocation);
 
-    this.doctorAppointmentService.createAppointment(
-      [newDoctorAppointment],
-      this.sampleForm.value.medicId
-    );
+    if (!this.sampleForm.invalid) {
+      this.doctorAppointmentService.createAppointment(
+        [newDoctorAppointment],
+        this.sampleForm.value.medicId
+      );
+    }
+
     this.activeModal.close();
   }
 
@@ -114,36 +123,22 @@ export class AppoitmentFormComponent implements OnInit {
   }
 
   onSeclectPacient(selectedPacient: UserDto): void {
+    this.focusedPacient = false;
     this.pacientList.nativeElement.classList.add('hidden');
     this.sampleForm.patchValue({
       pacientName: selectedPacient['name'],
       pacientId: selectedPacient['id'],
     });
     this.animals = selectedPacient['animals'];
+    this.animalList.nativeElement.classList.remove('hidden');
   }
 
-  formatDateAndTime(date: any, time: any): string {
-    let hour = time.hour;
-    let month = date.month;
-    if (hour <= 9) {
-      hour = '0'.concat(hour);
+  onFocusPacient(): void {
+    this.focusedPacient = true;
+    if (this.pacientList.nativeElement.classList.contains('hidden')) {
+      this.pacientList.nativeElement.classList.remove('hidden');
     }
-    if (month <= 9) {
-      month = '0'.concat(month);
-    }
-    return (
-      date.year +
-      '-' +
-      month +
-      '-' +
-      date.day +
-      'T' +
-      hour +
-      ':' +
-      time.minute +
-      ':' +
-      '0' +
-      time.second
-    );
+    this.animalList.nativeElement.classList.add('hidden');
   }
+
 }

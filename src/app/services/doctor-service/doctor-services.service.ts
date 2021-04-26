@@ -68,4 +68,13 @@ export class DoctorServicesService {
   getServiceUrl(doctorId: string): string {
     return this.DOCTOR_COLLECTION + doctorId + this.SERVICES_COLLECTION;
   }
+
+  getDoctorServices(doctorId: string): Observable<any> {
+    return this.getAllServices(doctorId).pipe(
+      map((docServices) =>
+      docServices[0].services
+      )
+    );
+  }
+
 }
