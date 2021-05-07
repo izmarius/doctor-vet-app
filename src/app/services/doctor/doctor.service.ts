@@ -1,3 +1,4 @@
+import { LogInService } from './../auth/log-in.service';
 import {Injectable} from '@angular/core';
 import {FirestoreService} from '../../data/http/firestore.service';
 import {Observable} from 'rxjs';
@@ -11,7 +12,7 @@ import {DoctorDTO} from '../../data/modelDTO/doctor-DTO';
 export class DoctorService {
   private DOCTOR_COLLECTION = 'doctors';
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService, private logInService: LogInService) {
   }
 
   getAllDoctors(): Observable<DoctorDTO[]> {
@@ -45,6 +46,12 @@ export class DoctorService {
     }, (error) => {
       console.log('Error deleting service', error);
     });
+  }
+
+  getLoggedInDctorId(): string {
+    if (this.logInService.isLoggedIn()) {
+      return JSON.parse(localStorage.getItem('user')).id;
+    }
   }
 
 }

@@ -1,6 +1,6 @@
+import { PARTICLE_OPTIONS } from './../../../shared-data/ParticlesJS';
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HEADER_TEXT} from '../../../shared-data/Constants';
-import {PARTICLE_OPTIONS} from '../../../shared-data/ParticlesJS';
 
 @Component({
   selector: 'app-header',

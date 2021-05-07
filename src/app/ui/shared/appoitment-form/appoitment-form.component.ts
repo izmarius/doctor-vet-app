@@ -66,7 +66,7 @@ export class AppoitmentFormComponent implements OnInit, AfterViewInit {
     this.formTitle = APPOINTMENTFORM_DATA.title;
     this.pacientName = '';
     this.focusedPacient = false;
-    this.doctorId = 'o2Jt7YS9zCWvBfDWY08X';
+    this.doctorId = this.doctorService.getLoggedInDctorId();
   }
 
   ngAfterViewInit(): void {
