@@ -11,13 +11,11 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbDatepickerModule, NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './ui/shared/navbar/navbar.component';
 import { SectionTitleComponent } from './ui/shared/section-title/section-title.component';
 import { DoctorAppointmentComponent } from './ui/doctor-appointment/doctor-appointment.component';
 import { HeaderTitleComponent } from './ui/shared/header-title/header-title.component';
 import { UserCardComponent } from './ui/shared/user-card/user-card.component';
-import { SectionTitleSubtitleComponent } from './ui/shared/section-title-subtitle/section-title-subtitle.component';
 import { DoctorAppointmentsComponent } from './ui/doctor-appointments/doctor-appointments.component';
 import { AppCalendarModule } from './ui/shared/app-calendar/app-calendar.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -47,6 +45,7 @@ import { ActionSectionComponent } from './ui/shared/action-section/action-sectio
 import { ArticleSectionTextComponent } from './ui/shared/article-section-text/article-section-text.component';
 import { ArticleSectionStepsComponent } from './ui/shared/article-section-steps/article-section-steps.component';
 import { ArticleSectionImageComponent } from './ui/shared/article-section-image/article-section-image.component';
+import { SharedModuleModule } from './ui/shared/shared-module/shared-module.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import { ArticleSectionImageComponent } from './ui/shared/article-section-image/
     HeaderTitleComponent,
     UserCardComponent,
     DoctorAppointmentsComponent,
-    SectionTitleSubtitleComponent,
     DoctorAppointmentsComponent,
     UserAnimalDataDialogComponent,
     FooterComponent,
@@ -97,8 +95,8 @@ import { ArticleSectionImageComponent } from './ui/shared/article-section-image/
     AppCalendarModule,
     AppRoutingModule,
     AppoitmentFormModule,
-    NgbDatepickerModule,
-    NgbTimepickerModule
+    AppoitmentFormModule,
+    SharedModuleModule
   ],
   entryComponents: [ AppoitmentFormComponent,
     NgParticlesModule
