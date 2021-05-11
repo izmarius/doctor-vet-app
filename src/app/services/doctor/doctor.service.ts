@@ -28,7 +28,8 @@ export class DoctorService {
   }
 
   createDoctor(doctorDTO: DoctorDTO): void {
-        this.firestoreService.saveDocumentByAutoId(this.DOCTOR_COLLECTION, doctorDTO).then((res) => {
+        this.firestoreService.saveDocumentWithCustomId(this.DOCTOR_COLLECTION, doctorDTO, doctorDTO.id)
+          .then((res) => {
           console.log('DOCTOR created');
         }).catch((err) => {
           console.log(err);

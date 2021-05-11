@@ -1,5 +1,5 @@
 import { PARTICLE_OPTIONS } from './../../../shared-data/ParticlesJS';
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HEADER_TEXT} from '../../../shared-data/Constants';
 
 @Component({

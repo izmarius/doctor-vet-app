@@ -19,6 +19,9 @@ export class AuthStateChangeService {
           return;
         }
         this.doctorService.getDoctorById(user.uid).subscribe((doctor) => {
+          if(!doctor) {
+            alert('A aparut o eroare, te rugam sa incerci din nou');
+          }
           localStorage.setItem('user', JSON.stringify(doctor));
         });
       } else {

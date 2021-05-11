@@ -44,7 +44,7 @@ export class FooterComponent implements OnInit {
     this.messageService.sendMessage({
       message: this.contactForm.controls.message.value,
       email: this.contactForm.controls.email.value
-    })
+    });
   }
 
 }

@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item" *ngIf="isUserLoggedIn">
-          <a class="nav-link"> <span class="icon-location-pin px-1"></span>{{navbarText.locations}}</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/"> <span class="icon-home px-1"></span>{{navbarText.home}}</a>
         </li>
         <li class="nav-item" *ngIf="isUserLoggedIn">
           <a class="nav-link" routerLink="/appointments"><span

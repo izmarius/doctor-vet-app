@@ -109,7 +109,8 @@ export const NAVBAR_TEXT = {
   signOut: 'Iesi din cont',
   signIn: 'Intra in cont',
   signUp: 'Creeaza cont',
-  myProfile: 'Profilul meu'
+  myProfile: 'Profilul meu',
+  home: 'Acasa'
 };
 
 export const HEADER_TEXT = {

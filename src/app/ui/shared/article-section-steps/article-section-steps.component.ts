@@ -11,7 +11,7 @@ interface IArticleStepsData {
   styleUrls: ['./article-section-steps.component.scss']
 })
 export class ArticleSectionStepsComponent implements OnInit {
-@Input() articleStepsData: IArticleStepsData;
+  @Input() articleStepsData: IArticleStepsData;
   constructor() { }
 
   ngOnInit(): void {

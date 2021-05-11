@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {SCHEDULE_HEADER_TEXT} from "../../shared-data/Constants";
 
 @Component({
   selector: 'app-home-page',
