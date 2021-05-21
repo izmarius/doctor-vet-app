@@ -47,7 +47,7 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
   mapToCardData(appointment): ICardData {
     return {
       title: appointment.userName,
-      values: [appointment.services, appointment.dateTime, appointment.animalData.name],
+      values: [appointment.services, appointment.dateTime.split('T').join(' '), appointment.animalData.name],
       buttonId: appointment.animalData.uid
     };
   }
@@ -72,7 +72,7 @@ export class DoctorAppointmentsComponent implements OnInit, OnDestroy {
 
   setAppointmentMap(appointments: IDoctorsAppointmentsDTO[]): void {
     appointments.forEach((appointment) => {
-      const date = appointment.dateTime.split(',')[0];
+      const date = appointment.dateTime.split('T')[0];
       if (this.appointmentMap[date]) {
         this.appointmentMap[date].push(appointment);
       } else {
